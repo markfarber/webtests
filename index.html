@@ -3,105 +3,133 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style.css">
     <title>Document</title>
-    <style>
-      /* body { min-height:540px; }     
-body[orient="portrait"] { min-height:540px; }
-body[orient="landscape"] { min-height:400px; } */
-    </style>
+    
   </head>
   <body>
-    <h1>no sherch bar ex</h1>
-    <button id="btn">FB</button>
+    <section class="vh-100">
+      <div class="container py-5 h-100">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+          <div class="col-md-8 col-lg-7 col-xl-6 mb-4 ">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+              class="img-fluid" alt="Phone image">
+          </div>
+          <!-- שם מלא . שם האם תאריך לידה מספר תלפון -->
+          <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1 ">
+            <div>
+              <!-- Email input -->
+              <div class="form-outline mb-4 " dir="rtl">
+                <label class="form-label" for="email">כתובת דואר אלקתרוני</label>
+                <input type="email" id="email" class="form-control form-control-lg " dir="ltr" />
+              </div>
+    
+              <!-- Password input -->
+              <div class="form-outline mb-4" dir="rtl">
+                <label class="form-label" for="password">סיסמה</label>
+                <input type="password" id="password" class="form-control form-control-lg" />
+              </div>
+
+             
+
+              <div class="d-flex justify-content-around align-items-center mb-4" dir="rtl">
+                <!-- Checkbox -->
+                  
+                <div class="form-check" dir="rtl">
+                  <input class="form-check-input" type="checkbox" value="" id="Remember" checked />
+                  <label class="form-check-label" for="form1Example3"> התחברות אותומתית </label>
+                </div>
+                <a href="#!">לחץ לשחזור סיסמה</a>
+              </div>
+    
+              <!-- Submit button -->
+              <button  id="singin"  class="btn btn-primary btn-lg btn-block fbtn">התחבר/י</button>
+              
+              <a href="/singUp.html" class="btn btn-primary btn-lg btn-block fbtn">הרשם/י</a>
+              
+              <div class="divider d-flex align-items-center my-4">
+                <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+              </div>
+    
+              <a class="btn btn-primary btn-lg btn-block fbtn" style="background-color: #3b5998" href="#!"
+                role="button">
+                <i class="fab fa-facebook-f me-2"></i>  התחבר עם חשבון פייסבוק
+              </a>
+             
+    
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- end log in -->
+
+
+
+
+
+
 
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
 
+    <script src="/js/main.js"></script>
     <script>
-      const firebaseConfig = {
-        apiKey: "AIzaSyAe2AQgp3soMCBHX5uCtDuYRDdFAwondVU",
-        authDomain: "tyg-stage-b8e16.firebaseapp.com",
-        projectId: "tyg-stage-b8e16",
-        storageBucket: "tyg-stage-b8e16.appspot.com",
-        messagingSenderId: "678914468365",
-        appId: "1:678914468365:web:0345776b1da9cdd48bc344",
-        measurementId: "G-FDJ0SB6C4G",
-      };
+      /////////////email & password singin////////////////
+          signInBtn = document.getElementById("singin")
+          signInBtn.onclick = () => {          
+            firebase.auth().signInWithEmailAndPassword( document.getElementById("email").value, document.getElementById("password").value)
+            .then((userCredential) => {
+           getUserFromFS(userCredential.user)
 
-      // Initialize Firebase
-      const app = firebase.initializeApp(firebaseConfig);
-      firebase.auth().useDeviceLanguage();
-      provider = new firebase.auth.FacebookAuthProvider();
-      fsignInBtn = document.getElementById("btn");
-      fsignInBtn.onclick = () => {
-        console.log("onclick");
-
-        firebase.auth().signInWithRedirect(provider);
-
-        //   firebase.auth().signInWithPopup(provider)
-        //   .then((result) => {
-        //     /** @type {firebase.auth.OAuthCredential} */
-        //     var credential = result.credential;
-
-        //     // The signed-in user info.
-        //     var user = result.user;
-        //     console.log(user)
-
-        //     // IdP data available in result.additionalUserInfo.profile.
-        //       // ...
-
-        //     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-        //     var accessToken = credential.accessToken;
-
-        //     // ...
-        //   })
-        //   .catch((error) => {
-        //     // Handle Errors here.
-        //     var errorCode = error.code;
-        //     var errorMessage = error.message;
-        //     // The email of the user's account used.
-        //     var email = error.email;
-        //     // The firebase.auth.AuthCredential type that was used.
-        //     var credential = error.credential;
-        //     console.log(errorMessage)
-
-        //     // ...
-        //   });
-      };
-
-      firebase
-        .auth()
-        .getRedirectResult()
-        .then((result) => {
-          if (result.credential) {
-            /** @type {firebase.auth.OAuthCredential} */
-            var credential = result.credential;
-
-            // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-            var token = credential.accessToken;
-            // ...
-          }
-          // The signed-in user info.
-          var user = result.user;
-          console.log(user);
-          // IdP data available in result.additionalUserInfo.profile.
-          // ...
         })
-        .catch((error) => {
-          // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          // The email of the user's account used.
-          var email = error.email;
-          // The firebase.auth.AuthCredential type that was used.
-          var credential = error.credential;
-          console.log(errorMessage);
+          .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ..
+            console.log(errorMessage)
+          });
+        }
+  ///////////////////facebook login///////////////////////////// 
+  provider = new firebase.auth.FacebookAuthProvider();
+  fsignInBtn = document.getElementById("btn");
+  fsignInBtn.onclick = () => firebase.auth().signInWithRedirect(provider);
+    
+  firebase.auth().getRedirectResult()
+    .then((result) => {
+      if (result.credential) {
+        /** @type {firebase.auth.OAuthCredential} */
+        var credential = result.credential;
 
-          // ...
-        });
+        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+        var token = credential.accessToken;
+        // ...
+      }
+      // The signed-in user info.
+      var user = result.user;
+      console.log(user);
+      // IdP data available in result.additionalUserInfo.profile.
+      // ...
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      console.log(errorMessage);
+
+      // ...
+    });
+
     </script>
+    
   </body>
 </html>
