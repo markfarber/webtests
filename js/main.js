@@ -1,11 +1,4 @@
-
-
-  window.onload = ()=>{
-   
-    
-  }
-
-  const firebaseConfig = {
+ const firebaseConfig = {
     apiKey: "AIzaSyAe2AQgp3soMCBHX5uCtDuYRDdFAwondVU",
     authDomain: "tyg-stage-b8e16.firebaseapp.com",
     projectId: "tyg-stage-b8e16",
@@ -17,9 +10,10 @@
   // Initialize Firebase
   const app = firebase.initializeApp(firebaseConfig);
   
-  
+
 function getUserFromFS(user){
   console.log(user)
+  const db = firebase.firestore();
   var docRef = db.collection("users").doc(user.uid);
 
     docRef.get().then((doc) => {
