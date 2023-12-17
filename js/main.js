@@ -20,7 +20,7 @@ function getUserFromFS(user){
         if (doc.exists) {
             console.log("Document data:", doc.data());
             localStorage.setItem("UID", user.uid);
-            window.location = "/homePage.html"
+            window.location = "homePage.html"
 
         } else {
             // doc.data() will be undefined in this case
