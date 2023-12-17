@@ -82,7 +82,7 @@
     <script>
       /////////////email & password singin////////////////
           signInBtn = document.getElementById("singin")
-          signInBtn.onclick = () => {          
+          signInBtn.onclick = () => {   
             firebase.auth().signInWithEmailAndPassword( document.getElementById("email").value, document.getElementById("password").value)
             .then((userCredential) => {
            getUserFromFS(userCredential.user)
