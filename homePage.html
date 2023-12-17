@@ -11,7 +11,7 @@
 <body>
     <h1>home</h1>
 
-    
+
     
     
     
@@ -22,6 +22,16 @@
       <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
   
     <script src="js/main.js"></script>
-    
+    <script>
+       window.onload = ()=>{
+            fetch(`https://europe-west2-tyg-stage-b8e16.cloudfunctions.net/api/fetchUser?userId=${localStorage.getItem("UID")}`)
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(err => console.error(err));
+       }
+       
+       
+      
+    </script>
 </body>
 </html>
