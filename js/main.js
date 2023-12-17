@@ -21,6 +21,8 @@ function getUserFromFS(user){
     docRef.get().then((doc) => {
         if (doc.exists) {
             console.log("Document data:", doc.data());
+            localStorage.setItem("UID", user.uid);
+
         } else {
             // doc.data() will be undefined in this case
             console.log("No such document!");
