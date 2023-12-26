@@ -32,23 +32,27 @@ function getUserFromFS(user) {
       console.log("Error getting document:", error);
     });
 }
+const vapidKey = "foo123...";
+const serviceWorkerRegistration = await navigator.serviceWorker.register(
+  "/webtest/firebase-messaging-sw.js"
+);
 
 function init_messaging() {
-    messaging.getToken((token) => {
-        console.log("token = " + token)
-    })
-    
-//   Notification.requestPermission()
-//     .then((permission) => {
-//       if (permission === "granted") {
-//         console.log("granted");
-//         return messaging.getToken();
-//       }
-//     })
-//     .then((token) => {
-//       console.log("token = " + token);
-//     })
-//     .catch((e) => {
-//       console.log("got error " + e);
-//     });
+  messaging.getToken({ vapidKey, serviceWorkerRegistration }).then((token) => {
+    console.log("token = " + token);
+  });
+
+  //   Notification.requestPermission()
+  //     .then((permission) => {
+  //       if (permission === "granted") {
+  //         console.log("granted");
+  //         return messaging.getToken();
+  //       }
+  //     })
+  //     .then((token) => {
+  //       console.log("token = " + token);
+  //     })
+  //     .catch((e) => {
+  //       console.log("got error " + e);
+  //     });
 }
