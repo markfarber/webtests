@@ -38,7 +38,7 @@ const serviceWorkerRegistration = await navigator.serviceWorker.register(
 );
 
 function init_messaging() {
-  messaging.getToken({ vapidKey, serviceWorkerRegistration }).then((token) => {
+  messaging.getToken(messaging, { vapidKey, serviceWorkerRegistration }).then((token) => {
     console.log("token = " + token);
   });
 
