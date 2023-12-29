@@ -17,7 +17,6 @@
             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
               class="img-fluid" alt="Phone image">
           </div>
-          <!-- שם מלא . שם האם תאריך לידה מספר תלפון -->
           <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1 ">
             <div>
               <!-- Email input -->
@@ -53,7 +52,7 @@
                 <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
               </div>
     
-              <a class="btn btn-primary btn-lg btn-block fbtn" style="background-color: #3b5998" href="#!"
+              <a class="btn btn-primary btn-lg btn-block fbtn" id="fsbtn" style="background-color: #3b5998" href="#!"
                 role="button">
                 <i class="fab fa-facebook-f me-2"></i>  התחבר עם חשבון פייסבוק
               </a>
@@ -98,8 +97,8 @@
             // ..
             console.log("httpsCallable"+errorMessage)
           });
-          // getUserFromFS(userCredential.user)
-
+          getUserFromFS(userCredential.user)
+              console.log(userCredential.user)
         })
           .catch((error) => {
             var errorCode = error.code;
@@ -110,7 +109,7 @@
         }
   ///////////////////facebook login///////////////////////////// 
   provider = new firebase.auth.FacebookAuthProvider();
-  fsignInBtn = document.getElementById("btn");
+  fsignInBtn = document.getElementById("fsbtn");
   fsignInBtn.onclick = () => firebase.auth().signInWithRedirect(provider);
     
   firebase.auth().getRedirectResult()
