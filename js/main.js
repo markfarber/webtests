@@ -8,9 +8,11 @@ const firebaseConfig = {
   measurementId: "G-FDJ0SB6C4G",
 };
 // Initialize Firebase
-const app = firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 const functions = firebase.functions();
+
+const get_user = functions.httpsCallable("users_get")
 
 messaging.onMessage(messaging, (payload) => {
   console.log("Message received. ", payload);

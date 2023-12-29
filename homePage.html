@@ -120,14 +120,20 @@
     <script>
       window.onload = () => {
         console.log(localStorage.getItem("UID"));
-        fetch(
-          `https://europe-west2-tyg-stage-b8e16.cloudfunctions.net/api/fetchUser?userId=${localStorage.getItem(
-            "UID"
-          )}`
-        )
+        // fetch(
+        //   `https://europe-west2-tyg-stage-b8e16.cloudfunctions.net/api/fetchUser?userId=${localStorage.getItem(
+        //     "UID"
+        //   )}`
+        // )
+        //   .then((response) => response.json())
+        //   .then((data) => showOnUI(data))
+        //   .catch((err) => console.error(err));
+
+        get_user()
           .then((response) => response.json())
           .then((data) => showOnUI(data))
           .catch((err) => console.error(err));
+
       };
 
       function showOnUI(data) {}
