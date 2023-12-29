@@ -11,6 +11,64 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 
+
+messaging.onMessage(messaging, (payload) => {
+  console.log('Message received. ', payload);
+  // Update the UI to include the received message.
+  console.log(payload);
+});
+
+
+Notification.requestPermission().then((permission) => {
+  if (permission === 'granted') {
+    console.log('Notification permission granted.');
+  }});
+
+  vapidKey = "BJVCp-sxo-XLCPW1xeDTCsYxKG9JRtNf70vgD4IK7DNM6byehbvwbYHp-n-tf-Z2DKobh0KNoboUiQCpslfmkNQ"
+  messaging.getToken(messaging, { vapidKey }).then((currentToken) => {
+    if (currentToken) {
+      //sendTokenToServer(currentToken);
+      //updateUIForPushEnabled(currentToken);
+
+      firebase.app().functions('europe-west2').httpsCallable('user_update_token')().then((result) => {
+        // Read result of the Cloud Function.
+        var sanitizedMessage = result.data.text;
+        console.log(result)
+      });
+      // var user_update_token = firebase.app().functions('europe-west2').httpsCallable('user_update_token');
+      // user_update_token()
+      //   .then((result) => {
+      //     // Read result of the Cloud Function.
+      //     var sanitizedMessage = result.data.text;
+      //     console.log(sanitizedMessage)
+      //   });
+
+
+
+      console.log(currentToken)
+    } else {
+      // Show permission request.
+      console.log('No registration token available. Request permission to generate one.');
+      // Show permission UI.
+      //updateUIForPushPermissionRequired();
+      //setTokenSentToServer(false);
+    }
+  }).catch((err) => {
+    console.log('An error occurred while retrieving token. ', err);
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
 function getUserFromFS(user) {
   console.log(user);
   const db = firebase.firestore();
@@ -32,10 +90,7 @@ function getUserFromFS(user) {
       console.log("Error getting document:", error);
     });
 }
-const vapidKey = "foo123...";
-const serviceWorkerRegistration = await navigator.serviceWorker.register(
-  "/webtest/firebase-messaging-sw.js"
-);
+
 
 function init_messaging() {
   messaging.getToken(messaging, { vapidKey, serviceWorkerRegistration }).then((token) => {
