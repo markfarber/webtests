@@ -87,7 +87,18 @@
           signInBtn.onclick = () => {   
             firebase.auth().signInWithEmailAndPassword( document.getElementById("email").value, document.getElementById("password").value)
             .then((userCredential) => {
-           getUserFromFS(userCredential.user)
+              firebase.app().functions('europe-west2').httpsCallable('randomize_user_cards')().then((result) => {
+              // Read result of the Cloud Function.
+              var sanitizedMessage = result.data.text;
+              console.log(result)
+            })
+            .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ..
+            console.log("httpsCallable"+errorMessage)
+          });
+          // getUserFromFS(userCredential.user)
 
         })
           .catch((error) => {
