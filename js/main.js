@@ -10,31 +10,40 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
-
+const functions = firebase.functions();
 
 messaging.onMessage(messaging, (payload) => {
-  console.log('Message received. ', payload);
+  console.log("Message received. ", payload);
   // Update the UI to include the received message.
   console.log(payload);
 });
 
-
 Notification.requestPermission().then((permission) => {
-  if (permission === 'granted') {
-    console.log('Notification permission granted.');
-  }});
+  if (permission === "granted") {
+    console.log("Notification permission granted.");
+  }
+});
 
-  vapidKey = "BJVCp-sxo-XLCPW1xeDTCsYxKG9JRtNf70vgD4IK7DNM6byehbvwbYHp-n-tf-Z2DKobh0KNoboUiQCpslfmkNQ"
-  messaging.getToken(messaging, { vapidKey }).then((currentToken) => {
+vapidKey =
+  "BJVCp-sxo-XLCPW1xeDTCsYxKG9JRtNf70vgD4IK7DNM6byehbvwbYHp-n-tf-Z2DKobh0KNoboUiQCpslfmkNQ";
+messaging
+  .getToken(messaging, { vapidKey })
+  .then((currentToken) => {
     if (currentToken) {
+      console.log("token = " + currentToken);
       //sendTokenToServer(currentToken);
       //updateUIForPushEnabled(currentToken);
 
-      firebase.app().functions('europe-west2').httpsCallable('user_update_token')().then((result) => {
-        // Read result of the Cloud Function.
-        var sanitizedMessage = result.data.text;
-        console.log(result)
-      });
+      functions
+        .httpsCallable("user_update_token")
+        .then((result) => {
+          // Read result of the Cloud Function.
+          var sanitizedMessage = result.data.text;
+          console.log("call result = " + result);
+        })
+        .catch((error) => {
+          console.error("call error = " + error);
+        });
       // var user_update_token = firebase.app().functions('europe-west2').httpsCallable('user_update_token');
       // user_update_token()
       //   .then((result) => {
@@ -43,31 +52,20 @@ Notification.requestPermission().then((permission) => {
       //     console.log(sanitizedMessage)
       //   });
 
-
-
-      console.log(currentToken)
+      console.log(currentToken);
     } else {
       // Show permission request.
-      console.log('No registration token available. Request permission to generate one.');
+      console.error(
+        "No registration token available. Request permission to generate one."
+      );
       // Show permission UI.
       //updateUIForPushPermissionRequired();
       //setTokenSentToServer(false);
     }
-  }).catch((err) => {
-    console.log('An error occurred while retrieving token. ', err);
+  })
+  .catch((err) => {
+    console.log("An error occurred while retrieving token. ", err);
   });
-
-
-
-
-
-
-
-
-
-
-
-
 
 function getUserFromFS(user) {
   console.log(user);
@@ -91,11 +89,12 @@ function getUserFromFS(user) {
     });
 }
 
-
 function init_messaging() {
-  messaging.getToken(messaging, { vapidKey, serviceWorkerRegistration }).then((token) => {
-    console.log("token = " + token);
-  });
+  messaging
+    .getToken(messaging, { vapidKey, serviceWorkerRegistration })
+    .then((token) => {
+      console.log("token = " + token);
+    });
 
   //   Notification.requestPermission()
   //     .then((permission) => {

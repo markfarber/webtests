@@ -1,27 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">   
-    <link rel="stylesheet" href="css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
+      integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N"
+      crossorigin="anonymous"
+    />
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-messaging-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-functions-compat.js"></script>
+
+    <script src="js/main.js"></script>
+
+    <link rel="stylesheet" href="css/style.css" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>home</h1>
 
-
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
-      <a class="navbar-brand " href="#">Offcanvas navbar</a>
-      <button class="navbar-toggler " type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg" aria-label="Toggle navigation">
+      <a class="navbar-brand" href="#">Offcanvas navbar</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#navbarOffcanvasLg"
+        aria-controls="navbarOffcanvasLg"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="offcanvas offcanvas-end w-100  text-center" tabindex="-1" id="navbarOffcanvasLg" aria-labelledby="navbarOffcanvasLgLabel">
+      <div
+        class="offcanvas offcanvas-end w-100 text-center"
+        tabindex="-1"
+        id="navbarOffcanvasLg"
+        aria-labelledby="navbarOffcanvasLgLabel"
+      >
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
         </div>
         <!-- שם משתמש
 מייל של המשתמש
@@ -31,60 +71,66 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav flex-grow-1 pe-3">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">מסר יומי</a>
+              <a class="nav-link active" aria-current="page" href="#"
+                >מסר יומי</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">הקורס שלנו</a>
+              <a class="nav-link active" aria-current="page" href="#"
+                >הקורס שלנו</a
+              >
             </li>
             <div class="form-check form-switch text-center">
-              <label class="form-check-label " for="flexSwitchCheckChecked">להפסקת הודעות </label>
+              <label class="form-check-label" for="flexSwitchCheckChecked"
+                >להפסקת הודעות
+              </label>
             </div>
-            <div class="form-check form-switch ">
-              <input class="form-check-input " type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+            <div class="form-check form-switch">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckChecked"
+                checked
+              />
             </div>
             <li class="nav-item">
               <a class="nav-link" href="#">Link</a>
             </li>
-            
           </ul>
-          
         </div>
       </div>
     </nav>
 
     <!-- end menu -->
 
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
+    <div class="card" style="width: 18rem">
+      <img class="card-img-top" src="" alt="Card image cap" />
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
-    
-    
-    
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-messaging-compat.js"></script>
-  
-    <script src="js/main.js"></script>
-    <script>
-       window.onload = ()=>{
-       console.log( localStorage.getItem("UID"))
-            fetch(`https://europe-west2-tyg-stage-b8e16.cloudfunctions.net/api/fetchUser?userId=${localStorage.getItem("UID")}`)
-                .then(response => response.json())
-                .then(data => showOnUI(data))
-                .catch(err => console.error(err));
-       }
-       
-       function showOnUI(data){
+    </div>
 
-       }
-      
+    
+    <script>
+      window.onload = () => {
+        console.log(localStorage.getItem("UID"));
+        fetch(
+          `https://europe-west2-tyg-stage-b8e16.cloudfunctions.net/api/fetchUser?userId=${localStorage.getItem(
+            "UID"
+          )}`
+        )
+          .then((response) => response.json())
+          .then((data) => showOnUI(data))
+          .catch((err) => console.error(err));
+      };
+
+      function showOnUI(data) {}
     </script>
-</body>
+  </body>
 </html>
