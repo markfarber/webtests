@@ -12,7 +12,7 @@ firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 const functions = firebase.functions();
 
-const get_user = functions.httpsCallable("users_get")
+const get_user = await functions.httpsCallable("users_get")
 
 messaging.onMessage(messaging, (payload) => {
   console.log("Message received. ", payload);
