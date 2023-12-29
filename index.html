@@ -86,7 +86,7 @@
           signInBtn.onclick = () => {   
             firebase.auth().signInWithEmailAndPassword( document.getElementById("email").value, document.getElementById("password").value)
             .then((userCredential) => {
-              firebase.app().functions('europe-west2').httpsCallable('randomize_user_cards')().then((result) => {
+              firebase.app().functions('europe-west2').httpsCallable('user_get')().then((result) => {
               // Read result of the Cloud Function.
               var sanitizedMessage = result.data.text;
               console.log(result)
