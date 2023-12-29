@@ -14,13 +14,25 @@ const app = firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 // const functions = firebase.functions(app,'europe-west2');
 
+///init servisc
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('../firebase-messaging-sw.js')
+    .then(function(registration) {
+      console.log('Registration successful, scope is:', registration.scope);
+    }).catch(function(err) {
+      console.log('Service worker registration failed, error:', err);
+    });
+  }
+
+
+//push messeg
 messaging.onMessage(messaging, (payload) => {
   console.log('Message received. ', payload);
   // Update the UI to include the received message.
   console.log(payload);
 });
 
-
+// Notification request Permission
 Notification.requestPermission().then((permission) => {
   if (permission === 'granted') {
     console.log('Notification permission granted.');
