@@ -1,4 +1,4 @@
-
+const USER_KEY = "user"
 const firebaseConfig = {
   apiKey: "AIzaSyAe2AQgp3soMCBHX5uCtDuYRDdFAwondVU",
   authDomain: "tyg-stage-b8e16.firebaseapp.com",
@@ -12,9 +12,24 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
-// const functions = firebase.functions(app,'europe-west2');
+const functions = firebase.functions(app,'europe-west2');
 
-///init servisc
+//get user localstoreg
+window.addEventListener("load",()=>{
+
+  
+  corentUser = JSON.parse(localStorage.getItem(USER_KEY))
+  console.log("user")
+  if(corentUser){
+    var user = firebase.auth().currentUser;
+    console.log(user)
+   // getUserFromeDB()
+  }else{
+
+  }
+})
+
+///init serviceWorker
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('../firebase-messaging-sw.js')
     .then(function(registration) {
@@ -41,33 +56,12 @@ Notification.requestPermission().then((permission) => {
   vapidKey = "BJVCp-sxo-XLCPW1xeDTCsYxKG9JRtNf70vgD4IK7DNM6byehbvwbYHp-n-tf-Z2DKobh0KNoboUiQCpslfmkNQ"
   messaging.getToken(messaging, { vapidKey }).then((currentToken) => {
     if (currentToken) {
-      //sendTokenToServer(currentToken);
-      //updateUIForPushEnabled(currentToken);
-
-      // firebase.app().functions('europe-west2').httpsCallable('user_update_token')().then((result) => {
-      //   // Read result of the Cloud Function.
-      //   var sanitizedMessage = result.data.text;
-      //   console.log(result)
-      // });
-
-
-      var user_update_token = firebase.functions(app,'europe-west2').httpsCallable('user_update_token');
-      user_update_token({ text: messageText })
+      
+      firebase.functions(app,'europe-west2').httpsCallable('user_update_token')({ text: messageText })
           .then((result) => {
             // Read result of the Cloud Function.
             var sanitizedMessage = result.data.text;
           });
-
-
-
-      // var user_update_token = messaging.functions('europe-west2').httpsCallable('user_update_token');
-      // user_update_token()
-      //   .then((result) => {
-      //     // Read result of the Cloud Function.
-      //     var sanitizedMessage = result.data.text;
-      //     console.log(sanitizedMessage)
-      //   });
-
 
 
       console.log(currentToken)
@@ -83,56 +77,10 @@ Notification.requestPermission().then((permission) => {
   });
 
 
-
-
-
-
-
-
-
-
-
-
-
-// function getUserFromFS(user) {
-//   console.log(user);
-//   const db = firebase.firestore();
-//   var docRef = db.collection("users").doc(user.uid);
-
-//   docRef
-//     .get()
-//     .then((doc) => {
-//       if (doc.exists) {
-//         console.log("Document data:", doc.data());
-//         localStorage.setItem("UID", user.uid);
-//         window.location = "homePage.html";
-//       } else {
-//         // doc.data() will be undefined in this case
-//         console.log("No such document!");
-//       }
-//     })
-//     .catch((error) => {
-//       console.log("Error getting document:", error);
-//     });
-// }
-
-
 function init_messaging() {
   messaging.getToken(messaging, { vapidKey, serviceWorkerRegistration }).then((token) => {
     console.log("token = " + token);
   });
 
-  //   Notification.requestPermission()
-  //     .then((permission) => {
-  //       if (permission === "granted") {
-  //         console.log("granted");
-  //         return messaging.getToken();
-  //       }
-  //     })
-  //     .then((token) => {
-  //       console.log("token = " + token);
-  //     })
-  //     .catch((e) => {
-  //       console.log("got error " + e);
-  //     });
+  
 }
