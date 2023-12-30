@@ -89,7 +89,7 @@
               var sanitizedMessage = result.data.text;
               console.log(result)
               localStorage.setItem(USER_KEY ,JSON.stringify(result))
-              window.location.href = "/homePage.html"
+              window.location.href = "./homePage.html"
             })
             }
           });
@@ -106,7 +106,7 @@
               var sanitizedMessage = result.data.text;
               console.log(result)
               localStorage.setItem(USER_KEY ,JSON.stringify(result))
-              window.location.href = "homePage.html"
+              window.location.href = "./homePage.html"
             })
             .catch((error) => {
             var errorCode = error.code;
