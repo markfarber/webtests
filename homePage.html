@@ -94,7 +94,7 @@
        document.getElementById("logOut").onclick = ()=>{
         firebase.auth().signOut().then(() => {
           localStorage.removeItem(USER_KEY)
-          window.location.href = "index.html"
+          window.location.href = "/"
         }).catch((error) => {
           // An error happened.
         });
