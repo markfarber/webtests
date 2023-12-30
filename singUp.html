@@ -101,7 +101,7 @@
          console.log(user)
         firebase.auth().createUserWithEmailAndPassword(user.email, document.getElementById("password").value)
         .then((userCredential) => {
-          user.uid = userCredential.user.uid
+          //user.uid = userCredential.user.uid
         firebase.firestore().collection("users").doc(userCredential.user.uid).set(user)
             .then(() => {
                 console.log("Document successfully written!");
