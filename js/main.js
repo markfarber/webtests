@@ -14,20 +14,8 @@ const app = firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 const functions = firebase.functions(app,'europe-west2');
 
-//get user localstoreg
-window.addEventListener("load",()=>{
 
-  
-  corentUser = JSON.parse(localStorage.getItem(USER_KEY))
-  console.log("user")
-  if(corentUser){
-    var user = firebase.auth().currentUser;
-    console.log(user)
-   // getUserFromeDB()
-  }else{
 
-  }
-})
 
 ///init serviceWorker
 if ('serviceWorker' in navigator) {
@@ -84,3 +72,5 @@ function init_messaging() {
 
   
 }
+
+

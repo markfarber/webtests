@@ -45,6 +45,9 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Link</a>
             </li>
+            <li class="nav-item">
+              <button id="logOut" class="nav-link active" aria-current="page" href="#">התנתק</button>
+            </li>
             
           </ul>
           
@@ -74,14 +77,29 @@
     <script src="js/main.js"></script>
     <script>
        window.onload = ()=>{
-       console.log(  corentUser = JSON.parse(localStorage.getItem(USER_KEY)))
+        corentUser = JSON.parse(localStorage.getItem(USER_KEY))
+        if(corentUser){
+          console.log( corentUser )
+
+        }else{
+          window.location.href = "index.html"
+        }
             
        }
        
        function showOnUI(data){
 
        }
-      
+
+       document.getElementById("logOut").onclick = ()=>{
+        firebase.auth().signOut().then(() => {
+          localStorage.removeItem(USER_KEY)
+          window.location.href = "index.html"
+        }).catch((error) => {
+          // An error happened.
+        });
+      }
+              
     </script>
 </body>
 </html>

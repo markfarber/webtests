@@ -78,7 +78,22 @@
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-functions-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-messaging-compat.js"></script>
-
+    <script>
+      //get user localstoreg
+          document.addEventListener('DOMContentLoaded', ()=> {
+            console.log("laod")
+            corentUser = JSON.parse(localStorage.getItem(USER_KEY))
+            if(corentUser){
+              firebase.app().functions('europe-west2').httpsCallable('user_get')().then((result) => {
+              // Read result of the Cloud Function.
+              var sanitizedMessage = result.data.text;
+              console.log(result)
+              localStorage.setItem(USER_KEY ,JSON.stringify(result))
+              window.location.href = "/homePage.html"
+            })
+            }
+          });
+    </script>
     <script src="js/main.js"></script>
     <script>
       /////////////email & password singin////////////////
