@@ -82,19 +82,19 @@
 
     <script>
       //get user localstoreg
-          document.addEventListener('DOMContentLoaded', ()=> {
-            console.log("laod")
-            corentUser = JSON.parse(localStorage.getItem(USER_KEY))
-            if(corentUser){
-              firebase.app().functions('europe-west2').httpsCallable('user_get')().then((result) => {
-              // Read result of the Cloud Function.
-              var sanitizedMessage = result.data.text;
-              console.log(result)
-              localStorage.setItem(USER_KEY ,JSON.stringify(result))
-              window.location.href = "./homePage.html"
-            })
-            }
-          });
+          // document.addEventListener('DOMContentLoaded', ()=> {
+          //   console.log("laod")
+          //   corentUser = JSON.parse(localStorage.getItem(USER_KEY))
+          //   if(corentUser){
+          //     firebase.app().functions('europe-west2').httpsCallable('user_get')().then((result) => {
+          //     // Read result of the Cloud Function.
+          //     var sanitizedMessage = result.data.text;
+          //     console.log(result)
+          //     localStorage.setItem(USER_KEY ,JSON.stringify(result))
+          //     window.location.href = "./homePage.html"
+          //   })
+          //   }
+          // });
     
       /////////////email & password singin////////////////
           signInBtn = document.getElementById("singin")
