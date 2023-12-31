@@ -22,6 +22,7 @@ if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/webtests/firebase-messaging-sw.js')
     .then(function(registration) {
       console.log('Registration successful, scope is:', registration.scope);
+      init_messaging() 
     }).catch(function(err) {
       console.log('Service worker registration failed, error:', err);
     });
@@ -41,6 +42,9 @@ Notification.requestPermission().then((permission) => {
     console.log('Notification permission granted.');
   }});
 
+  
+
+function init_messaging() {
   vapidKey = "BJVCp-sxo-XLCPW1xeDTCsYxKG9JRtNf70vgD4IK7DNM6byehbvwbYHp-n-tf-Z2DKobh0KNoboUiQCpslfmkNQ"
   messaging.getToken(messaging, { vapidKey }).then((currentToken) => {
     if (currentToken) {
@@ -64,11 +68,6 @@ Notification.requestPermission().then((permission) => {
     console.log('An error occurred while retrieving token. ', err);
   });
 
-
-function init_messaging() {
-  messaging.getToken(messaging, { vapidKey, serviceWorkerRegistration }).then((token) => {
-    console.log("token = " + token);
-  });
 
   
 }
