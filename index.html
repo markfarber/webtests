@@ -44,7 +44,7 @@
               </div>
     
               <!-- Submit button -->
-              <button  id="singin"  class="btn btn-primary btn-lg btn-block fbtn">התחבר/י</button>
+              <a  id="singin"  class="btn btn-primary btn-lg btn-block fbtn">התחבר/י</a>
               
               <a href="singUp.html" class="btn btn-primary btn-lg btn-block fbtn">הרשם/י</a>
               
@@ -91,22 +91,24 @@
               var sanitizedMessage = result.data.text;
               console.log(result)
               localStorage.setItem(USER_KEY ,JSON.stringify(result))
-              window.location.href = "homePage.html"
+              window.location.href = "./homePage.html"
             })
             }
-         
+          });
     
       /////////////email & password singin////////////////
           signInBtn = document.getElementById("singin")
           signInBtn.onclick = () => {   
+           
             firebase.auth().signInWithEmailAndPassword( document.getElementById("email").value, document.getElementById("password").value)
             .then((userCredential) => {
+              window.location.href = "./homePage.html"
               firebase.app().functions('europe-west2').httpsCallable('user_get')().then((result) => {
               // Read result of the Cloud Function.
               var sanitizedMessage = result.data.text;
               console.log(result)
               localStorage.setItem(USER_KEY ,JSON.stringify(sanitizedMessage))
-              window.location.href = "homePage.html"
+              window.location.href = "./homePage.html"
             })
             .catch((error) => {
             var errorCode = error.code;
@@ -155,7 +157,7 @@
 
   //     // ...
   //   });
-});
+
     </script>
     
   </body>
