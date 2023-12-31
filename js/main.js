@@ -19,7 +19,9 @@ const functions = firebase.functions(app,'europe-west2');
 
 ///init serviceWorker
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/webtests/firebase-messaging-sw.js')
+  navigator.serviceWorker.register('/webtests/firebase-messaging-sw.js',{
+    scope: '/webtests'
+  })
     .then(function(registration) {
       console.log('Registration successful, scope is:', registration.scope);
       init_messaging() 
