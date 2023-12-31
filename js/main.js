@@ -46,27 +46,28 @@ Notification.requestPermission().then((permission) => {
 
 function init_messaging() {
   vapidKey = "BJVCp-sxo-XLCPW1xeDTCsYxKG9JRtNf70vgD4IK7DNM6byehbvwbYHp-n-tf-Z2DKobh0KNoboUiQCpslfmkNQ"
-  messaging.getToken(messaging, { vapidKey }).then((currentToken) => {
-    if (currentToken) {
+  // messaging.getToken(messaging, { vapidKey }).then((currentToken) => {
+  //   if (currentToken) {
       
-      firebase.functions(app,'europe-west2').httpsCallable('user_update_token')({ text: messageText })
+      firebase.functions(app,'europe-west2').httpsCallable('user_update_token')()
           .then((result) => {
             // Read result of the Cloud Function.
             var sanitizedMessage = result.data.text;
+            console.log(sanitizedMessage)
           });
 
 
       console.log(currentToken)
-    } else {
-      // Show permission request.
-      console.log('No registration token available. Request permission to generate one.');
-      // Show permission UI.
-      //updateUIForPushPermissionRequired();
-      //setTokenSentToServer(false);
-    }
-  }).catch((err) => {
-    console.log('An error occurred while retrieving token. ', err);
-  });
+  //   } else {
+  //     // Show permission request.
+  //     console.log('No registration token available. Request permission to generate one.');
+  //     // Show permission UI.
+  //     //updateUIForPushPermissionRequired();
+  //     //setTokenSentToServer(false);
+  //   }
+  // }).catch((err) => {
+  //   console.log('An error occurred while retrieving token. ', err);
+  // });
 
 
   
