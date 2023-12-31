@@ -102,7 +102,7 @@
            
             firebase.auth().signInWithEmailAndPassword( document.getElementById("email").value, document.getElementById("password").value)
             .then((userCredential) => {
-               window.location.href = "./homePage.html"
+              // window.location.href = "./homePage.html"
                functions.httpsCallable('user_get')().then((result) => {
               // Read result of the Cloud Function.
               var sanitizedMessage = result.data.text;
