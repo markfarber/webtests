@@ -26,5 +26,4 @@ messaging.onBackgroundMessage(payload => {
   self.registration.showNotification(notificationTitle,
     notificationOptions);
 
-  self.addEventListener("click")
 });
