@@ -11,11 +11,18 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
-// const messaging = firebase.messaging(app);
 const functions = app.functions('europe-west2');
+const messaging = firebase.messaging();
 
 
-
+function init_messaging(nav){
+  if ('serviceWorker' in nav){
+    nav.serviceWorker.register('./firebase-messaging-sw.js', {scope: './'})
+    .then((registration) => {
+      console.log(registration)
+    })
+  }
+}
 
 ///init serviceWorker
 /*if ('serviceWorker' in navigator) {
@@ -30,11 +37,11 @@ const functions = app.functions('europe-west2');
 
 
 //push messeg
-messaging.onMessage(messaging, (payload) => {
+/*messaging.onMessage(messaging, (payload) => {
   console.log('Message received. ', payload);
   // Update the UI to include the received message.
   console.log(payload);
-});
+});*/
 
 // Notification request Permission
 Notification.requestPermission().then((permission) => {
