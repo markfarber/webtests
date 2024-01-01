@@ -18,6 +18,7 @@ const functions = app.functions('europe-west2');
 function init_messaging(nav){
   messaging = firebase.messaging();
   if ('serviceWorker' in nav){
+    console.log("here 1")
     nav.serviceWorker.register('firebase-messaging-sw.js')
     .then((registration) => {
       console.log(registration)
