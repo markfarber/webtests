@@ -15,9 +15,9 @@ const app = firebase.initializeApp(firebaseConfig);
 const functions = app.functions("europe-west2");
 
 class Messaging {
-  messaging = firebase.messaging();
+  static messaging = firebase.messaging();
 
-  init_messaging(nav) {
+  static init_messaging(nav) {
     console.log("init_messaging called with " + JSON.stringify(nav));
     // messaging = firebase.messaging();
     if ("serviceWorker" in nav) {
