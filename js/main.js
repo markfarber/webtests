@@ -15,6 +15,28 @@ const app = firebase.initializeApp(firebaseConfig);
 const functions = app.functions("europe-west2");
 messaging = firebase.messaging();
 
+async function init_messaging(nav) {
+  const sw_regs = await navigator.serviceWorker.getRegistrations();
+  if (sw_regs.length < 1) {
+    if ("serviceWorker" in nav) {
+      nav.serviceWorker
+        .register("firebase-messaging-sw.js")
+        .then((registration) => {
+          console.log(registration);
+          // functions
+          //   .httpsCallable("user_update_token")()
+          //   .then((result) => {
+          //     console.log("Token update: " + result);
+          //   });
+          return registration
+        })
+        // .catch((e) => {
+          // console.error("init_messaging error " + e);
+        // });
+    }
+  }
+}
+
 /*class Messaging {
   static messaging = firebase.messaging();
 
