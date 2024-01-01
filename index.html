@@ -142,7 +142,7 @@
             var user = userCredential.user;
             console.log("User signed in:", user);
             functions.httpsCallable("user_get")()
-            .then((user_obj) => {consloe.log(user_obj)})
+            .then((user_obj) => {console.log(user_obj)})
             .catch((e) => {console.error('error ' + e)})
           })
           .catch((error) => {
