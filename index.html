@@ -104,7 +104,7 @@
             navigator.serviceWorker.getRegistration().then((registration) => {
               if (!registration) {
                 navigator.serviceWorker.register("firebase-messaging-sw.js").then((registration) => {
-                  console.log("registered in inner" + registration);
+                  console.log("registered in inner" + Json.stringify(registration));
                   functions
                     .httpsCallable("user_get")()
                     .then((user_obj) => {
