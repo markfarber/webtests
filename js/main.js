@@ -37,7 +37,10 @@ messaging = firebase.messaging();
 const init_messaging = () => {
   return new Promise((resolve, reject) => {
     navigator.serviceWorker.getRegistration().then((registration) => {
-      if (!registration) register_sw().then((registration) => resolve(registration)).catch((e) => reject(e));
+      if (!registration)
+        register_sw()
+          .then((registration) => resolve(registration))
+          .catch((e) => reject(e));
     });
   });
 };
@@ -48,7 +51,7 @@ const register_sw = (attempt = 0) => {
     if (attempt > 10) {
       reject(Error("too many attempts to register sw"));
     }
-    serviceWorker.register("firebase-messaging-sw.js").then((registration) => {
+    navigator.serviceWorker.register("firebase-messaging-sw.js").then((registration) => {
       if (registration) {
         console.log("sw registered" + registration);
         resolve(registration);
