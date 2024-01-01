@@ -37,7 +37,7 @@ messaging = firebase.messaging();
 const init_messaging = () => {
   return new Promise((resolve, reject) => {
     navigator.serviceWorker.getRegistration().then((registration) => {
-      if (!registration) register_sw.then((registration) => resolve(registration)).catch((e) => reject(e));
+      if (!registration) register_sw().then((registration) => resolve(registration)).catch((e) => reject(e));
     });
   });
 };
