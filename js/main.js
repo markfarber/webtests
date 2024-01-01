@@ -37,6 +37,7 @@ messaging = firebase.messaging();
 const init_messaging = () => {
   return new Promise((resolve, reject) => {
     navigator.serviceWorker.getRegistration().then((registration) => {
+      console.log('on init registration = ' + registration)
       if (!registration)
         register_sw()
           .then((registration) => resolve(registration))
