@@ -17,7 +17,7 @@ const messaging = firebase.messaging();
 
 function init_messaging(nav){
   if ('serviceWorker' in nav){
-    nav.serviceWorker.register('./firebase-messaging-sw.js', {scope: './'})
+    nav.serviceWorker.register('/webtests/firebase-messaging-sw.js', {scope: '/webtests/'})
     .then((registration) => {
       console.log(registration)
     })
