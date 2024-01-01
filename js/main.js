@@ -18,15 +18,15 @@ const functions = firebase.functions(app,'europe-west2');
 
 
 ///init serviceWorker
-// if ('serviceWorker' in navigator) {
-//   navigator.serviceWorker.register('/webtests/firebase-messaging-sw.js')
-//     .then(function(registration) {
-//       console.log('Registration successful, scope is:', registration.scope);
-//       //init_messaging() 
-//     }).catch(function(err) {
-//       console.log('Service worker registration failed, error:', err);
-//     });
-//   }
+/*if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/webtests/firebase-messaging-sw.js')
+    .then(function(registration) {
+      console.log('Registration successful, scope is:', registration.scope);
+      //init_messaging() 
+    }).catch(function(err) {
+      console.log('Service worker registration failed, error:', err);
+    });
+  }*/
 
 
 //push messeg
