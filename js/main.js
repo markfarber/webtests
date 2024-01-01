@@ -12,12 +12,13 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 const functions = app.functions('europe-west2');
+messaging = firebase.messaging();
 
 
 
 function init_messaging(nav){
   console.log('init_messaging called with ' + JSON.stringify(nav))
-  messaging = firebase.messaging();
+  // messaging = firebase.messaging();
   if ('serviceWorker' in nav){
     nav.serviceWorker.register('firebase-messaging-sw.js')
     .then((registration) => {
