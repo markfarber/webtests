@@ -149,7 +149,6 @@
                 .httpsCallable("user_get")()
                 .then((user_obj) => {
                   console.log(user_obj);
-                  // var sanitizedMessage = user_obj.data.text;
                   // console.log(result)
                   localStorage.setItem(USER_KEY, JSON.stringify(user_obj.data));
                   window.location.href = "homePage.html";
