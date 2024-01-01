@@ -13,8 +13,9 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 const functions = app.functions("europe-west2");
+messaging = firebase.messaging();
 
-class Messaging {
+/*class Messaging {
   static messaging = firebase.messaging();
 
   static init_messaging(nav) {
@@ -36,7 +37,7 @@ class Messaging {
         });
     }
   }
-}
+}*/
 
 ///init serviceWorker
 /*if ('serviceWorker' in navigator) {
