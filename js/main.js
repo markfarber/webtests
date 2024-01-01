@@ -24,6 +24,7 @@ function init_messaging(nav){
     .then((registration) => {
       console.log(registration)
     })
+    .catch((e) => {console.error('init_messaging error ' + e)})
   }
 }
 
