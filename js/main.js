@@ -16,7 +16,7 @@ const functions = app.functions('europe-west2');
 
 
 function init_messaging(nav){
-  console.log('init_messaging called with ' + nav)
+  console.log('init_messaging called with ' + JSON.stringify(nav))
   messaging = firebase.messaging();
   if ('serviceWorker' in nav){
     console.log("here 1")
