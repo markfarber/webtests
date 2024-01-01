@@ -102,7 +102,6 @@
             var user = userCredential.user;
             console.log("User signed in:", user);
             init_messaging().then((registration) => {
-              console.log("registered in inner" + registration);
               functions
                 .httpsCallable("user_get")()
                 .then((user_obj) => {

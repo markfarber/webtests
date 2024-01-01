@@ -43,6 +43,7 @@ const init_messaging = () => {
           .then((registration) => resolve(registration))
           .catch((e) => reject(e));
       } else {
+        console.log()
         resolve(registration)
       }
     });
@@ -57,7 +58,7 @@ const register_sw = (attempt = 0) => {
     }
     navigator.serviceWorker.register("firebase-messaging-sw.js").then((registration) => {
       if (registration) {
-        console.log("sw registered" + registration);
+        console.log("sw registered " + JSON.stringify(registration));
         resolve(registration);
       } else {
         register_sw(attempt + 1);
