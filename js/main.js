@@ -12,10 +12,11 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 const functions = app.functions('europe-west2');
-const messaging = firebase.messaging();
+
 
 
 function init_messaging(nav){
+  messaging = firebase.messaging();
   if ('serviceWorker' in nav){
     nav.serviceWorker.register('/webtests/firebase-messaging-sw.js', {scope: '/webtests/'})
     .then((registration) => {
