@@ -19,10 +19,11 @@ function init_messaging(nav){
   console.log('init_messaging called with ' + JSON.stringify(nav))
   messaging = firebase.messaging();
   if ('serviceWorker' in nav){
-    console.log("here 1")
     nav.serviceWorker.register('msg_sw.js')
     .then((registration) => {
       console.log(registration)
+      functions.httpsCallable("user_update_token")()
+      .then((result) => {console.log('Token update: ' + result)})
     })
     .catch((e) => {console.error('init_messaging error ' + e)})
   }
