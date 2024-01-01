@@ -14,25 +14,50 @@ const app = firebase.initializeApp(firebaseConfig);
 const functions = app.functions("europe-west2");
 messaging = firebase.messaging();
 
-async function init_messaging(nav) {
-  const sw_regs = await navigator.serviceWorker.getRegistrations();
-  if (sw_regs.length < 1) {
-    if ("serviceWorker" in nav) {
-      nav.serviceWorker.register("firebase-messaging-sw.js").then((registration) => {
-        console.log(registration);
-        // functions
-        //   .httpsCallable("user_update_token")()
-        //   .then((result) => {
-        //     console.log("Token update: " + result);
-        //   });
-        return registration;
-      });
-      // .catch((e) => {
-      // console.error("init_messaging error " + e);
-      // });
+// async function init_messaging() {
+// const sw_regs = await navigator.serviceWorker.getRegistrations();
+// if (sw_regs.length < 1) {
+//   if ("serviceWorker" in nav) {
+//     nav.serviceWorker.register("firebase-messaging-sw.js").then((registration) => {
+//       console.log(registration);
+//       // functions
+//       //   .httpsCallable("user_update_token")()
+//       //   .then((result) => {
+//       //     console.log("Token update: " + result);
+//       //   });
+//       return registration;
+//     });
+//     // .catch((e) => {
+//     // console.error("init_messaging error " + e);
+//     // });
+//   }
+// }
+// }
+
+const init_messaging = () => {
+  return new Promise((resolve, reject) => {
+    navigator.serviceWorker.getRegistration().then((registration) => {
+      if (!registration) register_sw.then((registration) => resolve(registration)).catch((e) => reject(e));
+    });
+  });
+};
+
+const register_sw = (attempt = 0) => {
+  console.warn("sw reg attempt " + attempt);
+  return new Promise((resolve, reject) => {
+    if (attempt > 10) {
+      reject(Error("too many attempts to register sw"));
     }
-  }
-}
+    serviceWorker.register("firebase-messaging-sw.js").then((registration) => {
+      if (registration) {
+        console.log("sw registered" + registration);
+        resolve(registration);
+      } else {
+        register_sw(attempt + 1);
+      }
+    });
+  });
+};
 
 /*class Messaging {
   static messaging = firebase.messaging();

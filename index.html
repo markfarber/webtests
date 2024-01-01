@@ -101,43 +101,21 @@
             // Signed in successfully
             var user = userCredential.user;
             console.log("User signed in:", user);
-            navigator.serviceWorker.getRegistration().then((registration) => {
-              if (!registration) {
-                navigator.serviceWorker.register("firebase-messaging-sw.js").then((registration) => {
-                  console.log("registered in inner" + JSON.stringify(registration));
-                  functions
-                    .httpsCallable("user_get")()
-                    .then((user_obj) => {
-                      console.log(user_obj);
-                      // console.log(result)
-                      localStorage.setItem(USER_KEY, JSON.stringify(user_obj.data));
-                      window.location.href = "homePage.html";
-                    })
-                    .catch((e) => {
-                      console.error("error " + e);
-                    });
+            init_messaging().then((registration) => {
+              console.log("registered in inner" + registration);
+              functions
+                .httpsCallable("user_get")()
+                .then((user_obj) => {
+                  console.log(user_obj);
+                  // console.log(result)
+                  localStorage.setItem(USER_KEY, JSON.stringify(user_obj.data));
+                  window.location.href = "homePage.html";
+                })
+                .catch((e) => {
+                  console.error("error " + e);
                 });
-              } else {
-                console.log("already registered" + registration);
-                functions
-                  .httpsCallable("user_get")()
-                  .then((user_obj) => {
-                    console.log(user_obj);
-                    // console.log(result)
-                    localStorage.setItem(USER_KEY, JSON.stringify(user_obj.data));
-                    window.location.href = "homePage.html";
-                  })
-                  .catch((e) => {
-                    console.error("error " + e);
-                  });
-              }
-            });
-          })
-          .catch((error) => {
-            // Handle sign-in errors
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            console.error("Sign-in error:", errorCode, errorMessage);
+            })
+            .catch((e) => console.error('error initializing messaging ' + e))
           });
       };
 
