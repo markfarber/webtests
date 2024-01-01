@@ -62,7 +62,10 @@ const register_sw = (attempt = 0) => {
       } else {
         register_sw(attempt + 1);
       }
-    });
+    }).catch((e) => {
+      console.warn('transient error in register sw ' + e)
+      register_sw(attempt + 1);
+    })
   });
 };
 
