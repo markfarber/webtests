@@ -129,7 +129,7 @@
         corentUser = JSON.parse(localStorage.getItem(USER_KEY));
         if (corentUser) {
           console.log(corentUser);
-          init_messaging(navigator);
+          Messaging.init_messaging(navigator);
         } else {
           //window.location.href = "./index.html"
         }
