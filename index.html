@@ -144,7 +144,7 @@
             // Signed in successfully
             var user = userCredential.user;
             console.log("User signed in:", user);
-            // navigator.serviceWorker.ready.then(() => {
+            navigator.serviceWorker.ready.then(() => {
               functions
                 .httpsCallable("user_get")()
                 .then((user_obj) => {
@@ -156,8 +156,8 @@
                 .catch((e) => {
                   console.error("error " + e);
                 });
-            // });
-            
+            });
+
           })
           .catch((error) => {
             // Handle sign-in errors
