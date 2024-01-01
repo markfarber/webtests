@@ -11,7 +11,7 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
-const messaging = firebase.messaging(app);
+// const messaging = firebase.messaging(app);
 const functions = app.functions('europe-west2');
 
 
