@@ -2,6 +2,7 @@ importScripts('https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js'
 importScripts('https://www.gstatic.com/firebasejs/10.7.1/firebase-messaging-compat.js');
 
 
+
  const firebaseConfig = {
   apiKey: "AIzaSyAe2AQgp3soMCBHX5uCtDuYRDdFAwondVU",
   authDomain: "tyg-stage-b8e16.firebaseapp.com",
