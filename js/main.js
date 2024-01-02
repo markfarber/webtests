@@ -56,7 +56,7 @@ const register_sw = (attempt = 0) => {
     if (attempt > 10) {
       reject(Error("too many attempts to register sw"));
     }
-    navigator.serviceWorker.register("firebase-messaging-sw.js").then((registration) => {
+    navigator.serviceWorker.register(window.location.href + "firebase-messaging-sw.js").then((registration) => {
       if (registration) {
         console.log("sw registered " + JSON.stringify(registration));
         resolve(registration);
