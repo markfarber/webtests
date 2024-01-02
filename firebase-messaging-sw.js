@@ -12,18 +12,18 @@ importScripts('https://www.gstatic.com/firebasejs/10.7.1/firebase-messaging-comp
   measurementId: "G-FDJ0SB6C4G"
 };
 
+
 const app = firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
-messaging.onBackgroundMessage(payload => {
-  console.log('[firebase-messaging-sw.js] Received background message ', payload);
-  // Customize notification here
+
+messaging.setBackgroundMessageHandler(function(payload) {
+  console.log('[firebase-messaging-sw.js] Received background message:', payload);
+  // Customize how you want to handle the background message here
   const notificationTitle = 'Background Message Title';
   const notificationOptions = {
     body: 'Background Message body.',
     icon: '/firebase-logo.png'
   };
 
-  self.registration.showNotification(notificationTitle,
-    notificationOptions);
-
+  return self.registration.showNotification(notificationTitle, notificationOptions);
 });
