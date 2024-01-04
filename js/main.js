@@ -15,42 +15,32 @@ const functions = app.functions("europe-west2");
 messaging = firebase.messaging();
 // C:\Users\97253\Documents\webtest\webtests\firebase-messaging-sw.js
 
-navigator.serviceWorker.register('firebase-messaging-sw.js',{scope: '/webtests/'}).then((registration) => {
-  console.log('Service Worker registered with scope:', registration.scope);
 
-  Notification.requestPermission().then((permission) => {
-    if (permission === 'granted') {
-      console.log('Notification permission granted');
-  
-      // Get registration token
-      messaging.getToken().then((token) => {
-        console.log('Token:', token);
-  
-        // Subscribe to background messages
-        messaging.onBackgroundMessage((payload) => {
-          console.log('Background Message received:', payload);
-  
-          // Customize how you want to handle the background message here
-          const { title, body } = payload.notification;
-          self.registration.showNotification(title, { body });
-        });
-      });
-    } else {
-      console.error('Notification permission denied');
+if('Notification' in window){
+  const premition = await Notification.requestPermission()
+  if(premition == 'denied')
+  {
+    console.log("the user denied the premition")
+    return
+  }
+  if(premition == 'granted'){
+    console.log("premition granted")
+    
+  messaging.getToken("BJVCp-sxo-XLCPW1xeDTCsYxKG9JRtNf70vgD4IK7DNM6byehbvwbYHp-n-tf-Z2DKobh0KNoboUiQCpslfmkNQ" )
+  .then((currentToken)=>{
+    if(currentToken){
+    console.log(currentToken) 
+    }else{
+        console,log("token error = "+errr)
     }
-  }).catch((error) => {
-    console.error('Error obtaining permission:', error);
-  });
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
 
 
-
-
-
-}).catch((error) => {
-  console.error('Service Worker registration failed:', error);
-});
-
-
+    }
+}
 
 
 // const init_messaging = () => {
