@@ -31,8 +31,6 @@ if('Notification' in window){
     }
   })
 }
-console.log(window.location.href)
-
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
