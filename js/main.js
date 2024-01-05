@@ -38,7 +38,7 @@ firebase.auth().onAuthStateChanged((user) => {
   
     if(window.location.href.indexOf("/homePage.html")){
       corentUser = JSON.parse(localStorage.getItem(USER_KEY))
-      console.log(corentUser)
+      console.log(corentUser.data)
       messagingSendToken()
       
     }
