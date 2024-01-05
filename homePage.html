@@ -104,7 +104,7 @@
 
     <!-- end menu -->
 
-    <div id="card" class="card" style="width: 18rem">
+    <div id="card" class="card mx-auto" style="width: 18rem">
      
     </div>
 
@@ -118,11 +118,8 @@
     <script src="js/main.js"></script>
     <script>
       
-      function showOnUI() {
-        console.log("shoeOnUI")
-        console.log(corentUser)
-        console.log(corentUser.data)
-        console.log(corentUser.data.daily_card_populated.img_url)
+      function showCardOnUI() {
+        
         userData = corentUser.data.daily_card_populated
         card = `
         <img class="card-img-top" src="${userData.img_url}" alt="Card image cap">

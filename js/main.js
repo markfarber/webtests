@@ -35,13 +35,10 @@ if('Notification' in window){
 corentUser = {}
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-  
-    
-      corentUser = JSON.parse(localStorage.getItem(USER_KEY))
-      console.log(corentUser.data)
-      messagingSendToken()
-      showOnUI() 
 
+      corentUser = JSON.parse(localStorage.getItem(USER_KEY))
+      messagingSendToken()
+      showCardOnUI() 
     
   } else {
     if(!window.location.href.indexOf("/index.html"))
