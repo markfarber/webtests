@@ -12,7 +12,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 const functions = app.functions();
-messaging = firebase.messaging("europe-west2");
+messaging = app.messaging("europe-west2");
 // C:\Users\97253\Documents\webtest\webtests\firebase-messaging-sw.js
 
 if('aerviceWorker' in navigator){
