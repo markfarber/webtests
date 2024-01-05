@@ -35,10 +35,13 @@ if('Notification' in window){
 corentUser = {}
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-   
-    corentUser = JSON.parse(localStorage.getItem(USER_KEY))
-    console.log(corentUser)
-    messagingSendToken()
+  
+    if(window.location.href.indexOf("/homePage.html")){
+      corentUser = JSON.parse(localStorage.getItem(USER_KEY))
+      console.log(corentUser)
+      messagingSendToken()
+      showOnUI()
+    }
   } else {
     if(!window.location.href.indexOf("/index.html"))
         window.location.href = "/index.html"
@@ -47,7 +50,7 @@ firebase.auth().onAuthStateChanged((user) => {
 });
 
 function messagingSendToken(){
-  if(window.location.href.indexOf("/homePage.html")){
+  
     messaging.getToken(M_P_KEY)
     .then((currentToken)=>{
       if(currentToken){
@@ -69,7 +72,7 @@ function messagingSendToken(){
 
       
   }
-}
+
 
 // const init_messaging = () => {
 //   return new Promise((resolve, reject) => {
