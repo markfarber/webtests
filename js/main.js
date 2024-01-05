@@ -45,7 +45,7 @@ if('Notification' in window){
   })
 
 
-    }
+    
 
 
 
