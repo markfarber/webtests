@@ -57,7 +57,7 @@ function messagingSendToken(){
             data = {device_token:currentToken}
             functions.httpsCallable("user_update_token")(data)
             .then((user_obj) =>{
-              corentUser['token'] = currentToken
+              corentUser.data['token'] = currentToken
               localStorage.setItem(USER_KEY, JSON.stringify(corentUser))
               console.log(user_obj)
             })
