@@ -11,7 +11,7 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
-const functions = app.functions();
+const functions = app.functions("europe-west2");
 messaging = app.messaging("europe-west2");
 // C:\Users\97253\Documents\webtest\webtests\firebase-messaging-sw.js
 
@@ -37,9 +37,9 @@ if('Notification' in window){
     if(currentToken){
           console.log(currentToken) 
 
-          currentToken = currentToken+""
-          functions
-          .httpsCallable("user_update_token")({device_token:currentToken})
+          const data = {device_token:currentToken}
+          
+          functions.httpsCallable("user_update_token")(data)
           .then((user_obj) => {
             console.log(user_obj);
             // console.log(result)
