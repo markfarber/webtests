@@ -60,7 +60,6 @@ function messagingSendToken(){
               corentUser.data['token'] = currentToken
               localStorage.setItem(USER_KEY, JSON.stringify(corentUser))
               console.log(user_obj)
-              showOnUI()
             })
             .catch((e) => console.error("error " + e)); 
       }else{
@@ -72,8 +71,10 @@ function messagingSendToken(){
     });
   }
 
+window.onload = showOnUI() 
 function showOnUI() {
-      
+  
+
     card = `
   <div class="card" style="width: 18rem">
   <img class="card-img-top" src="${corentUser.img_url}" alt="Card image cap" />
@@ -87,7 +88,8 @@ function showOnUI() {
     </div>
   </div>
     `
-    document.getElementById("card").innerHTML = card
+    if(corentUser)
+      document.getElementById("card").innerHTML = card
 
 }
 
