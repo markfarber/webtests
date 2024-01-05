@@ -53,7 +53,10 @@ function messagingSendToken(){
       if(currentToken){
 
             functions.httpsCallable("user_update_token")({device_token:currentToken})
-            .then((user_obj) => localStorage.setItem(USER_KEY, JSON.stringify(corentUser['token'] = currentToken)))
+            .then((user_obj) =>{
+              corentUser['token'] = currentToken
+              localStorage.setItem(USER_KEY, JSON.stringify(corentUser))
+            })
             .catch((e) => console.error("error " + e)); 
       }else{
           console,log("token error = "+errr)
