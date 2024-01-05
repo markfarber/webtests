@@ -77,7 +77,7 @@ function showOnUI() {
   console.log("shoeOnUI")
 
   card = `
-  <img class="card-img-top" src="${corentUser.daily_card_populated.data.img_url}" alt="Card image cap">
+  <img class="card-img-top" src="${corentUser.daily_card_populated.img_url}" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">${corentUser.daily_card_populated.name}</h5>
     <p class="card-text"> ${corentUser.daily_card_populated.messege}</p>
