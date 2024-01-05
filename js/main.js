@@ -39,7 +39,7 @@ if('Notification' in window){
 
 
           functions
-          .httpsCallable("user_update_token")({device_token:currentToken})
+          .httpsCallable("user_update_token")()
           .then((user_obj) => {
             console.log(user_obj);
             // console.log(result)
