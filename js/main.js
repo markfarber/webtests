@@ -12,7 +12,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 const functions = app.functions();
-messaging = firebase.messaging();
+messaging = firebase.messaging("europe-west2");
 // C:\Users\97253\Documents\webtest\webtests\firebase-messaging-sw.js
 
 if('aerviceWorker' in navigator){
@@ -37,15 +37,32 @@ if('Notification' in window){
     if(currentToken){
           console.log(currentToken) 
 
-          functions.httpsCallable('user_update_token')({device_token:currentToken})
-          .then((result) => {
-            // Handle the result returned by the function
-            console.log(result.data);
-          })
-          .catch((error) => {
-            // Handle errors
-            console.error(error);
+
+          functions
+          .httpsCallable("user_update_token")({device_token:currentToken})
+          .then((user_obj) => {
+            console.log(user_obj);
+            // console.log(result)
+            localStorage.setItem(USER_KEY, JSON.stringify(user_obj.data));
+            window.location.href = "homePage.html";
+                            })
+          .catch((e) => {
+            console.error("error " + e);
           });
+
+
+
+
+
+          // functions.httpsCallable('user_update_token')({device_token:currentToken})
+          // .then((result) => {
+          //   // Handle the result returned by the function
+          //   console.log(result.data);
+          // })
+          // .catch((error) => {
+          //   // Handle errors
+          //   console.error(error);
+          // });
     }else{
         console,log("token error = "+errr)
     }
