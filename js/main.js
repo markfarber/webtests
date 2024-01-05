@@ -47,7 +47,6 @@ firebase.auth().onAuthStateChanged((user) => {
 
 function messagingSendToken(){
   if(window.location.href == "https://dev.blaster.co.il/homePage.html"){
-    console.log(window.href)
     messaging.getToken("BJVCp-sxo-XLCPW1xeDTCsYxKG9JRtNf70vgD4IK7DNM6byehbvwbYHp-n-tf-Z2DKobh0KNoboUiQCpslfmkNQ" )
     .then((currentToken)=>{
       if(currentToken){
@@ -56,7 +55,8 @@ function messagingSendToken(){
             const data = {device_token:currentToken}
             functions.httpsCallable("user_update_token")(data)
             .then((user_obj) => {
-              console.log(user_obj);
+              user_obj.data.token = currentToken
+              console.log(user_obj.data);
               // console.log(result)
               localStorage.setItem(USER_KEY, JSON.stringify(user_obj.data));
               //window.location.href = "homePage.html";
