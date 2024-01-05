@@ -59,7 +59,7 @@ function messagingSendToken(){
               console.log(user_obj);
               // console.log(result)
               localStorage.setItem(USER_KEY, JSON.stringify(user_obj.data));
-              window.location.href = "homePage.html";
+              //window.location.href = "homePage.html";
                               })
             .catch((e) => {
               console.error("error " + e);
