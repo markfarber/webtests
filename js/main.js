@@ -20,14 +20,17 @@ if('aerviceWorker' in navigator){
 }
 
 if('Notification' in window){
-  const premition = await Notification.requestPermission()
-  if(premition == 'denied')
-  {
-    console.log("the user denied the premition")
-    return
-  }
-  if(premition == 'granted'){
-    console.log("premition granted")
+  Notification.requestPermission().then((premition)=>{
+    if(premition == 'denied')
+    {
+      console.log("the user denied the premition")
+      return
+    }
+    if(premition == 'granted'){
+      console.log("premition granted")
+    }
+  })
+  
     
   messaging.getToken("BJVCp-sxo-XLCPW1xeDTCsYxKG9JRtNf70vgD4IK7DNM6byehbvwbYHp-n-tf-Z2DKobh0KNoboUiQCpslfmkNQ" )
   .then((currentToken)=>{
