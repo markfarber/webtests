@@ -75,6 +75,7 @@ function messagingSendToken(){
 
 function showOnUI() {
   console.log("shoeOnUI")
+  console.log(corentUser)
 
   card = `
   <img class="card-img-top" src="${corentUser.daily_card_populated.img_url}" alt="Card image cap">
