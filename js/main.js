@@ -73,7 +73,7 @@ function messagingSendToken(){
 
 window.onload = showOnUI() 
 function showOnUI() {
-  
+  console.log("shoeOnUI")
 
     card = `
   <div class="card" style="width: 18rem">
