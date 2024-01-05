@@ -104,7 +104,7 @@
                 .then((user_obj) => {
                   console.log(user_obj);
                   // console.log(result)
-                  localStorage.setItem(USER_KEY, JSON.stringify(user_obj.data));
+                  localStorage.setItem(USER_KEY, JSON.stringify(user_obj));
                   window.location.href = "homePage.html";
                                   })
                 .catch((e) => {
