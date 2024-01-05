@@ -36,7 +36,7 @@ corentUser = {}
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
    
-    corentUser = localStorage.getItem(USER_KEY)
+    corentUser = JSON.parse(localStorage.getItem(USER_KEY))
     console.log(corentUser)
     messagingSendToken()
   } else {
