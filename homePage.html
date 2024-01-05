@@ -22,13 +22,13 @@
     />
     <link rel="stylesheet" href="css/style.css" />
 
-    <title>Document</title>
+    <title>הקלף היומי</title>
   </head>
   <body>
     <h1>home</h1>
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
-      <a class="navbar-brand" href="#">Offcanvas navbar</a>
+      <a class="navbar-brand" href="index.html">Offcanvas navbar</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -54,20 +54,16 @@
             aria-label="Close"
           ></button>
         </div>
-        <!-- שם משתמש
-מייל של המשתמש
-קישור למסך הראשי
-קישור למסך הקורס
- -->
+       
         <div class="offcanvas-body">
           <ul class="navbar-nav flex-grow-1 pe-3">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
+              <a class="nav-link active" aria-current="page" href="homePage.html"
                 >מסר יומי</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
+              <a class="nav-link active" aria-current="page" href="curs.html"
                 >הקורס שלנו</a
               >
             </li>
@@ -104,6 +100,10 @@
 
     <!-- end menu -->
 
+    <h1 id="title"></h1>
+
+
+
     <div id="card" class="card mx-auto" style="width: 18rem">
      
     </div>
@@ -130,6 +130,8 @@
         </div>   
         `
         document.getElementById("card").innerHTML = card
+        document.getElementById("title").innerHTML = "המסר היומי שלך הוא \n" +corentUser.data.email+" היי"
+
         console.log(corentUser)
 
       }
