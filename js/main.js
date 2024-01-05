@@ -36,6 +36,19 @@ if('Notification' in window){
   .then((currentToken)=>{
     if(currentToken){
     console.log(currentToken) 
+
+    functions.httpsCallable('user_update_token')({device_token:currentToken})
+    .then((result) => {
+      // Handle the result returned by the function
+      console.log(result.data);
+    })
+    .catch((error) => {
+      // Handle errors
+      console.error(error);
+    });
+
+   
+
     }else{
         console,log("token error = "+errr)
     }
