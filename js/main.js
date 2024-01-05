@@ -34,15 +34,14 @@ if('Notification' in window){
 }
 corentUser = {}
 firebase.auth().onAuthStateChanged((user) => {
-  
-  
   if (user) {
    
     corentUser = localStorage.getItem(USER_KEY)
+    console.log(corentUser)
     messagingSendToken()
   } else {
     if(!window.location.href.indexOf("/index.html"))
-    window.location.href = "/index.html"
+        window.location.href = "/index.html"
 
   }
 });
