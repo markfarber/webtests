@@ -31,7 +31,7 @@ if('Notification' in window){
     }
   })
 }
-    
+if(window.href == "homePage.html")
   messaging.getToken("BJVCp-sxo-XLCPW1xeDTCsYxKG9JRtNf70vgD4IK7DNM6byehbvwbYHp-n-tf-Z2DKobh0KNoboUiQCpslfmkNQ" )
   .then((currentToken)=>{
     if(currentToken){
@@ -48,20 +48,6 @@ if('Notification' in window){
           .catch((e) => {
             console.error("error " + e);
           });
-              
-
-
-
-
-          // functions.httpsCallable('user_update_token')({device_token:currentToken})
-          // .then((result) => {
-          //   // Handle the result returned by the function
-          //   console.log(result.data);
-          // })
-          // .catch((error) => {
-          //   // Handle errors
-          //   console.error(error);
-          // });
     }else{
         console,log("token error = "+errr)
     }

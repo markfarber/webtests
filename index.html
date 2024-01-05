@@ -94,16 +94,13 @@
       /////////////email & password singin////////////////
       signInBtn = document.getElementById("singin");
       signInBtn.onclick = () => {
-        firebase
-          .auth()
-          .signInWithEmailAndPassword(document.getElementById("email").value, document.getElementById("password").value)
+        firebase.auth().signInWithEmailAndPassword(document.getElementById("email").value, document.getElementById("password").value)
           .then((userCredential) => {
             // Signed in successfully
             var user = userCredential.user;
             console.log("User signed in:", user);
-            init_messaging().then((registration) => {
-              functions
-                .httpsCallable("user_get")()
+            // init_messaging().then((registration) => {
+              functions.httpsCallable("user_get")()
                 .then((user_obj) => {
                   console.log(user_obj);
                   // console.log(result)
@@ -114,9 +111,12 @@
                   console.error("error " + e);
                 });
             })
-            .catch((e) => console.error('error initializing messaging ' + e))
-                      });
-      };
+      }
+        
+        
+      //       .catch((e) => console.error('error initializing messaging ' + e))
+      //                 });
+      // };
 
       /*
           signInBtn.onclick = () => {   
