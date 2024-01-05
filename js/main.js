@@ -81,11 +81,11 @@ function showOnUI() {
   <img class="card-img-top" src="${corentUser.daily_card_populated.img_url}" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">${corentUser.daily_card_populated.name}</h5>
-    <p class="card-text"> ${corentUser.daily_card_populated.messege}</p>
+    <p class="card-text"> ${corentUser.daily_card_populated.message}</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>   
   `
-  corentUser?document.getElementById("card").innerHTML = card:
+  document.getElementById("card").innerHTML = card
   console.log(corentUser)
 
 }
