@@ -35,27 +35,24 @@ if('Notification' in window){
   messaging.getToken("BJVCp-sxo-XLCPW1xeDTCsYxKG9JRtNf70vgD4IK7DNM6byehbvwbYHp-n-tf-Z2DKobh0KNoboUiQCpslfmkNQ" )
   .then((currentToken)=>{
     if(currentToken){
-    console.log(currentToken) 
+          console.log(currentToken) 
 
-    functions.httpsCallable('user_update_token')({device_token:currentToken})
-    .then((result) => {
-      // Handle the result returned by the function
-      console.log(result.data);
-    })
-    .catch((error) => {
-      // Handle errors
-      console.error(error);
-    });
-
-   
-
+          functions.httpsCallable('user_update_token')({device_token:currentToken})
+          .then((result) => {
+            // Handle the result returned by the function
+            console.log(result.data);
+          })
+          .catch((error) => {
+            // Handle errors
+            console.error(error);
+          });
     }else{
         console,log("token error = "+errr)
     }
   })
   .catch((err)=>{
     console.log(err)
-  })
+  });
 
 
     
@@ -123,4 +120,4 @@ if('Notification' in window){
 //   console.log('An error occurred while retrieving token. ', err);
 // });
 
-//}
+
