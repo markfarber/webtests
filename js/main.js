@@ -37,7 +37,7 @@ if('Notification' in window){
     if(currentToken){
           console.log(currentToken) 
 
-
+          currentToken = currentToken+""
           functions
           .httpsCallable("user_update_token")({device_token:currentToken})
           .then((user_obj) => {
