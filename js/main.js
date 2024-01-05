@@ -60,7 +60,7 @@ function messagingSendToken(){
               corentUser.data['token'] = currentToken
               localStorage.setItem(USER_KEY, JSON.stringify(corentUser))
               console.log(user_obj)
-             // showOnUI() 
+             showOnUI() 
             })
             .catch((e) => console.error("error " + e)); 
       }else{
@@ -75,21 +75,16 @@ function messagingSendToken(){
 function showOnUI() {
   console.log("shoeOnUI")
 
-    card = `
-          <div class="card" style="width: 18rem">
-          <img class="card-img-top" src="${corentUser.img_url}" alt="Card image cap" />
-          <div class="card-body">
-            <h5 class="card-title">$${corentUser.name}</h5>
-            <p class="${corentUser.messege}">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-    `
-    if(corentUser)
-      document.getElementById("card").innerHTML = card
+  card = `
+  <img class="card-img-top" src="${corentUser.data.img_url}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">${corentUser.data.name}</h5>
+    <p class="card-text"> ${corentUser.data.messege}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>   
+  `
+  //if(corentUser)
+  document.getElementById("card").innerHTML = card
 
 }
 
