@@ -59,6 +59,7 @@ function messagingSendToken(){
             .then((user_obj) =>{
               corentUser['token'] = currentToken
               localStorage.setItem(USER_KEY, JSON.stringify(corentUser))
+              console.log(user_obj)
             })
             .catch((e) => console.error("error " + e)); 
       }else{
