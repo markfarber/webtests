@@ -33,36 +33,51 @@ if('Notification' in window){
 }
 console.log(window.location.href)
 
-if(window.location.href == "https://dev.blaster.co.il/homePage.html"){
-  console.log(window.href)
-  messaging.getToken("BJVCp-sxo-XLCPW1xeDTCsYxKG9JRtNf70vgD4IK7DNM6byehbvwbYHp-n-tf-Z2DKobh0KNoboUiQCpslfmkNQ" )
-  .then((currentToken)=>{
-    if(currentToken){
-          console.log(currentToken) 
 
-          const data = {device_token:currentToken}
-          functions.httpsCallable("user_update_token")(data)
-          .then((user_obj) => {
-            console.log(user_obj);
-            // console.log(result)
-            localStorage.setItem(USER_KEY, JSON.stringify(user_obj.data));
-            window.location.href = "homePage.html";
-                            })
-          .catch((e) => {
-            console.error("error " + e);
-          });
-    }else{
-        console,log("token error = "+errr)
-    }
-  })
-  .catch((err)=>{
-    console.log(err)
-  });
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/v8/firebase.User
+    var uid = user.uid;
+    console.log("onAuthStateChanged uid = "+uid)
+    messagingSendToken()
+  } else {
+    // User is signed out
+    // ...
+  }
+});
+
+function messagingSendToken(){
+  if(window.location.href == "https://dev.blaster.co.il/homePage.html"){
+    console.log(window.href)
+    messaging.getToken("BJVCp-sxo-XLCPW1xeDTCsYxKG9JRtNf70vgD4IK7DNM6byehbvwbYHp-n-tf-Z2DKobh0KNoboUiQCpslfmkNQ" )
+    .then((currentToken)=>{
+      if(currentToken){
+            console.log(currentToken) 
+
+            const data = {device_token:currentToken}
+            functions.httpsCallable("user_update_token")(data)
+            .then((user_obj) => {
+              console.log(user_obj);
+              // console.log(result)
+              localStorage.setItem(USER_KEY, JSON.stringify(user_obj.data));
+              window.location.href = "homePage.html";
+                              })
+            .catch((e) => {
+              console.error("error " + e);
+            });
+      }else{
+          console,log("token error = "+errr)
+      }
+    })
+    .catch((err)=>{
+      console.log(err)
+    });
 
 
-    
+      
+  }
 }
-
 
 // const init_messaging = () => {
 //   return new Promise((resolve, reject) => {
