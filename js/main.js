@@ -30,7 +30,7 @@ if('Notification' in window){
       console.log("premition granted")
     }
   })
-  
+}
     
   messaging.getToken("BJVCp-sxo-XLCPW1xeDTCsYxKG9JRtNf70vgD4IK7DNM6byehbvwbYHp-n-tf-Z2DKobh0KNoboUiQCpslfmkNQ" )
   .then((currentToken)=>{
