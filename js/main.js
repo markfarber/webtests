@@ -40,7 +40,7 @@ firebase.auth().onAuthStateChanged((user) => {
       corentUser = JSON.parse(localStorage.getItem(USER_KEY))
       console.log(corentUser)
       messagingSendToken()
-      showOnUI()
+      
     }
   } else {
     if(!window.location.href.indexOf("/index.html"))
@@ -60,6 +60,7 @@ function messagingSendToken(){
               corentUser.data['token'] = currentToken
               localStorage.setItem(USER_KEY, JSON.stringify(corentUser))
               console.log(user_obj)
+              showOnUI()
             })
             .catch((e) => console.error("error " + e)); 
       }else{
