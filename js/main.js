@@ -31,6 +31,8 @@ if('Notification' in window){
     }
   })
 }
+console.log(window.href)
+
 if(window.href == "homePage.html"){
   console.log(window.href)
   messaging.getToken("BJVCp-sxo-XLCPW1xeDTCsYxKG9JRtNf70vgD4IK7DNM6byehbvwbYHp-n-tf-Z2DKobh0KNoboUiQCpslfmkNQ" )
