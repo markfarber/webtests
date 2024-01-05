@@ -41,6 +41,7 @@ firebase.auth().onAuthStateChanged((user) => {
     corentUser = localStorage.getItem(USER_KEY)
     messagingSendToken()
   } else {
+    if(!window.location.href.indexOf("/index.html"))
     window.location.href = "/index.html"
 
   }
