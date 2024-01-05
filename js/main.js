@@ -38,7 +38,7 @@ if('Notification' in window){
           console.log(currentToken) 
 
           const data = {device_token:currentToken}
-          
+          init_messaging().then((registration) => {
           functions.httpsCallable("user_update_token")(data)
           .then((user_obj) => {
             console.log(user_obj);
@@ -49,7 +49,9 @@ if('Notification' in window){
           .catch((e) => {
             console.error("error " + e);
           });
-
+        })
+        .catch((e) => console.error('error initializing messaging ' + e))
+                
 
 
 
