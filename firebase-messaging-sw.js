@@ -24,6 +24,7 @@ messaging.setBackgroundMessageHandler(function(payload) {
   // Customize how you want to handle the background message here
   const notificationTitle = 'Background Message Title';
   const notificationOptions = {
+    content_available: true,
     body: 'Background Message body.',
     icon: '/firebase-logo.png'
   };
