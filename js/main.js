@@ -15,6 +15,9 @@ const functions = app.functions("europe-west2");
 messaging = firebase.messaging();
 // C:\Users\97253\Documents\webtest\webtests\firebase-messaging-sw.js
 
+if('aerviceWorker' in navigator){
+  navigator.serviceWorker.register("firebase-messaging-sw.js")
+}
 
 if('Notification' in window){
   const premition = await Notification.requestPermission()
