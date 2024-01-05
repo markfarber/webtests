@@ -84,8 +84,8 @@ function showOnUI() {
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>   
   `
-  //if(corentUser)
-  document.getElementById("card").innerHTML = card
+  corentUser?document.getElementById("card").innerHTML = card:
+  console.log(corentUser)
 
 }
 
