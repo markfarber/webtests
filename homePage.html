@@ -121,8 +121,7 @@
 
       function showOnUI() {
       
-      document.querySelector(".card").innerHTML = 
-        `
+        card = `
       <div class="card" style="width: 18rem">
       <img class="card-img-top" src="${corentUser.img_url}" alt="Card image cap" />
       <div class="card-body">
@@ -135,6 +134,7 @@
         </div>
       </div>
         `
+        document.querySelector(".card").innerHTML = card
 
       }
 
