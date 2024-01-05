@@ -46,7 +46,7 @@ if('Notification' in window){
 
 
     }
-}
+
 
 
 // const init_messaging = () => {
