@@ -119,24 +119,7 @@
     <script>
       
 
-      function showOnUI() {
       
-        card = `
-      <div class="card" style="width: 18rem">
-      <img class="card-img-top" src="${corentUser.img_url}" alt="Card image cap" />
-      <div class="card-body">
-        <h5 class="card-title">$${corentUser.name}</h5>
-        <p class="${corentUser.messege}">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-        `
-        document.querySelector(".card").innerHTML = card
-
-      }
 
       document.getElementById("logOut").addEventListener("click", () => {
         console.log("logout");

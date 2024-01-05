@@ -40,7 +40,7 @@ firebase.auth().onAuthStateChanged((user) => {
       corentUser = JSON.parse(localStorage.getItem(USER_KEY))
       console.log(corentUser)
       messagingSendToken()
-      //showOnUI()
+      showOnUI()
     }
   } else {
     if(!window.location.href.indexOf("/index.html"))
@@ -68,11 +68,26 @@ function messagingSendToken(){
     .catch((err)=>{
       console.log(err)
     });
-
-
-      
   }
 
+function showOnUI() {
+      
+    card = `
+  <div class="card" style="width: 18rem">
+  <img class="card-img-top" src="${corentUser.img_url}" alt="Card image cap" />
+  <div class="card-body">
+    <h5 class="card-title">$${corentUser.name}</h5>
+    <p class="${corentUser.messege}">
+      Some quick example text to build on the card title and make up the
+      bulk of the card's content.
+    </p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+    `
+    document.querySelector(".card").innerHTML = card
+
+}
 
 // const init_messaging = () => {
 //   return new Promise((resolve, reject) => {
