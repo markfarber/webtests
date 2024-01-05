@@ -60,7 +60,7 @@ function messagingSendToken(){
               corentUser.data['token'] = currentToken
               localStorage.setItem(USER_KEY, JSON.stringify(corentUser))
               console.log(user_obj)
-              showOnUI() 
+             // showOnUI() 
             })
             .catch((e) => console.error("error " + e)); 
       }else{
