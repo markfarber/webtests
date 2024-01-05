@@ -40,7 +40,7 @@ firebase.auth().onAuthStateChanged((user) => {
       corentUser = JSON.parse(localStorage.getItem(USER_KEY))
       console.log(corentUser)
       messagingSendToken()
-      showOnUI()
+     // showOnUI()
     }
   } else {
     if(!window.location.href.indexOf("/index.html"))
@@ -89,65 +89,6 @@ function showOnUI() {
 
 }
 
-// const init_messaging = () => {
-//   return new Promise((resolve, reject) => {
-//     navigator.serviceWorker.getRegistration().then((registration) => {
-//       console.log("on init registration = " + JSON.stringify(registration));
-//       if (!registration) {
-//         register_sw()
-//           .then((registration) => resolve(registration))
-//           .catch((e) => reject(e));
-//       } else {
-//         console.log()
-//         resolve(registration)
-//       }
-//     });
-//   });
-// };
 
-// const register_sw = (attempt = 0) => {
-//   console.warn("sw reg attempt " + attempt);
-//   return new Promise((resolve, reject) => {
-//     if (attempt > 10) {
-//       reject(Error("too many attempts to register sw"));
-//     }
-//     navigator.serviceWorker.register("firebase-messaging-sw.js").then((registration) => {
-//       if (registration) {
-//         console.log("sw registered " + JSON.stringify(registration));
-//         resolve(registration);
-//       } else {
-//         register_sw(attempt + 1);
-//       }
-//     }).catch((e) => {
-//       console.warn('transient error in register sw ' + e)
-//       register_sw(attempt + 1);
-//     })
-//   });
-// };
-
-// messaging.getToken().then((token) => {
-//   console.log('Token:', token);
-
-//   // Subscribe to background messages
-//   Notification.requestPermission().then((permission) => {
-//     if (permission === 'granted') {
-//       console.log('Notification permission granted');
-
-// function init_messaging() {
-//   vapidKey = "BJVCp-sxo-XLCPW1xeDTCsYxKG9JRtNf70vgD4IK7DNM6byehbvwbYHp-n-tf-Z2DKobh0KNoboUiQCpslfmkNQ"
-// messaging.getToken(messaging, { vapidKey }).then((currentToken) => {
-//   if (currentToken) {
-
-//console.log(currentToken)
-//   } else {
-//     // Show permission request.
-//     console.log('No registration token available. Request permission to generate one.');
-//     // Show permission UI.
-//     //updateUIForPushPermissionRequired();
-//     //setTokenSentToServer(false);
-//   }
-// }).catch((err) => {
-//   console.log('An error occurred while retrieving token. ', err);
-// });
 
 
