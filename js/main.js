@@ -31,7 +31,8 @@ if('Notification' in window){
     }
   })
 }
-if(window.href == "homePage.html")
+if(window.href == "homePage.html"){
+  console.log(window.href)
   messaging.getToken("BJVCp-sxo-XLCPW1xeDTCsYxKG9JRtNf70vgD4IK7DNM6byehbvwbYHp-n-tf-Z2DKobh0KNoboUiQCpslfmkNQ" )
   .then((currentToken)=>{
     if(currentToken){
@@ -58,7 +59,7 @@ if(window.href == "homePage.html")
 
 
     
-
+}
 
 
 // const init_messaging = () => {
