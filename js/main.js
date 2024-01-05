@@ -56,7 +56,7 @@ function messagingSendToken(){
             functions.httpsCallable("user_update_token")(data)
             .then((user_obj) => {
               user_obj.data.token = currentToken
-              console.log(user_obj.data);
+              console.log(user_obj);
               // console.log(result)
               localStorage.setItem(USER_KEY, JSON.stringify(user_obj.data));
               //window.location.href = "homePage.html";
