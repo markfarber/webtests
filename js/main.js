@@ -33,7 +33,7 @@ if('Notification' in window){
 }
 console.log(window.location.href)
 
-if(window.location.href == "homePage.html"){
+if(window.location.href == "https://dev.blaster.co.il/homePage.html"){
   console.log(window.href)
   messaging.getToken("BJVCp-sxo-XLCPW1xeDTCsYxKG9JRtNf70vgD4IK7DNM6byehbvwbYHp-n-tf-Z2DKobh0KNoboUiQCpslfmkNQ" )
   .then((currentToken)=>{
