@@ -50,7 +50,7 @@ firebase.auth().onAuthStateChanged((user) => {
 
 function messagingSendToken(){
   if(window.location.href.indexOf("/homePage.html")){
-    messaging.getToken(M_P_KEY)
+    messaging.getToken({vapidKey: M_P_KEY})
     .then((currentToken)=>{
       console.log('token = ' + currentToken)
       if(currentToken){
