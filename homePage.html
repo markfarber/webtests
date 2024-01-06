@@ -179,6 +179,10 @@
             // An error happened.
           });
       });
+
+      messaging?.onMessage((payload) => {
+        console.log(payload, 'payload');
+      });
     </script>
   </body>
 </html>
