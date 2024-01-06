@@ -134,9 +134,9 @@
         `
         document.getElementById("card").innerHTML = card
         document.getElementById("title").innerHTML = "הי המסר היומי שלך הוא"
-        // document.body.style.background = storage.ref('/800/bgimg.png')
-
-        storageRef.child('/800/bgimg.png').getDownloadURL()
+        
+        //storageRef = storage.ref('/800/bgimg.png')
+        storageRef.ref('/800/bgimg.png').getDownloadURL()
         .then((url) => {
           document.body.style.background  = url
         });
