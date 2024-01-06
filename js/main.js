@@ -71,6 +71,6 @@ function messagingSendToken() {
 messaging.onMessage((payload) => {
   console.log("message received -> " + JSON.stringify(payload));
   navigator.serviceWorker.ready.then((registration) => {
-    registration.showNotification(payload.notification.title, payload.notification.body);
+    registration.showNotification(payload.notification.title);
   });
 });
