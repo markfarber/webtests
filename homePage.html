@@ -31,7 +31,7 @@
         background-position: center;
         background-size:110%;
       }
-      h1{
+      .font{
         font-family: 'Long Cang', cursive;
       }
     </style>
@@ -146,7 +146,7 @@
         `
         document.getElementById("card").innerHTML = card
         document.getElementById("title").innerHTML = "הי המסר היומי שלך הוא"
-        
+        document.getElementById("title").classList.add("font")
         //storageRef = storage.ref('/800/bgimg.png')
 
         // storage.ref('/800/bgimg.png').getDownloadURL()
