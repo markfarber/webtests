@@ -74,6 +74,7 @@ function messagingSendToken(){
 
 messaging.onMessage((payload) => {
   console.log("message received -> " + payload)
+  payload
 })
 
 
