@@ -136,10 +136,13 @@
         document.getElementById("title").innerHTML = "הי המסר היומי שלך הוא"
         
         //storageRef = storage.ref('/800/bgimg.png')
-        
+
         storage.ref('/800/bgimg.png').getDownloadURL()
         .then((url) => {
           document.body.style.background  = url
+        })
+        .catch((error)=>{
+          console.log(error)
         });
 
 
