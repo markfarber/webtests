@@ -1,4 +1,3 @@
-importScripts('https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js');
 
 const USER_KEY = "user";
 const M_P_KEY = "BJVCp-sxo-XLCPW1xeDTCsYxKG9JRtNf70vgD4IK7DNM6byehbvwbYHp-n-tf-Z2DKobh0KNoboUiQCpslfmkNQ"
@@ -16,7 +15,7 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const functions = app.functions("europe-west2");
 const messaging = app.messaging("europe-west2");
-const storage = app.firebase.storage();
+const storage = app.storage();
 
 if('aerviceWorker' in navigator){
   navigator.serviceWorker.register("firebase-messaging-sw.js")
