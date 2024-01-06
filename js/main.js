@@ -72,7 +72,7 @@ function messagingSendToken(){
   }
 }
 
-messaging.onMessage(messaging, (payload) => {
+messaging.onMessage((payload) => {
   console.log("message received -> " + payload)
 })
 
