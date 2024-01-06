@@ -75,22 +75,7 @@
     <script src="js/main.js"></script>
 
     <script>
-      //get user localstoreg
-      /*    
-      document.addEventListener('DOMContentLoaded', ()=> {
-            console.log("laod")
-            corentUser = JSON.parse(localStorage.getItem(USER_KEY))
-            if(corentUser){
-              firebase.app().functions('europe-west2').httpsCallable('user_get')().then((result) => {
-              // Read result of the Cloud Function.
-              var sanitizedMessage = result.data.text;
-              console.log(result)
-              localStorage.setItem(USER_KEY ,JSON.stringify(result))
-              window.location.href = "./homePage.html"
-            })
-            }
-          });
-    */
+      
       /////////////email & password singin////////////////
       signInBtn = document.getElementById("singin");
       signInBtn.onclick = () => {
@@ -112,74 +97,6 @@
                 });
             })
       }
-        
-        
-      //       .catch((e) => console.error('error initializing messaging ' + e))
-      //                 });
-      // };
-
-      /*
-          signInBtn.onclick = () => {   
-           
-            firebase.auth().signInWithEmailAndPassword( document.getElementById("email").value, document.getElementById("password").value)
-            .then((userCredential) => {
-              // window.location.href = "./homePage.html"
-               functions.httpsCallable('/user_get')().then((result) => {
-              // Read result of the Cloud Function.
-              var sanitizedMessage = result.data.text;
-              console.log(result)
-              localStorage.setItem(USER_KEY ,JSON.stringify(sanitizedMessage))
-              window.location.href = "./homePage.html"
-            })
-            .catch((error) => {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            console.log(errorMessage)
-            // ..
-          });
-         
-        })
-          .catch((error) => {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // ..
-            console.log(errorMessage)
-          });
-        }
-        */
-      ///////////////////facebook login/////////////////////////////
-      // provider = new firebase.auth.FacebookAuthProvider();
-      // fsignInBtn = document.getElementById("fsbtn");
-      // fsignInBtn.onclick = () => firebase.auth().signInWithRedirect(provider);
-
-      // firebase.auth().getRedirectResult()
-      //   .then((result) => {
-      //     if (result.credential) {
-      //       /** @type {firebase.auth.OAuthCredential} */
-      //       var credential = result.credential;
-
-      //       // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-      //       var token = credential.accessToken;
-      //       // ...
-      //     }
-      //     // The signed-in user info.
-      //     var user = result.user;
-      //     console.log(user);
-      //     // IdP data available in result.additionalUserInfo.profile.
-      //     // ...
-      //   })
-      //   .catch((error) => {
-      //     // Handle Errors here.
-      //     var errorCode = error.code;
-      //     var errorMessage = error.message;
-      //     // The email of the user's account used.
-      //     var email = error.email;
-      //     // The firebase.auth.AuthCredential type that was used.
-      //     var credential = error.credential;
-      //     console.log(errorMessage);
-
-      //     // ...
-      //   });
     </script>
   </body>
 </html>
