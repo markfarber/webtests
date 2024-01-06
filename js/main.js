@@ -56,10 +56,11 @@ function messagingSendToken(){
       if(currentToken){
             data = {device_token:currentToken}
             functions.httpsCallable("user_update_token")(data)
-            .then((user_obj) =>{
+            .then((result) =>{
               corentUser.data['token'] = currentToken
               localStorage.setItem(USER_KEY, JSON.stringify(corentUser))
-              console.log(user_obj)
+              console.log('user_update_token yield -> ' + result)
+
             })
             .catch((e) => console.error("error " + e)); 
       }else{
@@ -71,6 +72,13 @@ function messagingSendToken(){
     });
   }
 }
+
+self.addEventListener('message', (event) => {
+  // if (event.data && event.data.type === 'MESSAGE_IDENTIFIER') {
+    // do something
+  // }
+  console.log('got event -> ' + event)
+});
 
 
 
