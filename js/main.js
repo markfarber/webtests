@@ -17,7 +17,7 @@ const functions = app.functions("europe-west2");
 const messaging = app.messaging("europe-west2");
 const storage = app.storage();
 
-if('aerviceWorker' in navigator){
+if('serviceWorker' in navigator){
   navigator.serviceWorker.register("firebase-messaging-sw.js")
 }
 
@@ -52,6 +52,7 @@ function messagingSendToken(){
   if(window.location.href.indexOf("/homePage.html")){
     messaging.getToken(M_P_KEY)
     .then((currentToken)=>{
+      console.log('token = ' + currentToken)
       if(currentToken){
             data = {device_token:currentToken}
             functions.httpsCallable("user_update_token")(data)
