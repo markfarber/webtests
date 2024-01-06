@@ -139,7 +139,8 @@
 
         storage.ref('/800/bgimg.png').getDownloadURL()
         .then((url) => {
-          document.body.style.background  = url
+          body.style.backgroundImage = "url('"+url+"')"
+          // document.body.style.background  = url
           console.log(url)
         })
         .catch((error)=>{
