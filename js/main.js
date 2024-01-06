@@ -72,12 +72,9 @@ function messagingSendToken(){
   }
 }
 
-self.addEventListener('message', (event) => {
-  // if (event.data && event.data.type === 'MESSAGE_IDENTIFIER') {
-    // do something
-  // }
-  console.log('got event -> ' + event)
-});
+onMessage(messaging, (payload) => {
+  console.log("message received -> " + payload)
+})
 
 
 
