@@ -92,10 +92,9 @@
         user = { 
           email: document.getElementById("email").value,
           motherName: document.getElementById("mName").value,
-          bDaite:document.getElementById("date").value,
-          tel:document.getElementById("tel").value,
-          famelyName:document.getElementById("fName").value,
-          uid:""
+          bDaite: document.getElementById("date").value,
+          tel: document.getElementById("tel").value,
+          famelyName: document.getElementById("fName").value,
          }
       
          console.log(user)
@@ -106,7 +105,7 @@
         firebase.firestore().collection("users").doc(userCredential.user.uid).set(user)
             .then(() => {
                 console.log("Document successfully written!");
-                window.location.href = "./index.html"
+                // window.location.href = "./index.html"
             })
             .catch((error) => {
                 console.error("Error writing document: ", error);
