@@ -105,11 +105,11 @@
           body: JSON.stringify(user)
           })
           .then((response) => {
-            console.log('got response from register user -> ' + response.json())
+            console.log('got response from register user')
             if (response.status == 200) {
               console.log("success")
             } else {
-              console.error('got error status from register user -> ' + response.status + ' ' + response.statusText)
+              console.error('got error status from register user -> ' + response.status + ' ' + response.statusText.json())
             }
              // window.location.href = "./index.html"
           })
