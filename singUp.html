@@ -95,29 +95,45 @@
           bDaite: document.getElementById("date").value,
           tel: document.getElementById("tel").value,
           famelyName: document.getElementById("fName").value,
+          password: document.getElementById("password").value
          }
       
          console.log(user)
-        firebase.auth().createUserWithEmailAndPassword(user.email, document.getElementById("password").value)
-        .then((userCredential) => {
-          user.uid = userCredential.user.uid
-          user.stop_messages = false,
-        firebase.firestore().collection("users").doc(userCredential.user.uid).set(user)
-            .then(() => {
-                console.log("Document successfully written!");
-                // window.location.href = "./index.html"
-            })
-            .catch((error) => {
-                console.error("Error writing document: ", error);
-            });
+         fetch('https://papi-lxwz33wkfq-nw.a.run.app', {
+          method: 'POST', 
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify(user)
+          })
+          .then((response) => {
+            console.log(response)
+             // window.location.href = "./index.html"
+          })
+          .catch((error) => {
+            console.error(error)
+          })
+
+        // firebase.auth().createUserWithEmailAndPassword(user.email, document.getElementById("password").value)
+        // .then((userCredential) => {
+        //   user.uid = userCredential.user.uid
+        //   user.stop_messages = false,
+        // firebase.firestore().collection("users").doc(userCredential.user.uid).set(user)
+        //     .then(() => {
+        //         console.log("Document successfully written!");
+        //         // window.location.href = "./index.html"
+        //     })
+        //     .catch((error) => {
+        //         console.error("Error writing document: ", error);
+        //     });
      
-        })
-        .catch((error) => {
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          // ..
-          console.log(errorMessage)
-        });
+        // })
+        // .catch((error) => {
+        //   var errorCode = error.code;
+        //   var errorMessage = error.message;
+        //   // ..
+        //   console.log(errorMessage)
+        // });
+
+
       }
       </script>
     </body>
