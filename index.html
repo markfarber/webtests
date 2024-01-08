@@ -100,7 +100,7 @@
             // init_messaging().then((registration) => {
               functions.httpsCallable("user_get")()
                 .then((user_obj) => {
-                  console.log(user_obj);
+                  console.log('got user = ' + user_obj);
                   // console.log(result)
                   localStorage.setItem(USER_KEY, JSON.stringify(user_obj));
                   window.location.href = "homePage.html";
