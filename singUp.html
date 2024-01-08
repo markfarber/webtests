@@ -1,148 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-   
-    <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <title>Document</title>
 </head>
+
 <body>
-    <section class="vh-100">
-        <div class="container py-5 h-100">
-          <div class="row d-flex align-items-center justify-content-center h-100">
-            <div class="col-md-8 col-lg-7 col-xl-6 mb-4">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-                class="img-fluid" alt="Phone image">
-            </div>
-            <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1 ">
-              <div>
-                <a class="btn btn-primary btn-lg btn-block w-100" style="background-color: #3b5998" href="#!"
-                role="button">
-                  הרשם בעזרת פייסבוק
-                </a>
-                               
-                <div class="divider d-flex align-items-center my-4">
-                    <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
-                  </div>
-  
-                <!-- Email input -->
-                <div class="form-outline mb-4 " dir="rtl">
-                  <label class="form-label" for="email">כתובת דואר אלקתרוני</label>
-                  <input type="email" id="email" class="form-control form-control-lg " dir="ltr"/>
-                </div>
-      
-                <!-- Password input -->
-                <div class="form-outline mb-4" dir="rtl">
-                  <label class="form-label" for="password">סיסמה</label>
-                  <input type="password" id="password" class="form-control form-control-lg" />
-                </div>
-  
-                <div class="form-outline mb-4" dir="rtl">
-                  <label class="form-label" for="fName">שם מלא</label>
-                  <input type="email" id="fName" class="form-control form-control-lg" />
-                </div>
-      
-                <!-- Password input -->
-                <div class="form-outline mb-4" dir="rtl">
-                  <label class="form-label" for="date">תאריך לידה</label>
-                  <input type="date" id="date" class="form-control form-control-lg" />
-                </div>
-  
-                <div class="form-outline mb-4" dir="rtl">
-                  <label class="form-label" for="tel">מספר תלפון</label>
-                  <input type="tel" id="tel" class="form-control form-control-lg" />
-                </div>  
-                
-                <div class="form-outline mb-4" dir="rtl">
-                    <label class="form-label" for="mName"> שם האם</label>
-                    <input type="text" id="mName" class="form-control form-control-lg" />
-                  </div>  
-      
-                <!-- Submit button -->
-                <button  id="singUP"  class="btn btn-primary btn-lg btn-block w-100">הרשם/י</button>
-               
-      
-               
-                
-      
-            </div>
-         
+  <section class="vh-100">
+    <div class="container py-5 h-100">
+      <div class="row d-flex align-items-center justify-content-center h-100">
+        <div class="col-md-8 col-lg-7 col-xl-6 mb-4">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid"
+            alt="Phone image">
         </div>
-      </section>
-  
-      <!-- end log in -->
-  
-  
-  
-  
-  
-      <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
-  
-      <script src="js/main.js"></script>
-      <script>//email & password singUp
-        let resp = ''
-        singUP = document.getElementById("singUP");
-        singUP.onclick = () => {
+        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1 ">
+          <div>
+            <a class="btn btn-primary btn-lg btn-block w-100" style="background-color: #3b5998" href="#!" role="button">
+              הרשם בעזרת פייסבוק
+            </a>
 
-        user = { 
-          email: document.getElementById("email").value,
-          motherName: document.getElementById("mName").value,
-          bDaite: document.getElementById("date").value,
-          tel: document.getElementById("tel").value,
-          famelyName: document.getElementById("fName").value,
-          password: document.getElementById("password").value
-         }
-         
-         console.log(user)
-         fetch('https://papi-lxwz33wkfq-nw.a.run.app/register_user', {
-          method: 'POST', 
-          headers: {"Content-Type": "application/json"},
-          body: JSON.stringify(user)
-          })
-          .then(response => response.json())
-          .then(data => console.log(data))
-            // console.log('got response from register user')
-            // if (response.status == 200) {
-            //   console.log("success")
-            // } else {
-            //   console.error('got error status from register user -> ' + response.status + ' ' + response.statusText.json())
-            // }
-             // window.location.href = "./index.html"
-          // })
-          .catch((error) => {
-            console.error('got error from register -> ' + error)
-          })
+            <div class="divider d-flex align-items-center my-4">
+              <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+            </div>
 
-        // firebase.auth().createUserWithEmailAndPassword(user.email, document.getElementById("password").value)
-        // .then((userCredential) => {
-        //   user.uid = userCredential.user.uid
-        //   user.stop_messages = false,
-        // firebase.firestore().collection("users").doc(userCredential.user.uid).set(user)
-        //     .then(() => {
-        //         console.log("Document successfully written!");
-        //         // window.location.href = "./index.html"
-        //     })
-        //     .catch((error) => {
-        //         console.error("Error writing document: ", error);
-        //     });
-     
-        // })
-        // .catch((error) => {
-        //   var errorCode = error.code;
-        //   var errorMessage = error.message;
-        //   // ..
-        //   console.log(errorMessage)
-        // });
+            <!-- Email input -->
+            <div class="form-outline mb-4 " dir="rtl">
+              <label class="form-label" for="email">כתובת דואר אלקתרוני</label>
+              <input type="email" id="email" class="form-control form-control-lg " dir="ltr" />
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4" dir="rtl">
+              <label class="form-label" for="password">סיסמה</label>
+              <input type="password" id="password" class="form-control form-control-lg" />
+            </div>
+
+            <div class="form-outline mb-4" dir="rtl">
+              <label class="form-label" for="fName">שם מלא</label>
+              <input type="email" id="fName" class="form-control form-control-lg" />
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4" dir="rtl">
+              <label class="form-label" for="date">תאריך לידה</label>
+              <input type="date" id="date" class="form-control form-control-lg" />
+            </div>
+
+            <div class="form-outline mb-4" dir="rtl">
+              <label class="form-label" for="tel">מספר תלפון</label>
+              <input type="tel" id="tel" class="form-control form-control-lg" />
+            </div>
+
+            <div class="form-outline mb-4" dir="rtl">
+              <label class="form-label" for="mName"> שם האם</label>
+              <input type="text" id="mName" class="form-control form-control-lg" />
+            </div>
+
+            <!-- Submit button -->
+            <button id="singUP" class="btn btn-primary btn-lg btn-block w-100">הרשם/י</button>
 
 
+
+
+
+          </div>
+
+        </div>
+  </section>
+
+  <!-- end log in -->
+
+
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
+
+  <script src="js/main.js"></script>
+  <script>//email & password singUp
+    singUP = document.getElementById("singUP");
+    singUP.onclick = () => {
+
+      user = {
+        email: document.getElementById("email").value,
+        motherName: document.getElementById("mName").value,
+        bDaite: document.getElementById("date").value,
+        tel: document.getElementById("tel").value,
+        famelyName: document.getElementById("fName").value,
+        password: document.getElementById("password").value
       }
-      </script>
-    </body>
-  </html>
-  
+
+      console.log(user)
+      fetch('https://papi-lxwz33wkfq-nw.a.run.app/register_user', {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(user)
+      })
+        .then(async response => {
+          data = await response.json()
+          if (response.status == 200) {
+            console.log('User registered successfully, user = ' + data)
+          } else {
+            console.error('Got error status: ' + response.status + ' Error: ' + data.error)
+          }
+        })
+        // window.location.href = "./index.html"
+        // })
+        .catch((error) => {
+          console.error('got error from register -> ' + error)
+        })
+
+      // firebase.auth().createUserWithEmailAndPassword(user.email, document.getElementById("password").value)
+      // .then((userCredential) => {
+      //   user.uid = userCredential.user.uid
+      //   user.stop_messages = false,
+      // firebase.firestore().collection("users").doc(userCredential.user.uid).set(user)
+      //     .then(() => {
+      //         console.log("Document successfully written!");
+      //         // window.location.href = "./index.html"
+      //     })
+      //     .catch((error) => {
+      //         console.error("Error writing document: ", error);
+      //     });
+
+      // })
+      // .catch((error) => {
+      //   var errorCode = error.code;
+      //   var errorMessage = error.message;
+      //   // ..
+      //   console.log(errorMessage)
+      // });
+
+
+    }
+  </script>
+</body>
+
+</html>
