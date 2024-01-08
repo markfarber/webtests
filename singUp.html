@@ -86,6 +86,7 @@
   
       <script src="js/main.js"></script>
       <script>//email & password singUp
+        let resp = ''
         singUP = document.getElementById("singUP");
         singUP.onclick = () => {
 
@@ -98,7 +99,6 @@
           password: document.getElementById("password").value
          }
          
-         let resp = ''
          console.log(user)
          fetch('https://papi-lxwz33wkfq-nw.a.run.app/register_user', {
           method: 'POST', 
