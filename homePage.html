@@ -39,74 +39,41 @@
     <title>הקלף היומי</title>
   </head >
   <body >
-
-    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top opacity-75">
-      <a class="navbar-brand" href="index.html"><img class="bg-image" loading="lazy" height="30" alt="MDB Logo" src="https://firebasestorage.googleapis.com/v0/b/tyg-stage-b8e16.appspot.com/o/800%2Flogo.png?alt=media&token=5424e1b5-5a2d-462b-82ff-40b18747603e" alt=""></a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#navbarOffcanvasLg"
-        aria-controls="navbarOffcanvasLg"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div
-        class="offcanvas offcanvas-end w-100 text-center"
-        tabindex="-1"
-        id="navbarOffcanvasLg"
-        aria-labelledby="navbarOffcanvasLgLabel">
-        <div class="offcanvas-header">
-          <a id="offcanvasNavbarLabel" class="offcanvas-title" href="index.html"><img loading="lazy" height="20" alt="MDB Logo" src="https://firebasestorage.googleapis.com/v0/b/tyg-stage-b8e16.appspot.com/o/800%2Flogo.png?alt=media&token=5424e1b5-5a2d-462b-82ff-40b18747603e" alt=""></a>
-          <!-- <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5> -->
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
-        </div>
-       
-        <div class="offcanvas-body">
-          <ul class="navbar-nav flex-grow-1 ">
+    <!-- menu -->
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <button class="btn btn-outline-primary" type="button">מסר יומי</button>
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="display-4 lead active mb-5" aria-current="page" href="curs.html"
-                >הקורס שלנו</a>
-            </li> 
-            
-            <div class="d-grid gap-5 d-md-block">
-              <button class="btn btn-outline-primary" type="button">מסר יומי</button>
-              <button class="btn btn-outline-primary" type="button">הכורס שלנו</button>
-              <button class="btn btn-outline-primary" type="button">הפסקת הודעות</button>
-              <button class="btn btn-outline-primary" type="button">התנתק</button>
-            </div>
-
-            <!-- <li class="nav-item ">
-             
-              <button type="button" class="btn btn-primary btn-lg">
-                
-                <span class="glyphicon glyphicon-ok">
-                  <span> להפסקת הודעות</span>
-                  <i class="bi bi-envelope-check"></i>
-                </span>
-              </button>
+              <a class="nav-link" href="#">Link</a>
             </li>
-
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
             <li class="nav-item">
-             
-              <button type="button" class="btn btn-primary btn-lg">
-                
-                <span class="glyphicon glyphicon-ok">
-                  <span>התנתק</span>
-                  <i class="bi bi-box-arrow-left"></i> 
-                </span>
-              </button>
-            </li> -->
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
           </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
         </div>
       </div>
     </nav>
