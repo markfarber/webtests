@@ -91,7 +91,7 @@
       </div>
     </nav>
 <!-- end nav -->
-    <h1 id="title" class="display-2 text-center mt-5 lead"></h1>
+    <h1 id="title" class="display-2 text-center mt-5 lead"> הקלף היומי שלך  <span id="userName"></span> הי</h1>
 
 
     <!-- card section -->
@@ -134,7 +134,7 @@
         cardData = corentUser.data.daily_card_populated
         console.log(corentUser)
         console.log(corentUser.data.famelyName )
-        document.getElementById("title").innerHTML = corentUser.data.famelyName 
+        document.getElementById("userName").innerHTML = corentUser.data.famelyName 
         document.getElementById("cardImg").src = cardData.img_url
         document.getElementById("cardT").innerText = cardData.name
         document.getElementById("cardM").innerText = cardData.message
