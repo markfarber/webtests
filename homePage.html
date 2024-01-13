@@ -131,41 +131,12 @@
       function showCardOnUI() {
        
        
-        userData = corentUser.data.daily_card_populated
-        console.log(corentUser)
-        document.getElementById("cardImg").src = userData.img_url
-        document.getElementById("cardT").src = userData.name
-        document.getElementById("cardM").src = userData.message
-
-
-        // userData = corentUser.data.daily_card_populated
-        // card = `
-        // <img class="card-img-top" src="${userData.img_url}"
-        //  alt="Card image cap">
-        // <div class="card-body text-center ">
-        //   <h5 class="card-title">${userData.name}</h5>
-        //   <p class="card-text"> ${userData.message}</p>
-        //   <a href="#" class="btn btn-primary">Go somewhere</a>
-        // </div>   
-        // `
-        // document.getElementById("card").innerHTML = card
-        document.getElementById("title").innerHTML = `הי ${"sss"} המסר היומי שלך הוא`
+        cardData = corentUser.data.daily_card_populated
+        document.getElementById("cardImg").src = cardData.img_url
+        document.getElementById("cardT").innerText = cardData.name
+        document.getElementById("cardM").innerText = cardData.message
+        document.getElementById("title").innerHTML = `הי ${corentUser.data.famelyName} המסר היומי שלך הוא`
         document.getElementById("title").classList.add("font")
-        //storageRef = storage.ref('/800/bgimg.png')
-
-        // storage.ref('/800/bgimg.png').getDownloadURL()
-        // storage.ref('/800/logo.png').getDownloadURL()
-        // .then((url) => {
-        //   document.body.style.backgroundImage = "url('"+url+"')"
-        //   // document.body.style.background  = url
-        //   console.log(url)
-        // })
-        // .catch((error)=>{
-        //   console.log(error)
-        // });
-
-
-
         console.log(corentUser)
 
       }
