@@ -28,12 +28,7 @@
         background-position: center;
         background-size:110%;
       }
-      .font{
-        font-family: 'Noto Sans Hebrew', sans-serif;
-                                                
-        
-        
-      }
+      
       .rtl {
             direction: rtl;
             text-align: right;
@@ -91,7 +86,7 @@
       </div>
     </nav>
 <!-- end nav -->
-    <h1 id="title" class="display-2 text-center mt-5 lead"> הקלף היומי שלך  <span id="userName"></span> הי</h1>
+    <h1 id="title" class="display-2 text-center mt-4 lead"> הקלף היומי שלך  <span id="userName"></span> הי</h1>
 
 
     <!-- card section -->
@@ -138,7 +133,6 @@
         document.getElementById("cardImg").src = cardData.img_url
         document.getElementById("cardT").innerText = cardData.name
         document.getElementById("cardM").innerText = cardData.message
-        document.getElementById("title").classList.add("font")
         console.log(corentUser)
 
       }
