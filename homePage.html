@@ -34,6 +34,10 @@
         
         
       }
+      .rtl {
+            direction: rtl;
+            text-align: right;
+        }
       
     </style>
     <title>הקלף היומי</title>
@@ -49,29 +53,9 @@
         </button>
         <div class="collapse  navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul class="navbar-nav ">
-            <!-- class -->
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="./class.html">הקורס שלנו</a>
-            </li>
-            <!-- spatial -->
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="./spatial.html">מבצעים</a>
-            </li>
-            <!-- user info -->
-            <li class="nav-item ">
-              <a class="nav-link active" aria-current="page" href="./seting.html">הגדרות</a>
-            </li>
-            <!-- home -->
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="./homePage.html">קלף יומי</a>
-            </li>
-            <!-- logout -->
-            <li class="nav-item ">
-              <a class="nav-link active" id="logOut" aria-current="page" href="./seting.html">התנתק</a>
-            </li>
-            <!-- admin -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             <!-- admin -->
+             <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle fs-5" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 מנהל
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -81,21 +65,58 @@
                 <li><a class="dropdown-item" href="#">מוצרים</a></li>
               </ul>
             </li>
-            <!--  -->
+            <!-- class -->
+            <li class="nav-item">
+              <a class="nav-link active fs-5" aria-current="page" href="./class.html">הקורס שלנו</a>
+            </li>
+            <!-- spatial -->
+            <li class="nav-item">
+              <a class="nav-link active fs-5" aria-current="page" href="./spatial.html">מבצעים</a>
+            </li>
+            <!-- user info -->
+            <li class="nav-item ">
+              <a class="nav-link active fs-5" aria-current="page" href="./seting.html">הגדרות</a>
+            </li>
+            <!-- home -->
+            <li class="nav-item">
+              <a class="nav-link active fs-5" aria-current="page" href="./homePage.html">קלף יומי</a>
+            </li>
+            <!-- logout -->
+            <li class="nav-item ">
+              <a class="nav-link active fs-5" id="logOut" aria-current="page" href="./seting.html">התנתק</a>
+            </li>
+           
           </ul>
         </div>
       </div>
     </nav>
-
-    <!-- end menu -->
-
-    <h1 id="title" class="display-2 text-center mt-5 lead"></h1>
+<!-- end nav -->
+    <h1 id="title" class="display-2 text-center mt-5 lead">הי המסר היומי שלך הוא</h1>
 
 
+    <!-- card section -->
 
-    <div id="card" class="card mx-auto bg-transparent mt-5" style="width: 18rem">
-     
+    <div class="container">
+      <div class="row rtl">
+        <div class="col-sm p-5">
+            <div class="p-5 border border-success p-2 mb-2 border-opacity-25 ">
+              <img id="cardImg" > 
+            </div>
+        </div>
+        <div class="col-sm">
+          <h4 class="rtl display-6 " id="cardT">title</h4>
+          
+          <p id="cardM">card content</p>
+        </div>
+      </div>
     </div>
+    <!-- <h1 id="title" class="display-2 text-center mt-5 lead"></h1> -->
+
+
+
+    <!-- <div id="card" class="card mx-auto bg-transparent mt-5" style="width: 18rem">
+     
+    </div> -->
 
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
@@ -108,19 +129,27 @@
     <script>
       
       function showCardOnUI() {
-        
+       
+       
         userData = corentUser.data.daily_card_populated
-        card = `
-        <img class="card-img-top" src="${userData.img_url}"
-         alt="Card image cap">
-        <div class="card-body text-center ">
-          <h5 class="card-title">${userData.name}</h5>
-          <p class="card-text"> ${userData.message}</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>   
-        `
-        document.getElementById("card").innerHTML = card
-        document.getElementById("title").innerHTML = "הי המסר היומי שלך הוא"
+        console.log(corentUser)
+        document.getElementById("cardImg").src = userData.img_url
+        document.getElementById("cardT").src = userData.name
+        document.getElementById("cardM").src = userData.message
+
+
+        // userData = corentUser.data.daily_card_populated
+        // card = `
+        // <img class="card-img-top" src="${userData.img_url}"
+        //  alt="Card image cap">
+        // <div class="card-body text-center ">
+        //   <h5 class="card-title">${userData.name}</h5>
+        //   <p class="card-text"> ${userData.message}</p>
+        //   <a href="#" class="btn btn-primary">Go somewhere</a>
+        // </div>   
+        // `
+        // document.getElementById("card").innerHTML = card
+        document.getElementById("title").innerHTML = `הי ${"sss"} המסר היומי שלך הוא`
         document.getElementById("title").classList.add("font")
         //storageRef = storage.ref('/800/bgimg.png')
 
