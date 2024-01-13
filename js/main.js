@@ -37,7 +37,7 @@ classObj = {}
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     corentUser = JSON.parse(localStorage.getItem(USER_KEY));
-    
+    messagingSendToken();
     
 
     if(window.location.href.indexOf("/homePage.html")){
@@ -45,7 +45,7 @@ firebase.auth().onAuthStateChanged((user) => {
         document.getElementById("admin").style.display = "block"
       
       }
-      messagingSendToken();
+     
       showCardOnUI();
     }else if(!window.location.href.indexOf("/spatial.html")){
       //get add obj frome db
