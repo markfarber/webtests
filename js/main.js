@@ -35,10 +35,21 @@ corentUser = {};
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     corentUser = JSON.parse(localStorage.getItem(USER_KEY));
-    messagingSendToken();
-    showCardOnUI();
-  } else {
-    if (!window.location.href.indexOf("/index.html")) window.location.href = "/index.html";
+    if(!window.location.href.indexOf("/index.html")){
+     
+      messagingSendToken();
+      showCardOnUI();
+    }else if(!window.location.href.indexOf("/spatial.html")){
+      //get add frome db
+
+    }else if(!window.location.href.indexOf("/class.html")){
+      //get class obj frome db    
+    }else if(corentUser.data.email === 'admin@dev.blaster.co.il'){    
+      document.getElementById("admin").style.display = "block"
+    
+    } else {
+        !window.location.href.indexOf("/index.html")? window.location.href = "/index.html":console.log("not logd in");
+    }
   }
 });
 
