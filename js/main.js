@@ -43,7 +43,7 @@ firebase.auth().onAuthStateChanged((user) => {
     
     }
 
-    if(!window.location.href.indexOf("/index.html")){
+    if(!window.location.href.indexOf("/homePage.html")){
      
       messagingSendToken();
       showCardOnUI();
