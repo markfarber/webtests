@@ -19,31 +19,37 @@ importScripts('https://www.gstatic.com/firebasejs/10.7.1/firebase-messaging-comp
 const app = firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 
-/*
-messaging.setBackgroundMessageHandler(function(payload) {
-  console.log('[firebase-messaging-sw.js] Received background message:', payload);
-  // Customize how you want to handle the background message here
-  const notificationTitle = 'Background Message Title';
-  const notificationOptions = {
-    content_available: true,
-    body: 'Background Message body.',
-    icon: '/firebase-logo.png'
-  };
-
-  return self.registration.showNotification(notificationTitle, notificationOptions);
-});
-*/
 messaging.onBackgroundMessage((payload) => {
   console.log(
     '[firebase-messaging-sw.js] Received background message ',
     payload
   );
+
+  self.onnotificationclick = (event) => {};
   // Customize notification here
-  const notificationTitle = 'Background Message Title';
+  const notificationTitle = 'מסר חדש מ-שי';
   const notificationOptions = {
     body: 'Background Message body.',
-    icon: '/firebase-logo.png'
+    icon: 'https://firebasestorage.googleapis.com/v0/b/tyg-stage-b8e16.appspot.com/o/800%2Flogo.png?alt=media&token=5424e1b5-5a2d-462b-82ff-40b18747603e',
+    renotify:true,
+    image :"",
+    dir :"rtl",
+    actions: [{ action: "get", title: "לפתיח המסר" }]
+
   };
 
   self.registration.showNotification(notificationTitle, notificationOptions);
+
+
+  self.addEventListener(
+    "notificationclick",
+    (event) => {
+      event.notification.close();
+      clients.openWindow("./homePage.html");
+    },
+    false,
+  );
+
+
+
 });
