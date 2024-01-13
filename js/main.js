@@ -38,13 +38,13 @@ firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     corentUser = JSON.parse(localStorage.getItem(USER_KEY));
     
-    if(corentUser.data.email === 'admin@dev.blaster.co.il'){    
-      document.getElementById("admin").style.display = "block"
     
-    }
 
     if(window.location.href.indexOf("/homePage.html")){
-     
+      if(corentUser.data.email === 'admin@dev.blaster.co.il'){    
+        document.getElementById("admin").style.display = "block"
+      
+      }
       messagingSendToken();
       showCardOnUI();
     }else if(!window.location.href.indexOf("/spatial.html")){
