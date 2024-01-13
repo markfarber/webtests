@@ -33,6 +33,10 @@
             direction: rtl;
             text-align: right;
         }
+      #logOutIcon{
+        font-size: 1.6rem;
+        
+      }
       
     </style>
     <title>הקלף היומי</title>
@@ -40,8 +44,8 @@
   <body >
     <!-- menu -->
     <!-- הקורס ששלנו הקלף היומי המבצעים שלנו משתמש -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent">
+      <div class="container-fluid ">
         <a class="navbar-brand" href="./homePage.html"><img width="50" height="50" src="https://firebasestorage.googleapis.com/v0/b/tyg-stage-b8e16.appspot.com/o/800%2Flogo.png?alt=media&token=5424e1b5-5a2d-462b-82ff-40b18747603e" alt=""></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -49,36 +53,36 @@
         <div class="collapse  navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul class="navbar-nav ">
              <!-- admin -->
-             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle fs-5" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             <li class="nav-item dropdown rtl ">
+              <a class="nav-link dropdown-toggle fs-5 " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 מנהל
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">מסרים</a></li>
+                <li><a class="dropdown-item " href="#">מסרים</a></li>
                 <li><a class="dropdown-item" href="#">נרשמים</a></li>
                 <li><a class="dropdown-item" href="#">משתמשים</a></li>
                 <li><a class="dropdown-item" href="#">מוצרים</a></li>
               </ul>
             </li>
+             <!-- user info -->
+             <li class="nav-item rtl">
+              <a class="nav-link  fs-5" aria-current="page" href="./seting.html">הגדרות</a>
+            </li>
             <!-- class -->
-            <li class="nav-item">
-              <a class="nav-link active fs-5" aria-current="page" href="./class.html">הקורס שלנו</a>
+            <li class="nav-item rtl">
+              <a class="nav-link  fs-5" aria-current="page" href="./class.html">הקורס שלנו</a>
             </li>
             <!-- spatial -->
-            <li class="nav-item">
-              <a class="nav-link active fs-5" aria-current="page" href="./spatial.html">מבצעים</a>
-            </li>
-            <!-- user info -->
-            <li class="nav-item ">
-              <a class="nav-link active fs-5" aria-current="page" href="./seting.html">הגדרות</a>
+            <li class="nav-item rtl">
+              <a class="nav-link  fs-5" aria-current="page" href="./spatial.html">מבצעים</a>
             </li>
             <!-- home -->
-            <li class="nav-item">
+            <li class="nav-item rtl">
               <a class="nav-link active fs-5" aria-current="page" href="./homePage.html">קלף יומי</a>
             </li>
             <!-- logout -->
-            <li class="nav-item ">
-              <a class="nav-link active fs-5" id="logOut" aria-current="page" href="./seting.html">התנתק</a>
+            <li class="nav-item rtl">
+              <a class="nav-link  fs-5" id="logOutBtn" aria-current="page" href="./seting.html"><i id="logOutIcon" class='bi-box-arrow-right'></i></a>
             </li>
            
           </ul>
