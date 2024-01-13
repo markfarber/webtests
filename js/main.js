@@ -92,3 +92,18 @@ messaging.onMessage((payload) => {
     registration.showNotification(payload.notification.title);
   });
 });
+
+
+document.getElementById("logOutBtn").addEventListener("click", () => {
+  console.log("logout");
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      localStorage.removeItem(USER_KEY);
+      window.location.href = "./index.html";
+    })
+    .catch((error) => {
+      // An error happened.
+    });
+});

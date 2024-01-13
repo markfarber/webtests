@@ -90,7 +90,7 @@
               </ul>
             </li>
              <!-- user info -->
-             <li id="admin" class="nav-item rtl">
+             <li  class="nav-item rtl">
               <a  class="nav-link  fs-4" aria-current="page" href="./seting.html">הגדרות</a>
             </li>
             <!-- class -->
@@ -181,19 +181,7 @@
       }
       
 
-      document.getElementById("logOut").addEventListener("click", () => {
-        console.log("logout");
-        firebase
-          .auth()
-          .signOut()
-          .then(() => {
-            localStorage.removeItem(USER_KEY);
-            window.location.href = "./index.html";
-          })
-          .catch((error) => {
-            // An error happened.
-          });
-      });
+      
     </script>
   </body>
 </html>
