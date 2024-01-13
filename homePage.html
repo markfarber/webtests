@@ -134,10 +134,10 @@
         cardData = corentUser.data.daily_card_populated
         console.log(corentUser)
         console.log(corentUser.data.famelyName )
+        document.getElementById("title").innerText = corentUser.data.famelyName 
         document.getElementById("cardImg").src = cardData.img_url
         document.getElementById("cardT").innerText = cardData.name
         document.getElementById("cardM").innerText = cardData.message
-        document.getElementById("title").innerText = corentUser.data.famelyName 
         document.getElementById("title").classList.add("font")
         console.log(corentUser)
 
