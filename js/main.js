@@ -23,7 +23,7 @@ if ("serviceWorker" in navigator) {
 if ("Notification" in window) {
   Notification.requestPermission().then((premition) => {
     if (premition == "denied") {
-      console.log("the user denied the premition");
+      console.log("the user denied the premission");
       return;
     }
     if (premition == "granted") {
