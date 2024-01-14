@@ -25,7 +25,7 @@ messaging.onBackgroundMessage((payload) => {
     payload
   );
 
-  self.onnotificationclick = (event) => {};
+  //self.onnotificationclick = (event) => {};
   // Customize notification here
   // const notificationTitle = 'מסר חדש מ-שי';
   // const notificationOptions = {
