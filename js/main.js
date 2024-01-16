@@ -41,7 +41,8 @@ firebase.auth().onAuthStateChanged((user) => {
     
 
     if(window.location.href.indexOf("/homePage.html")){
-      if(corentUser.data.email === 'admin@dev.blaster.co.il'){    
+      console.log(corentUser.data.email.trim() )
+      if(corentUser.data.email.trim() === 'admin@dev.blaster.co.il'){    
         document.getElementById("admin").style.display = "block"
       
       }
@@ -61,7 +62,7 @@ firebase.auth().onAuthStateChanged((user) => {
 });
 
 function messagingSendToken() {
-  if (window.location.href.indexOf("/homePage.html")) {
+ 
     messaging
       .getToken({ vapidKey: M_P_KEY })
       .then((currentToken) => {
@@ -83,8 +84,8 @@ function messagingSendToken() {
       .catch((err) => {
         console.log(err);
       });
-  }
 }
+
 
 messaging.onMessage((payload) => {
   console.log("message received -> " + JSON.stringify(payload));
