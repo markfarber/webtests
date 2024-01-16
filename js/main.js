@@ -54,7 +54,7 @@ firebase.auth().onAuthStateChanged((user) => {
       }else if(!window.location.href.indexOf("/class.html")){
         //get class obj frome db    
       
-      }else if(!window.location.href.indexOf("/index.html")){
+      }else if(window.location.href.indexOf("/index.html")){
 
         window.location.href = "./homePage.html"
 
