@@ -41,7 +41,7 @@ firebase.auth().onAuthStateChanged((user) => {
     
 
     if(window.location.href.indexOf("/homePage.html")){
-      if(corentUser.data.email === 'admin@dev.blaster.co.il'){    
+      if(true ){//corentUser.data.email === 'admin@dev.blaster.co.il'){    
         document.getElementById("admin").style.display = "block"
       
       }
