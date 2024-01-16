@@ -39,7 +39,6 @@ firebase.auth().onAuthStateChanged((user) => {
       corentUser = JSON.parse(localStorage.getItem(USER_KEY));
       messagingSendToken();
       
-      console.log(window.location.href.indexOf("/homePage.html"))
       if(window.location.href.indexOf("/homePage.html")>0){
         console.log(corentUser.data.email.trim() )
         if(corentUser.data.email.trim() === 'admin@dev.blaster.co.il'){    
@@ -58,10 +57,11 @@ firebase.auth().onAuthStateChanged((user) => {
 
         window.location.href = "./homePage.html"
 
-    }else{
-      !window.location.href.indexOf("/index.html")? window.location.href = "/index.html":console.log("not logd in");
-
     }
+  }else{
+    !window.location.href.indexOf("/index.html")? window.location.href = "/index.html":console.log("not logd in");
+    console.log(window.location.href)
+
   }
 });
 
