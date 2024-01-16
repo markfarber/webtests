@@ -59,7 +59,7 @@ firebase.auth().onAuthStateChanged((user) => {
 
     }
   }else{
-    !window.location.href.indexOf("/index.html")? window.location.href = "./index.html":console.log("not logd in");
+    window.location.href.indexOf("/index.html")==-1? window.location.href = "./index.html":console.log("not logd in");
     console.log(window.location.href)
 
   }
