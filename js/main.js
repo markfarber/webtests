@@ -36,31 +36,32 @@ addObj  = {}
 classObj = {}
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-    corentUser = JSON.parse(localStorage.getItem(USER_KEY));
-    messagingSendToken();
-    
-
-    if(window.location.href.indexOf("/homePage.html")){
-      console.log(corentUser.data.email.trim() )
-      if(corentUser.data.email.trim() === 'admin@dev.blaster.co.il'){    
-        document.getElementById("admin").style.display = "block"
+      corentUser = JSON.parse(localStorage.getItem(USER_KEY));
+      messagingSendToken();
       
-      }
-     
-      showCardOnUI();
-    }else if(!window.location.href.indexOf("/spatial.html")){
-      //get add obj frome db
 
-    }else if(!window.location.href.indexOf("/class.html")){
-      //get class obj frome db    
-    
-    }else if(!window.location.href.indexOf("/index.html")){
+      if(window.location.href.indexOf("/homePage.html")){
+        console.log(corentUser.data.email.trim() )
+        if(corentUser.data.email.trim() === 'admin@dev.blaster.co.il'){    
+          document.getElementById("admin").style.display = "block"
+        
+        }
+      
+        showCardOnUI();
+      }else if(!window.location.href.indexOf("/spatial.html")){
+        //get add obj frome db
 
-      window.location.href = "./homePage.html"
+      }else if(!window.location.href.indexOf("/class.html")){
+        //get class obj frome db    
+      
+      }else if(!window.location.href.indexOf("/index.html")){
 
-  }else{
-    !window.location.href.indexOf("/index.html")? window.location.href = "/index.html":console.log("not logd in");
+        window.location.href = "./homePage.html"
 
+    }else{
+      !window.location.href.indexOf("/index.html")? window.location.href = "/index.html":console.log("not logd in");
+
+    }
   }
 });
 
