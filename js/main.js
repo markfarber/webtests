@@ -40,7 +40,7 @@ firebase.auth().onAuthStateChanged((user) => {
       messagingSendToken();
       
       console.log(window.location.href.indexOf("/homePage.html"))
-      if(window.location.href.indexOf("/homePage.html")){
+      if(window.location.href.indexOf("/homePage.html")>0){
         console.log(corentUser.data.email.trim() )
         if(corentUser.data.email.trim() === 'admin@dev.blaster.co.il'){    
           document.getElementById("admin").style.display = "block"
@@ -48,13 +48,13 @@ firebase.auth().onAuthStateChanged((user) => {
         }
       
         showCardOnUI();
-      }else if(window.location.href.indexOf("/spatial.html")){
+      }else if(window.location.href.indexOf("/spatial.html")>0){
         //get add obj frome db
 
-      }else if(window.location.href.indexOf("/class.html")){
+      }else if(window.location.href.indexOf("/class.html")>0){
         //get class obj frome db    
       
-      }else if(window.location.href.indexOf("/index.html")){
+      }else if(window.location.href.indexOf("/index.html")>0){
 
         window.location.href = "./homePage.html"
 
