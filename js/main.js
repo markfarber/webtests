@@ -38,6 +38,7 @@ firebase.auth().onAuthStateChanged((user) => {
   if (user) {
       corentUser = JSON.parse(localStorage.getItem(USER_KEY));
       messagingSendToken();
+      console.log(user)
       
       if(window.location.href.indexOf("/homePage.html")>0){
         console.log(corentUser.data.email.trim() )
@@ -98,7 +99,7 @@ messaging.onMessage((payload) => {
   // });
 });
 
-
+if(window.location.href.indexOf("/index.html")<0)
 document.getElementById("logOutBtn").addEventListener("click", () => {
   console.log("logout");
   firebase
