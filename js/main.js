@@ -40,7 +40,7 @@ firebase.auth().onAuthStateChanged((user) => {
       messagingSendToken();
       console.log(user)
       
-      if(window.location.href.indexOf("/homePage.html")){
+      if(window.location.href.indexOf("/homePage.html")>0){
         console.log(corentUser.data.email.trim() )
         if(corentUser.data.email.trim() === 'admin@dev.blaster.co.il'){    
           document.getElementById("admin").style.display = "block"
