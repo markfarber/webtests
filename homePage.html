@@ -30,13 +30,9 @@
         background-image: url('https://firebasestorage.googleapis.com/v0/b/tyg-stage-b8e16.appspot.com/o/800%2Fbgimg.png?alt=media&token=972e2284-db0b-4331-8b3b-9cad27046894');
         background-repeat:no-repeat;
         background-position: center;
-        background-size:110%;
+        background-size:100%;
       }
-      h1.b {
-        font-family: "Sofia", sans-serif;
-        /* font-size: 80px; */
-        text-shadow: 3px 3px 3px #ababab;
-      }
+      
       .rtl {
             direction: rtl;
             text-align: right;
@@ -66,6 +62,13 @@
         color: #5970af; font-family: 'Helvetica Neue', sans-serif; font-size: 80px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;
 
 
+      }
+      @media only screen and (max-width: 600px) {
+          #title{
+          color: #5970af; font-family: 'Helvetica Neue', sans-serif; font-size: 40px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;
+
+
+        }
       }
       .txt-center{
         text-align: justify;
@@ -123,7 +126,7 @@
       </div>
     </nav>
 <!-- end nav -->
-    <h1 id="title" class="display-2 d-sm-1 text-center mt-4 lead b">הי הקלף היומי שלך  <span id="userName"></span> </h1>
+    <h1 id="title" class="text-center mt-4 lead ">הי הקלף היומי שלך  <span id="userName"></span> </h1>
 
 
     <!-- card section -->
