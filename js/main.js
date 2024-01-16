@@ -54,7 +54,10 @@ firebase.auth().onAuthStateChanged((user) => {
     }else if(!window.location.href.indexOf("/class.html")){
       //get class obj frome db    
     
-    }
+    }else if(!window.location.href.indexOf("/index.html")){
+
+      window.location.href = "./homePage.html"
+
   }else{
     !window.location.href.indexOf("/index.html")? window.location.href = "/index.html":console.log("not logd in");
 
