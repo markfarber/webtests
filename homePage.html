@@ -62,6 +62,11 @@
       #admin{
         display: none;
       }
+      #title{
+        color: #5970af; font-family: 'Helvetica Neue', sans-serif; font-size: 80px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;
+
+
+      }
       
     </style>
     <title>הקלף היומי</title>
@@ -78,7 +83,7 @@
         <div class="collapse  navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul class="navbar-nav ">
              <!-- admin -->
-             <li  class="nav-item dropdown rtl ">
+             <li id="admin"  class="nav-item dropdown rtl ">
               <a class="nav-link dropdown-toggle fs-4 " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 מנהל
               </a>
@@ -115,11 +120,10 @@
       </div>
     </nav>
 <!-- end nav -->
-    <h1 id="title" class="display-2 d-sm-6 text-center mt-4 lead b"> הקלף היומי שלך  <span id="userName"></span> הי</h1>
+    <h1 id="title" class="display-2 d-sm-6 text-center mt-4 lead b">הי הקלף היומי שלך  <span id="userName"></span> </h1>
 
 
     <!-- card section -->
-
     <div class="container">
       <div class="row rtl">
         <div class="col-sm p-3">
@@ -138,20 +142,16 @@
       <!-- Grid container -->
       <div class="container p-4">
         <!-- Section: Social media -->
-        <section >
-          <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
-
-          <!-- Twitter -->
-          <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee" href="#!" role="button"><i class="fab fa-twitter"></i></a>
-      
-          <!-- Google -->
-          <a class="btn btn-primary btn-floating m-1" style="background-color: #dd4b39" href="#!" role="button"><i class="fab fa-google"></i></a>
-      
-          <!-- Instagram -->
-          <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac" href="#!" role="button"><i class="fab fa-instagram"></i></a>
-      
-
-       
+        <section class="row" >
+          <div class="col-md m-6">
+            <a  class="rtl btn btn-primary btn-floating btn-block w-100 text-center" style="background-color: #3b5998" href="#!" role="button"><i class="fab fa-facebook-f"></i> לקהילת פייסבוק שלנו  </a>
+          </div>
+          <div class="col-md m-6">
+            <a href="https://api.whatsapp.com/send?phone=0533340811&text=Hi" class="rtl btn btn-primary btn-floating btn-block w-100 text-center" style="background-color: #01a94f" href="#!" role="button"><i class="fab fa-whatsapp"></i> לפתיחה אישית ע"י ישי גד </a>
+          </div>
+          <div class="col-md m-6">
+            <a href="https://api.whatsapp.com/send?phone=0533340811&text=Hi" class="rtl btn btn-primary btn-floating btn-block w-100 text-center" style="background-color: #01a94f" href="#!" role="button"><i class="fab fa-whatsapp"></i> לפתיחה אישית ע"י צוות המומחים של ישי </a>
+          </div>
         </section>
       </div>  
     </footer>

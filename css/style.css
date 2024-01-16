@@ -14,3 +14,7 @@ background: #eee;
     font-family: "My Custom Font";
     src: url(http://www.example.org/mycustomfont.ttf) format("truetype");
 } */
+
+#admin{
+    display: none;
+}
