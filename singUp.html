@@ -112,6 +112,7 @@
           data = await response.json()
           if (response.status == 200) {
             console.log('User registered successfully, user = ' + JSON.stringify(data))
+            localStorage.setItem("user",JSON.stringify(data))
             window.location.href = "./index.html"
           } else {
             console.error('Register user - got error status: ' + response.status + ' Error: ' + data.error)
