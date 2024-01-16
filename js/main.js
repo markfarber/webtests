@@ -39,7 +39,7 @@ firebase.auth().onAuthStateChanged((user) => {
       corentUser = JSON.parse(localStorage.getItem(USER_KEY));
       messagingSendToken();
       
-      console.log(window.location.href)
+      console.log(window.location.href.indexOf("/homePage.html"))
       if(window.location.href.indexOf("/homePage.html")){
         console.log(corentUser.data.email.trim() )
         if(corentUser.data.email.trim() === 'admin@dev.blaster.co.il'){    
