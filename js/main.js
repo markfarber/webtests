@@ -48,10 +48,10 @@ firebase.auth().onAuthStateChanged((user) => {
         }
       
         showCardOnUI();
-      }else if(!window.location.href.indexOf("/spatial.html")){
+      }else if(window.location.href.indexOf("/spatial.html")){
         //get add obj frome db
 
-      }else if(!window.location.href.indexOf("/class.html")){
+      }else if(window.location.href.indexOf("/class.html")){
         //get class obj frome db    
       
       }else if(window.location.href.indexOf("/index.html")){
