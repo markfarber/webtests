@@ -205,10 +205,10 @@
       function showCardOnUI() {
        
        
-        cardData = corentUser.data.daily_card_populated
+        cardData = corentUser.daily_card_populated
         console.log(corentUser)
-        console.log(corentUser.data.famelyName )
-        document.getElementById("userName").innerHTML = corentUser.data.famelyName 
+        console.log(corentUser.famelyName )
+        document.getElementById("userName").innerHTML = corentUser.famelyName 
         document.getElementById("cardImg").src = cardData.img_url
         document.getElementById("cardT").innerText = cardData.name
         document.getElementById("cardM").innerText = cardData.message
