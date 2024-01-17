@@ -39,6 +39,7 @@ firebase.auth().onAuthStateChanged((user) => {
       corentUser = JSON.parse(localStorage.getItem(USER_KEY));
       messagingSendToken();
       console.log(user)
+      console.log(corentUser)
       
       if(window.location.href.indexOf("/homePage.html")>0){
         console.log(corentUser.data.email.trim() )
