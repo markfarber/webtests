@@ -23,60 +23,17 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="./css/style.css">
     <style>
-      
-      body{
-        background-image: url('https://firebasestorage.googleapis.com/v0/b/tyg-stage-b8e16.appspot.com/o/800%2Fbgimg.png?alt=media&token=972e2284-db0b-4331-8b3b-9cad27046894');
-        background-repeat:no-repeat;
-        background-position: center;
-        background-size:100%;
-      }
-      
-      .rtl {
-            direction: rtl;
-            text-align: right;
-        }
-      #logOutIcon{
-        font-size: 1.6rem;
-        
-      }
-      
-      nav div ul li a{
-        /* background: #d496d449; */
-        border-bottom: none !important ;
-        transition: all 2s !important; 
-        
-      }
-      nav div ul li a:hover{
-        border-bottom: 1px solid #55acee !important;
-        /* background-color: #e3d2f37c; */
-      }
-      #admin{
-        display: none;
-      }
       #title{
         color: #5970af; font-family: 'Helvetica Neue', sans-serif; font-size: 100px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;
-
-
-      }
-      @media only screen and (max-width: 600px) {
-          #title{
-           font-size: 50px; 
-        }
-      }
-      .txt-center{
-        text-align: justify;
-       
-      }
-      #logoutBTN:hover{
-        cursor: pointer;
-        font-weight: bold;
+        
       }
       #cardM{
         background-color: rgba(255,255,255, 0.5);
         padding: 20px;
       }
+      
     </style>
     <title>הקלף היומי</title>
   </head >
@@ -203,16 +160,13 @@
     <script>
       
       function showCardOnUI() {
-       
-       
+
         cardData = corentUser.daily_card_populated
         console.log(corentUser)
-        console.log(corentUser.famelyName )
         document.getElementById("userName").innerHTML = corentUser.famelyName 
         document.getElementById("cardImg").src = cardData.img_url
         document.getElementById("cardT").innerText = cardData.name
         document.getElementById("cardM").innerText = cardData.message
-        console.log(corentUser)
 
       }
       

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Management</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+ <style>
+    body {
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent">
+        <div class="container-fluid ">
+          <a class="navbar-brand" href="./homePage.html"><img width="55" height="55" src="https://firebasestorage.googleapis.com/v0/b/tyg-stage-b8e16.appspot.com/o/800%2Flogo.png?alt=media&token=5424e1b5-5a2d-462b-82ff-40b18747603e" alt=""></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse  navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav ">
+               <!-- admin -->
+               <li id="admin"  class="nav-item dropdown rtl ">
+                <a class="nav-link dropdown-toggle fs-4 " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  מנהל
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item " href="#">מסרים</a></li>
+                  <li><a class="dropdown-item" href="#">נרשמים</a></li>
+                  <li><a class="dropdown-item" href="#">משתמשים</a></li>
+                  <li><a class="dropdown-item" href="#">מוצרים</a></li>
+                </ul>
+              </li>
+               <!-- user info -->
+               <li  class="nav-item rtl">
+                <a  class="nav-link  fs-4" aria-current="page" href="./seting.html">הגדרות</a>
+              </li>
+              <!-- class -->
+              <li class="nav-item rtl">
+                <a class="nav-link  fs-4" aria-current="page" href="./class.html">הקורס שלנו</a>
+              </li>
+              <!-- spatial -->
+              <li class="nav-item rtl">
+                <a class="nav-link  fs-4" aria-current="page" href="./spatial.html">מבצעים</a>
+              </li>
+              <!-- home -->
+              <li class="nav-item rtl">
+                <a class="nav-link active fs-4" aria-current="page" href="./homePage.html">קלף יומי</a>
+              </li>
+              <!-- logout -->
+              <li id="logoutBTN" class="nav-item rtl" id="logOutBtn">
+                <a id="logOutBtn" class="nav-link  fs-4"  aria-current="page" ><i id="logOutBtn" class='bi-box-arrow-right'></i></a>
+              </li>
+             
+            </ul>
+          </div>
+        </div>
+      </nav>
+  <!-- end nav -->
+
+
+  <div class="container">
+    <h2 class="mt-4 mb-4 rtl">נרשמים</h2>
+
+   
+
+
+    <!-- Table for displaying users -->
+    <table class="table">
+      <thead>
+        <tr>
+            <th>Action</th>
+            <th>כתובת דואר אלקתרוני</th>
+            <th>שם האם</th>
+            <th>תאריך לידה</th>
+            <th>שם משפחה</th>
+            <th>שם</th>
+        </tr>
+      </thead>
+      <tbody id="userTableBody">
+        <!-- User rows will be dynamically added here -->
+      </tbody>
+    </table>
+
+    <!-- Edit User Modal -->
+    <div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editUserModalLabel">Edit User</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="editName" class="form-label">Name:</label>
+              <input type="text" class="form-control" id="editName" required>
+            </div>
+            <div class="mb-3">
+              <label for="editLastName" class="form-label">Last Name:</label>
+              <input type="text" class="form-control" id="editLastName" required>
+            </div>
+            <div class="mb-3">
+              <label for="editDob" class="form-label">Date of Birth:</label>
+              <input type="date" class="form-control" id="editDob" required>
+            </div>
+            <div class="mb-3">
+              <label for="editMotherName" class="form-label">Mother Name:</label>
+              <input type="text" class="form-control" id="editMotherName" required>
+            </div>
+            <div class="mb-3">
+              <label for="editEmail" class="form-label">Email:</label>
+              <input type="email" class="form-control" id="editEmail" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="saveEditedUser()">Save Changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bootstrap JavaScript and Popper.js (Optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+  <script>
+    // Sample user data
+    const subscriber = [
+      { name: 'John', lastName: 'Doe', dob: '1990-01-01', motherName: 'Mary Doe', email: 'john@example.com' },
+      { name: 'Jane', lastName: 'Smith', dob: '1985-05-15', motherName: 'Alice Smith', email: 'jane@example.com' },
+      // Add more users as needed
+    ];
+
+    // Function to render users in the table
+    function renderUsers() {
+      const tableBody = document.getElementById('userTableBody');
+      tableBody.innerHTML = '';
+
+      subscriber.forEach((user, index) => {
+        const row = tableBody.insertRow(index);
+        const cell6 = row.insertCell(0);
+        const cell5 = row.insertCell(1);
+        const cell4 = row.insertCell(2);
+        const cell3 = row.insertCell(3);
+        const cell2 = row.insertCell(4);
+        const cell1 = row.insertCell(5);
+
+        cell1.textContent = user.name;
+        cell2.textContent = user.lastName;
+        cell3.textContent = user.dob;
+        cell4.textContent = user.motherName;
+        cell5.textContent = user.email;
+
+        const editButton = document.createElement('button');
+        editButton.innerHTML = '<i class="fas fa-pencil-alt"></i>';
+        editButton.classList.add('btn', 'btn-warning', 'btn-sm', 'me-1');
+        editButton.setAttribute('data-bs-toggle', 'modal');
+        editButton.setAttribute('data-bs-target', '#editUserModal');
+        editButton.onclick = () => openEditModal(index);
+
+        const deleteButton = document.createElement('button');
+        deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
+        deleteButton.classList.add('btn', 'btn-danger', 'btn-sm');
+        deleteButton.onclick = () => deleteUser(index);
+
+        cell6.appendChild(editButton);
+        cell6.appendChild(deleteButton);
+      });
+    }
+
+    // Function to add a new user
+    function addUser() {
+      const name = document.getElementById('name').value;
+      const lastName = document.getElementById('lastName').value;
+      const dob = document.getElementById('dob').value;
+      const motherName = document.getElementById('motherName').value;
+      const email = document.getElementById('email').value;
+
+      if (name && lastName && dob && motherName && email) {
+        subscriber.push({ name, lastName, dob, motherName, email });
+        renderUsers();
+        document.querySelector('form').reset();
+      }
+    }
+
+    // Function to edit a user
+    function openEditModal(index) {
+      const user = subscriber[index];
+      document.getElementById('editName').value = user.name;
+      document.getElementById('editLastName').value = user.lastName;
+      document.getElementById('editDob').value = user.dob;
+      document.getElementById('editMotherName').value = user.motherName;
+      document.getElementById('editEmail').value = user.email;
+    }
+
+    function saveEditedUser() {
+      const editedName = document.getElementById('editName').value;
+      const editedLastName = document.getElementById('editLastName').value;
+      const editedDob = document.getElementById('editDob').value;
+      const editedMotherName = document.getElementById('editMotherName').value;
+      const editedEmail = document.getElementById('editEmail').value;
+
+      // Get the index of the user being edited
+      const index = subscriber.findIndex(user => user.name === editedName);
+
+      if (index !== -1) {
+        subscriber[index].name = editedName;
+        subscriber[index].lastName = editedLastName;
+        subscriber[index].dob = editedDob;
+        subscriber[index].motherName = editedMotherName;
+        subscriber[index].email = editedEmail;
+        renderUsers();
+        // Close the modal
+        const modal = new bootstrap.Modal(document.getElementById('editUserModal'));
+        modal.hide();
+      }
+    }
+
+    // Function to delete a user
+    function deleteUser(index) {
+      subscriber.splice(index, 1);
+      renderUsers();
+    }
+
+    // Initial rendering of users
+    renderUsers();
+  </script>
+
+</body>
+</html>

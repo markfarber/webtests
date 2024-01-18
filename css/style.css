@@ -6,6 +6,14 @@ height: 1px;
 background: #eee;
 }
 
+#logoutBTN:hover{
+    cursor: pointer;
+    font-weight: bold;
+  }
+.txt-center{
+    text-align: justify;
+   
+}
 .fbtn{
     width: 100%;
     margin-bottom: 8px;
@@ -14,7 +22,37 @@ background: #eee;
     font-family: "My Custom Font";
     src: url(http://www.example.org/mycustomfont.ttf) format("truetype");
 } */
-
-#admin{
+body{
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/tyg-stage-b8e16.appspot.com/o/800%2Fbgimg.png?alt=media&token=972e2284-db0b-4331-8b3b-9cad27046894');
+    background-repeat:no-repeat;
+    background-position: center;
+    background-size:100%;
+  }
+  
+.rtl{
+        direction: rtl;
+        text-align: right;
+    }
+#logOutIcon{
+    font-size: 1.6rem;
+    
+  }
+  
+  nav div ul li a{
+    /* background: #d496d449; */
+    border-bottom: none !important ;
+    transition: all 2s !important; 
+    
+  }
+  nav div ul li a:hover{
+    border-bottom: 1px solid #55acee !important;
+    /* background-color: #e3d2f37c; */
+  }
+  #admin{
     display: none;
+  }
+  @media only screen and (max-width: 600px) {
+    #title{
+     font-size: 50px; 
+  }
 }
