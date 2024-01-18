@@ -92,8 +92,10 @@
             // Signed in successfullyee
             var user = userCredential.user;
             console.log("User signed in:", user);
-            user = await functions.httpsCallable('user_get');
-            console.log(user);
+            functions.httpsCallable('user_get').call()
+            .then((result) => {
+              console.log("got from user_get -> " + result.data)
+            });
             
             //  window.location.href = './homePage.html'
           })
