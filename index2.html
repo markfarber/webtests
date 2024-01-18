@@ -94,7 +94,9 @@
             console.log("User signed in:", user);
             functions.httpsCallable('user_get').call()
             .then((result) => {
-              result
+              result.data.forEach(element => {
+                console.log(element)
+              });
             });
             
             //  window.location.href = './homePage.html'
