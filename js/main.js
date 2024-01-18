@@ -37,6 +37,7 @@ classObj = {}
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
 
+    console.log(user)
     functions.httpsCallable("user_get")()
     .then((user_obj) => {
       console.log( user_obj);
