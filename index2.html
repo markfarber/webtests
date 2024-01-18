@@ -88,15 +88,14 @@
       signInBtn = document.getElementById("singin");
       signInBtn.onclick = () => {
         firebase.auth().signInWithEmailAndPassword(document.getElementById("email").value, document.getElementById("password").value)
-          .then(async (userCredential) => {
+          .then((userCredential) => {
             // Signed in successfullyee
             var user = userCredential.user;
             console.log("User signed in:", user);
             functions.httpsCallable('user_get').call()
-            .then((result) => {
-              result.data.forEach(element => {
-                console.log(element)
-              });
+            .then(async (result) => {
+              d = await result.data
+              console.log(d)
             });
             
             //  window.location.href = './homePage.html'
