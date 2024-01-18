@@ -50,7 +50,7 @@ firebase.auth().onAuthStateChanged((user) => {
         document.getElementById("admin").style.display = "block"
       }
       if(window.location.href.indexOf("/homePage.html")>0){
-          console.log(corentUser.email.trim() )
+          console.log(corentUser )
           
         
           showCardOnUI();
