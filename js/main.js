@@ -36,30 +36,45 @@ addObj  = {}
 classObj = {}
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-      corentUser = JSON.parse(localStorage.getItem(USER_KEY));
+
+    functions.httpsCallable("user_get")()
+    .then((user_obj) => {
+      console.log('got user = ' + user_obj);
+
+
+      
+      corentUser = user_obj //JSON.parse(localStorage.getItem(USER_KEY));
       messagingSendToken();
       console.log(user)
       console.log(corentUser)
       
-      if(window.location.href.indexOf("/homePage.html")>0){
-        console.log(corentUser.email.trim() )
-        if(corentUser.email.trim() === 'admin@dev.blaster.co.il'){    
-          document.getElementById("admin").style.display = "block"
-          
-        }
-      
-        showCardOnUI();
-      }else if(window.location.href.indexOf("/spatial.html")>0){
-        //get add obj frome db
+        if(window.location.href.indexOf("/homePage.html")>0){
+          console.log(corentUser.email.trim() )
+          if(corentUser.email.trim() === 'admin@dev.blaster.co.il'){    
+            document.getElementById("admin").style.display = "block"
+            
+          }
+        
+          showCardOnUI();
+        }else if(window.location.href.indexOf("/spatial.html")>0){
+          //get add obj frome db
 
-      }else if(window.location.href.indexOf("/class.html")>0){
-        //get class obj frome db    
-      
-      }else if(window.location.href.indexOf("/index.html")>0){
+        }else if(window.location.href.indexOf("/class.html")>0){
+          //get class obj frome db    
+        
+        }else if(window.location.href.indexOf("/index.html")>0){
 
-        window.location.href = "./homePage.html"
+          //window.location.href = "./homePage.html"
 
-    }
+      }
+      // console.log(result)
+     // localStorage.setItem(USER_KEY, JSON.stringify(user_obj));
+      //window.location.href = "homePage.html";
+    }).catch((e) => {
+      console.error("error " + e);
+  });
+
+
   }else{
     window.location.href.indexOf("/index.html")==-1? window.location.href = "./index.html":console.log("not logd in");
     console.log(window.location.href)
