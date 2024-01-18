@@ -48,8 +48,8 @@ firebase.auth().onAuthStateChanged((user) => {
       
       if(corentUser.email.trim() === 'admin@dev.blaster.co.il'){    
         document.getElementById("admin").style.display = "block"
-        
-      }else if(window.location.href.indexOf("/homePage.html")>0){
+      }
+      if(window.location.href.indexOf("/homePage.html")>0){
           console.log(corentUser.email.trim() )
           
         
