@@ -44,9 +44,7 @@ firebase.auth().onAuthStateChanged((user) => {
       messagingSendToken();
       console.log(user)
       console.log(corentUser)
-      if(corentUser){
-       // window.location.href = "./homePage.html"
-      }
+      
       if(corentUser.email.trim() === 'admin@dev.blaster.co.il'){    
         document.getElementById("admin").style.display = "block"
         
@@ -61,9 +59,9 @@ firebase.auth().onAuthStateChanged((user) => {
       }else if(window.location.href.indexOf("/class.html")>0){
           //get class obj frome db    
         
-      }else if(window.location.href.indexOf("/index.html")>0){
+      }else if(window.location.href.indexOf("/index.html")>0 && corentUser){
 
-          //window.location.href = "./homePage.html"
+          window.location.href = "./homePage.html"
 
       }
       // console.log(result)
@@ -75,7 +73,7 @@ firebase.auth().onAuthStateChanged((user) => {
 
 
   }else{
-    window.location.href.indexOf("/index.html")==-1? window.location.href = "./index.html":console.log("not logd in");
+    window.location.href.indexOf("/index.html")>0?console.log("not logd in"): window.location.href = "./index.html";
     console.log(window.location.href)
 
   }
