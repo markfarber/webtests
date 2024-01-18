@@ -80,7 +80,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-functions-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-messaging-compat.js"></script>
-    <!-- <script src="js/main.js"></script> -->
+    <script src="js/main2.js"></script>
 
     <script>
       
@@ -88,12 +88,14 @@
       signInBtn = document.getElementById("singin");
       signInBtn.onclick = () => {
         firebase.auth().signInWithEmailAndPassword(document.getElementById("email").value, document.getElementById("password").value)
-          .then((userCredential) => {
+          .then(async (userCredential) => {
             // Signed in successfullyee
             var user = userCredential.user;
             console.log("User signed in:", user);
+            user = await functions.httpsCallable('user_get');
+            console.log(user);
             
-             window.location.href = './homePage.html'
+            //  window.location.href = './homePage.html'
           })
       }
     </script>
