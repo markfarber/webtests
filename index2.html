@@ -94,7 +94,7 @@
             console.log("User signed in:", user);
             functions.httpsCallable('user_get').call()
             .then((result) => {
-              console.log("got from user_get -> " + result.data)
+              result
             });
             
             //  window.location.href = './homePage.html'
