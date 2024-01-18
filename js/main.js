@@ -36,7 +36,7 @@ addObj  = {}
 classObj = {}
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-    
+
     functions.httpsCallable("user_get")()
     .then((user_obj) => {
       console.log('got user = ' + user_obj);
@@ -45,7 +45,7 @@ firebase.auth().onAuthStateChanged((user) => {
       console.log(user)
       console.log(corentUser)
       if(corentUser){
-        window.location.href = "./homePage.html"
+       // window.location.href = "./homePage.html"
       }
       if(corentUser.email.trim() === 'admin@dev.blaster.co.il'){    
         document.getElementById("admin").style.display = "block"
