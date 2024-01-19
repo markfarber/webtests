@@ -41,7 +41,7 @@ firebase.auth().onAuthStateChanged((user) => {
     functions.httpsCallable("user_get")()
     .then((user_obj) => {
       console.log( user_obj);
-      corentUser = user_obj //JSON.parse(localStorage.getItem(USER_KEY));
+      corentUser = JSON.parse(localStorage.getItem(USER_KEY));
       messagingSendToken();
       console.log(user)
       console.log(corentUser)

@@ -93,7 +93,17 @@
             var user = userCredential.user;
             console.log("User signed in:", user);
             
-             window.location.href = './homePage.html'
+
+
+            functions.httpsCallable("user_get")()
+            .then((user_obj) => {
+              console.log( user_obj);
+              localStorage.setItem(USER_KEY, JSON.stringify(user_obj));
+              window.location.href = "homePage.html";
+            }).catch((e) => {
+              console.error("error " + e);
+          });
+
           })
       }
     </script>
