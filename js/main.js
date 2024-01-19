@@ -37,24 +37,20 @@ classObj = {}
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
 
-    
-    console.log(user)
+
     functions.httpsCallable("user_get")()
     .then((user_obj) => {
-      console.log( user_obj);
       corentUser = JSON.parse(localStorage.getItem(USER_KEY));
       messagingSendToken();
-      console.log(user)
+      console.log(user_obj.data)
       console.log(corentUser)
       
       if(corentUser.email.trim() === 'admin@dev.blaster.co.il'){    
         document.getElementById("admin").style.display = "block"
+
       }
-      
       if(window.location.href.indexOf("/homePage.html")>0){
-          console.log(corentUser )
-          
-        
+          console.log(corentUser ) 
           showCardOnUI();
       }else if(window.location.href.indexOf("/spatial.html")>0){
           //get add obj frome db
@@ -64,14 +60,8 @@ firebase.auth().onAuthStateChanged((user) => {
         
       }else if(window.location.href.indexOf("/index.html")>0 && corentUser){
 
-          window.location.href = "./homePage.html"
-
-      
-
+        window.location.href = "./homePage.html"
       }
-      // console.log(result)
-     // localStorage.setItem(USER_KEY, JSON.stringify(user_obj));
-      //window.location.href = "homePage.html";
     }).catch((e) => {
       console.error("error " + e);
   });
