@@ -36,18 +36,14 @@ messaging.onBackgroundMessage((payload) => {
 
    // self.registration.showNotification(notificationTitle, notificationOptions);
 
-   
-
-    self.addEventListener(
-    "notificationclick",
-    (event) => {
-      window.location.href = './homePage.html'
-      event.notification.close();
-      
-      },
-      false,
-    );
-
-
-
 });
+
+self.addEventListener(
+  "notificationclick",
+  (event) => {
+    window.location.href = './homePage.html'
+    event.notification.close();
+    
+    },
+    false,
+  );
