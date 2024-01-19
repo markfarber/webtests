@@ -20,34 +20,25 @@ const storage = app.storage();
 
 if ('serviceWorker' in navigator) {
 
-
-  navigator.serviceWorker.getRegistrations().then(registrations => {
-    for (const registration of registrations) {
-      registration.unregister().then(success => {
-        console.log(`Service Worker ${registration.scope} unregistered`);
-      }).catch(error => {
-        console.error(`Failed to unregister Service Worker ${registration.scope}`, error);
-      });
-    }
-  });
-
-
   navigator.serviceWorker.getRegistration('firebase-messaging-sw.js').then(registration => {
     if (registration) {
       console.log('firebase-messaging-sw.js is registered and active.');
     } else {
+      for (const registration of registrations) {
+        registration.unregister().then(success => {
+          console.log(`Service Worker ${registration.scope} unregistered`);
+        }).catch(error => {
+          console.error(`Failed to unregister Service Worker ${registration.scope}`, error);
+        });
+      }
       navigator.serviceWorker.register("firebase-messaging-sw.js");
-      console.log('firebase-messaging-sw.js is registered and active 2.');
-
     }
   }).catch(error => {
-    console.error('Error checking service worker registration:', error);
+      console.error('Error checking service worker registration:', error);
   });
-} else {
-  console.error('Service Worker is not supported in this browser.');
 }
 
-
+ 
 
 
 if ("Notification" in window) {
