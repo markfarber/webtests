@@ -92,7 +92,7 @@ function messagingSendToken() {
           functions
             .httpsCallable("user_update_token")(data)
             .then((result) => {
-              corentUser.data["token"] = currentToken;
+              corentUser["token"] = currentToken;
               localStorage.setItem(USER_KEY, JSON.stringify(corentUser));
               console.log("user_update_token yield -> " + result.data);
             })
