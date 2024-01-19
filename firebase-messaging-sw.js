@@ -24,8 +24,12 @@ self.addEventListener('notificationclick', function (event) {
   event.notification.close();
 
   // Perform the desired action when the notification is clicked
-  clients.openWindow('https://dev.blaster.co.il/homePage.html://example.com');
+  clients.openWindow('https://ehttps://dev.blaster.co.il/homePage.htmlxample.com');
+  event.notification.close();
+
 });
+
+
 
 
 messaging.onBackgroundMessage((payload) => {
@@ -34,24 +38,17 @@ messaging.onBackgroundMessage((payload) => {
     payload.notification
   );
 
-
+  
+  const notificationTitle =payload.notification.title ;
   const notificationOptions = {
     body: payload.notification.body,
-      icon: 'https://firebasestorage.googleapis.com/v0/b/tyg-stage-b8e16.appspot.com/o/800%2Flogo.png?alt=media&token=5424e1b5-5a2d-462b-82ff-40b18747603e',
-      image: 'https://firebasestorage.googleapis.com/v0/b/tyg-stage-b8e16.appspot.com/o/800%2Flogo.png?alt=media&token=5424e1b5-5a2d-462b-82ff-40b18747603e'
-    };
+    icon: 'https://firebasestorage.googleapis.com/v0/b/tyg-stage-b8e16.appspot.com/o/800%2Flogo.png?alt=media&token=5424e1b5-5a2d-462b-82ff-40b18747603e',
+    image: 'https://firebasestorage.googleapis.com/v0/b/tyg-stage-b8e16.appspot.com/o/800%2Flogo.png?alt=media&token=5424e1b5-5a2d-462b-82ff-40b18747603e'
+  };
 
-  const notification = new Notification('Notification Title', notificationOptions);
+
+    self.registration.showNotification(notificationTitle, notificationOptions);
+
 
 });
 
-// self.addEventListener(
-//   "notificationclick",
-//   (event) => {
-//     //window.location.href = './homePage.html'
-//     window.open('https://dev.blaster.co.il/homePage.html', '_blank');
-//     event.notification.close();
-   
-//   },
-//   false,
-// );
