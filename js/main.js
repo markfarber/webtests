@@ -33,7 +33,7 @@ if ('serviceWorker' in navigator) {
       }
       navigator.serviceWorker.register("firebase-messaging-sw.js");
     }
-  }).catch(error => {
+  }).catch( error => {
       console.error('Error checking service worker registration:', error);
   });
 }
