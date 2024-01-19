@@ -40,7 +40,7 @@ messaging.onBackgroundMessage((payload) => {
   self.addEventListener(
     "notificationclick",
     (event) => {
-      window.open('./homePage', '_blank');
+      window.location.href = './homePage.html'
       event.notification.close();
      
     },
