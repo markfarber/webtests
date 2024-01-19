@@ -24,6 +24,8 @@ if ('serviceWorker' in navigator) {
       console.log('firebase-messaging-sw.js is registered and active.');
     } else {
       navigator.serviceWorker.register("firebase-messaging-sw.js");
+      console.log('firebase-messaging-sw.js is registered and active 2.');
+
     }
   }).catch(error => {
     console.error('Error checking service worker registration:', error);
