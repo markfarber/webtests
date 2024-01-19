@@ -26,24 +26,38 @@ messaging.onBackgroundMessage((payload) => {
   );
 
   
-    const notificationTitle =payload.notification.title ;
-    const notificationOptions = {
-      body: payload.notification.body,
+  
+
+  const notificationOptions = {
+    body: payload.notification.body,
       icon: 'https://firebasestorage.googleapis.com/v0/b/tyg-stage-b8e16.appspot.com/o/800%2Flogo.png?alt=media&token=5424e1b5-5a2d-462b-82ff-40b18747603e',
       image: 'https://firebasestorage.googleapis.com/v0/b/tyg-stage-b8e16.appspot.com/o/800%2Flogo.png?alt=media&token=5424e1b5-5a2d-462b-82ff-40b18747603e'
     };
 
+  const notification = new Notification('Notification Title', notificationOptions);
 
-   // self.registration.showNotification(notificationTitle, notificationOptions);
+  // Add an event listener for the click event on the notification
+  notification.addEventListener('click', () => {
+    // Handle click event
+    console.log('Notification clicked!');
+
+    // Add your custom logic for what should happen when the notification is clicked
+    // For example, open a new page or focus on your web application
+    window.open('https://example.com', '_blank');
+  });
+
+
+
 
 });
 
 self.addEventListener(
   "notificationclick",
   (event) => {
-    window.location.href = './homePage.html'
+    //window.location.href = './homePage.html'
+    window.open('https://dev.blaster.co.il/homePage.html', '_blank');
     event.notification.close();
-    
-    },
-    false,
-  );
+   
+  },
+  false,
+);
