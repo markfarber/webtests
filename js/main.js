@@ -16,9 +16,23 @@ const functions = app.functions("europe-west2");
 const messaging = app.messaging("europe-west2");
 const storage = app.storage();
 
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("firebase-messaging-sw.js");
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistration('firebase-messaging-sw.js').then(registration => {
+    if (registration) {
+      console.log('firebase-messaging-sw.js is registered and active.');
+    } else {
+      navigator.serviceWorker.register("firebase-messaging-sw.js");
+    }
+  }).catch(error => {
+    console.error('Error checking service worker registration:', error);
+  });
+} else {
+  console.error('Service Worker is not supported in this browser.');
 }
+
+
+
 
 if ("Notification" in window) {
   Notification.requestPermission().then((premition) => {
