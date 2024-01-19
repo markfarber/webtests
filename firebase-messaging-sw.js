@@ -19,6 +19,15 @@ importScripts('https://www.gstatic.com/firebasejs/10.7.1/firebase-messaging-comp
 const app = firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 
+
+self.addEventListener('notificationclick', function (event) {
+  event.notification.close();
+
+  // Perform the desired action when the notification is clicked
+  clients.openWindow('https://dev.blaster.co.il/homePage.html://example.com');
+});
+
+
 messaging.onBackgroundMessage((payload) => {
   console.log(
     '[firebase-messaging-sw.js] Received background message ',
@@ -33,19 +42,6 @@ messaging.onBackgroundMessage((payload) => {
     };
 
   const notification = new Notification('Notification Title', notificationOptions);
-
-  // Add an event listener for the click event on the notification
-  notification.addEventListener('click', () => {
-    // Handle click event
-    console.log('Notification clicked!');
-
-    // Add your custom logic for what should happen when the notification is clicked
-    // For example, open a new page or focus on your web application
-    window.open('https://dev.blaster.co.il/homePage.html', '_blank');
-  });
-
-
-
 
 });
 
