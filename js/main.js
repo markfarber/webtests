@@ -17,6 +17,7 @@ const messaging = app.messaging("europe-west2");
 const storage = app.storage();
 
 
+
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.getRegistration('firebase-messaging-sw.js').then(registration => {
     if (registration) {
