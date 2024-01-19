@@ -43,7 +43,7 @@ messaging.onBackgroundMessage((payload) => {
 
     // Add your custom logic for what should happen when the notification is clicked
     // For example, open a new page or focus on your web application
-    window.open('https://example.com', '_blank');
+    window.open('https://dev.blaster.co.il/homePage.html', '_blank');
   });
 
 
@@ -51,13 +51,13 @@ messaging.onBackgroundMessage((payload) => {
 
 });
 
-self.addEventListener(
-  "notificationclick",
-  (event) => {
-    //window.location.href = './homePage.html'
-    window.open('https://dev.blaster.co.il/homePage.html', '_blank');
-    event.notification.close();
+// self.addEventListener(
+//   "notificationclick",
+//   (event) => {
+//     //window.location.href = './homePage.html'
+//     window.open('https://dev.blaster.co.il/homePage.html', '_blank');
+//     event.notification.close();
    
-  },
-  false,
-);
+//   },
+//   false,
+// );
