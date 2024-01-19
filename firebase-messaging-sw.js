@@ -22,11 +22,11 @@ const messaging = firebase.messaging();
 messaging.onBackgroundMessage((payload) => {
   console.log(
     '[firebase-messaging-sw.js] Received background message ',
-    payload
+    payload.notification
   );
 
   //self.onnotificationclick = (event) => {};
-  // Customize notification here
+  //Customize notification here
   // const notificationTitle = 'מסר חדש מ-שי';
   // const notificationOptions = {
   //   body: 'Background Message body.',
@@ -38,10 +38,11 @@ messaging.onBackgroundMessage((payload) => {
 
   // };
 
-  const notificationTitle = 'Background Message Title';
+  const notificationTitle =payload.notification.title ;
   const notificationOptions = {
-    body: 'Background Message body.',
-    icon: '/firebase-logo.png'
+    body: payload.notification.body,
+    //icon: '',
+    image: 'https://firebasestorage.googleapis.com/v0/b/tyg-stage-b8e16.appspot.com/o/800%2Flogo.png?alt=media&token=5424e1b5-5a2d-462b-82ff-40b18747603e'
   };
 
 
@@ -51,8 +52,9 @@ messaging.onBackgroundMessage((payload) => {
   self.addEventListener(
     "notificationclick",
     (event) => {
+      window.open('./homePage', '_blank');
       event.notification.close();
-      clients.openWindow("./homePage.html");
+     
     },
     false,
   );
