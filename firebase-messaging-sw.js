@@ -25,19 +25,7 @@ messaging.onBackgroundMessage((payload) => {
     payload.notification
   );
 
-  //self.onnotificationclick = (event) => {};
-  //Customize notification here
-  // const notificationTitle = 'מסר חדש מ-שי';
-  // const notificationOptions = {
-  //   body: 'Background Message body.',
-  //   // icon: 'https://firebasestorage.googleapis.com/v0/b/tyg-stage-b8e16.appspot.com/o/800%2Flogo.png?alt=media&token=5424e1b5-5a2d-462b-82ff-40b18747603e',
-  //   renotify:true,
-  //   image :"",
-  //   dir :"rtl",
-  //   actions: [{ action: "get", title: "לפתיח המסר" }]
-
-  // };
-
+  
   const notificationTitle =payload.notification.title ;
   const notificationOptions = {
     body: payload.notification.body,
