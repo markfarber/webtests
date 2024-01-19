@@ -65,6 +65,8 @@ firebase.auth().onAuthStateChanged((user) => {
 
           window.location.href = "./homePage.html"
 
+      
+
       }
       // console.log(result)
      // localStorage.setItem(USER_KEY, JSON.stringify(user_obj));
