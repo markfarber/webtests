@@ -24,7 +24,7 @@ self.addEventListener('notificationclick', function (event) {
   event.notification.close();
 
   // Perform the desired action when the notification is clicked
-  clients.openWindow('./homePage.htm');
+  clients.openWindow('https://dev.blaster.co.il/homePage.html');
   event.notification.close();
 
 });
