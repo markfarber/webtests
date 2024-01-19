@@ -46,9 +46,9 @@ firebase.auth().onAuthStateChanged((user) => {
       console.log(user)
       console.log(corentUser)
       
-      // if(corentUser.email.trim() === 'admin@dev.blaster.co.il'){    
-      //   document.getElementById("admin").style.display = "block"
-      // }
+      if(corentUser.email.trim() === 'admin@dev.blaster.co.il'){    
+        document.getElementById("admin").style.display = "block"
+      }
       
       if(window.location.href.indexOf("/homePage.html")>0){
           console.log(corentUser )
