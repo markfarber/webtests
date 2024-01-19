@@ -94,6 +94,7 @@
             console.log("User signed in:", user);
 
 
+            
             functions.httpsCallable("user_get")()
             .then((user_obj) => {
               console.log( user_obj);
