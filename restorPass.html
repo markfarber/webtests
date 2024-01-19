@@ -73,7 +73,7 @@
         const app = firebase.initializeApp(firebaseConfig);
 
 
-        document.getElementById("resetPass").onclick = ()=>{
+        document.getElementById("reserPaas").onclick = ()=>{
             
             firebase.auth().sendPasswordResetEmail(document.getElementById("resetPassEm").value)
                 .then(() => {
