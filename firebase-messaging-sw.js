@@ -25,8 +25,6 @@ messaging.onBackgroundMessage((payload) => {
     payload.notification
   );
 
-  
-  
 
   const notificationOptions = {
     body: payload.notification.body,
