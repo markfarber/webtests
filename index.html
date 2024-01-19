@@ -94,11 +94,11 @@
             console.log("User signed in:", user);
 
 
-            
+
             functions.httpsCallable("user_get")()
             .then((user_obj) => {
               console.log( user_obj);
-              localStorage.setItem(USER_KEY, JSON.stringify(user_obj));
+              localStorage.setItem(USER_KEY, JSON.stringify(user_obj.data));
               window.location.href = "homePage.html";
             }).catch((e) => {
               console.error("error " + e);
