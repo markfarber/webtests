@@ -106,15 +106,14 @@ firebase.auth().onAuthStateChanged((user) => {
 
 
 async function retry_callable(func, data, retries = 5) {
-  console.log("trying" + func.name + "with " + retries + " retries");
+  console.log("trying with " + retries + " retries");
   if (retries === 0) {
-    throw new Error("too many retries for function " + func.name);
+    throw new Error("too many retries, aborting");
   }
   try {
     return await func(data);
   } catch (e) {
-    console.warn("retrying " + func.name + " " + retries + " more times");
-    await new Promise((r) => setTimeout(r, 250));
+    await new Promise((r) => setTimeout(r, 100));
     return await retry_callable(func, data, retries - 1);
   }
 }
