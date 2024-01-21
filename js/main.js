@@ -58,7 +58,7 @@ classObj = {}
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     // functions.httpsCallable("user_get")()
-    retry_callable(functions.httpsCallable("user_get")(), {})
+    retry_callable(functions.httpsCallable("user_get"), {})
     .then((user_obj) => {
       corentUser = JSON.parse(localStorage.getItem(USER_KEY));
       localStorage.setItem(USER_KEY, JSON.stringify(user_obj.data));
