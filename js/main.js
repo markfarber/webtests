@@ -57,9 +57,8 @@ addObj  = {}
 classObj = {}
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-
-
-    functions.httpsCallable("user_get")()
+    // functions.httpsCallable("user_get")()
+    retry_callable(functions.httpsCallable("user_get"), {})
     .then((user_obj) => {
       corentUser = JSON.parse(localStorage.getItem(USER_KEY));
       localStorage.setItem(USER_KEY, JSON.stringify(user_obj.data));
@@ -104,6 +103,21 @@ firebase.auth().onAuthStateChanged((user) => {
 
   }
 });
+
+
+async function retry_callable(func, data, retries = 5) {
+  if (retries === 0) {
+    throw new Error("too many retries for function " + func.name);
+  }
+  try {
+    return await func(data);
+  } catch (e) {
+    console.warn("retrying " + func.name + " " + retries + " more times");
+    await new Promise((r) => setTimeout(r, 250));
+    return await retry_callable(func, data, retries - 1);
+  }
+}
+
 
 function messagingSendToken() {
  
