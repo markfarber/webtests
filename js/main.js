@@ -106,6 +106,7 @@ firebase.auth().onAuthStateChanged((user) => {
 
 
 async function retry_callable(func, data, retries = 5) {
+  console.log("trying" + func.name + "with " + retries + " retries");
   if (retries === 0) {
     throw new Error("too many retries for function " + func.name);
   }
