@@ -63,8 +63,8 @@ firebase.auth().onAuthStateChanged((user) => {
       corentUser = JSON.parse(localStorage.getItem(USER_KEY));
       localStorage.setItem(USER_KEY, JSON.stringify(user_obj.data));
       messagingSendToken();
-      console.log(user_obj.data)
-      console.log(corentUser)
+      console.log('user_obj.data = ' + user_obj.data)
+      console.log('corentUser = ' + corentUser)
       
       if(corentUser.email.trim() === 'admin@dev.blaster.co.il'){    
         document.getElementById("admin").style.display = "block"
