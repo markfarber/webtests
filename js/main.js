@@ -33,12 +33,12 @@ if ('serviceWorker' in navigator) {
       }
       navigator.serviceWorker.register("firebase-messaging-sw.js");
     }
-  }).catch( error => {
-      console.error('Error checking service worker registration:', error);
+  }).catch(error => {
+    console.error('Error checking service worker registration:', error);
   });
 }
 
- 
+
 
 
 if ("Notification" in window) {
@@ -53,52 +53,52 @@ if ("Notification" in window) {
   });
 }
 corentUser = {};
-addObj  = {}
+addObj = {}
 classObj = {}
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     // functions.httpsCallable("user_get")()
     retry_callable(functions.httpsCallable("user_get"), {})
-    .then((user_obj) => {
-      corentUser = JSON.parse(localStorage.getItem(USER_KEY));
-      localStorage.setItem(USER_KEY, JSON.stringify(user_obj.data));
-      messagingSendToken();
-      console.log('user_obj.data = ' + user_obj.data)
-      console.log('corentUser = ' + corentUser)
-      
-      if(corentUser.email.trim() === 'admin@dev.blaster.co.il'){    
-        document.getElementById("admin").style.display = "block"
+      .then((user_obj) => {
+        console.log('user_obj.data = ' + JSON.stringify(user_obj.data))
+        localStorage.setItem(USER_KEY, JSON.stringify(user_obj.data));
+        corentUser = JSON.parse(localStorage.getItem(USER_KEY));
+        messagingSendToken();
+        console.log('corentUser = ' + corentUser)
 
-      }
-      if(window.location.href.indexOf("/homePage.html")>0){
-          console.log(corentUser ) 
+        if (corentUser.email.trim() === 'admin@dev.blaster.co.il') {
+          document.getElementById("admin").style.display = "block"
+
+        }
+        if (window.location.href.indexOf("/homePage.html") > 0) {
+          console.log(corentUser)
           showCardOnUI();
-      }else if(window.location.href.indexOf("/spatial.html")>0){
+        } else if (window.location.href.indexOf("/spatial.html") > 0) {
           //get add obj frome db
 
-      }else if(window.location.href.indexOf("/class.html")>0){
+        } else if (window.location.href.indexOf("/class.html") > 0) {
           //get class obj frome db  
 
-          
+
           functions.httpsCallable("course_add_user")(data)
-          .then((result) => {
-            
-            console.log();
-          })
-          .catch((e) => console.error("error " + e));
-          
-        
-      }else if(window.location.href.indexOf("/index.html")>0 && corentUser){
+            .then((result) => {
 
-        window.location.href = "./homePage.html"
-      }
-    }).catch((e) => {
-      console.error("error " + e);
-  });
+              console.log();
+            })
+            .catch((e) => console.error("error " + e));
 
 
-  }else{
-    window.location.href.indexOf("/index.html")>0?console.log("not logd in"): window.location.href = "./index.html";
+        } else if (window.location.href.indexOf("/index.html") > 0 && corentUser) {
+
+          window.location.href = "./homePage.html"
+        }
+      }).catch((e) => {
+        console.error("error " + e);
+      });
+
+
+  } else {
+    window.location.href.indexOf("/index.html") > 0 ? console.log("not logd in") : window.location.href = "./index.html";
     console.log(window.location.href)
 
   }
@@ -120,28 +120,27 @@ async function retry_callable(func, data, retries = 5) {
 
 
 function messagingSendToken() {
- 
-    messaging
-      .getToken({ vapidKey: M_P_KEY })
-      .then((currentToken) => {
-        console.log("token = " + currentToken);
-        if (currentToken) {
-          data = { device_token: currentToken };
-          functions
-            .httpsCallable("user_update_token")(data)
-            .then((result) => {
-              corentUser["token"] = currentToken;
-              localStorage.setItem(USER_KEY, JSON.stringify(corentUser));
-              console.log("user_update_token yield -> " + result.data);
-            })
-            .catch((e) => console.error("error " + e));
-        } else {
-          console, log("token error = " + errr);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  messaging
+    .getToken({ vapidKey: M_P_KEY })
+    .then((currentToken) => {
+      console.log("token = " + currentToken);
+      if (currentToken) {
+        data = { device_token: currentToken };
+        functions
+          .httpsCallable("user_update_token")(data)
+          .then((result) => {
+            corentUser["token"] = currentToken;
+            localStorage.setItem(USER_KEY, JSON.stringify(corentUser));
+            console.log("user_update_token yield -> " + result.data);
+          })
+          .catch((e) => console.error("error " + e));
+      } else {
+        console, log("token error = " + errr);
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
 
@@ -152,17 +151,17 @@ messaging.onMessage((payload) => {
   // });
 });
 
-if(window.location.href.indexOf("/index.html")<0)
-document.getElementById("logOutBtn").addEventListener("click", () => {
-  console.log("logout");
-  firebase
-    .auth()
-    .signOut()
-    .then(() => {
-      localStorage.removeItem(USER_KEY);
-      window.location.href = "./index.html";
-    })
-    .catch((error) => {
-      // An error happened.
-    });
-});
+if (window.location.href.indexOf("/index.html") < 0)
+  document.getElementById("logOutBtn").addEventListener("click", () => {
+    console.log("logout");
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        localStorage.removeItem(USER_KEY);
+        window.location.href = "./index.html";
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  });
