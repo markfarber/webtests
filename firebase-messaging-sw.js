@@ -40,7 +40,7 @@ messaging.onBackgroundMessage((payload) => {
   );
 
   
-  // const notificationTitle =payload.data.title ;
+  const notificationTitle =payload.data.title ;
   const notificationOptions = {
     title: payload.data.title,
     message: payload.data.message,
