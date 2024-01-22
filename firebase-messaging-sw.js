@@ -40,11 +40,12 @@ messaging.onBackgroundMessage((payload) => {
   );
 
   
-  const notificationTitle =payload.notification.title ;
+  // const notificationTitle =payload.data.title ;
   const notificationOptions = {
-    body: payload.notification.body,
-    icon: 'https://storage.googleapis.com/tyg-stage-b8e16.appspot.com/static/logo.png',
-    image: 'https://storage.googleapis.com/tyg-stage-b8e16.appspot.com/static/logo.png'
+    title: payload.data.title,
+    message: payload.data.message,
+    iconUrl: 'https://storage.googleapis.com/tyg-stage-b8e16.appspot.com/static/logo.png',
+    imageUrl: payload.data.image,
   };
 
 
