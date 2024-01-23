@@ -54,17 +54,13 @@ messaging.onBackgroundMessage((payload) => {
     imageUrl: img_blob_url,
   };
 
-
-  // Listen for the 'notificationclick' event and open a new tab
-  self.addEventListener('notificationclick', function (event) {
-    event.notification.close();
-
-    // Open a new tab when the user clicks on the notification
-    event.waitUntil(clients.openWindow('https://example.com'));
-  });
-
   self.registration.showNotification(notificationTitle, notificationOptions);
+});
 
+self.addEventListener('notificationclick', function (event) {
+  event.notification.close();
 
+  // Open a new tab when the user clicks on the notification
+  event.waitUntil(clients.openWindow('https://example.com'));
 });
 
