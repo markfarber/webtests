@@ -5,7 +5,7 @@ importScripts('https://www.gstatic.com/firebasejs/10.7.1/firebase-messaging-comp
 // importScripts('https://www.gstatic.com/firebasejs/4.8.1/firebase-messaging.js');
 
 
- const firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyAe2AQgp3soMCBHX5uCtDuYRDdFAwondVU",
   authDomain: "tyg-stage-b8e16.firebaseapp.com",
   projectId: "tyg-stage-b8e16",
@@ -39,17 +39,31 @@ messaging.onBackgroundMessage((payload) => {
     payload.data
   );
 
-  
-  const notificationTitle =payload.data.title ;
+  const img_blob_url = ''
+  fetch(payload.data.image).then((img) => {
+    img.blob().then((myBlob) => {
+      img_blob_url = URL.createObjectURL(myBlob);
+      console.log(img_blob_url);
+    });
+  })
+  const notificationTitle = payload.data.title;
   const notificationOptions = {
     title: payload.data.title,
     message: payload.data.message,
     iconUrl: 'https://storage.googleapis.com/tyg-stage-b8e16.appspot.com/static/logo.png',
-    imageUrl: payload.data.image,
+    imageUrl: img_blob_url,
   };
 
 
-    self.registration.showNotification(notificationTitle, notificationOptions);
+  // Listen for the 'notificationclick' event and open a new tab
+  self.addEventListener('notificationclick', function (event) {
+    event.notification.close();
+
+    // Open a new tab when the user clicks on the notification
+    event.waitUntil(clients.openWindow('https://example.com'));
+  });
+
+  self.registration.showNotification(notificationTitle, notificationOptions);
 
 
 });
