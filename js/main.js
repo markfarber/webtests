@@ -75,7 +75,18 @@ firebase.auth().onAuthStateChanged((user) => {
           showCardOnUI();
         } else if (window.location.href.indexOf("/spatial.html") > 0) {
           //get add obj frome db
-
+        }else if(window.location.href.indexOf("/allCard.html")>0){
+       
+          //get all cards frome db
+          functions.httpsCallable("cards_get_all")().then((result)=>{
+              console.log(result)
+              showCardsOnUI();
+          })
+          .catch((e) => {
+            console.error("error " + e);
+          });
+    
+       
         } else if (window.location.href.indexOf("/class.html") > 0) {
           //get class obj frome db  
 
