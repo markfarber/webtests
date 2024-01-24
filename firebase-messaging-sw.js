@@ -39,13 +39,13 @@ messaging.onBackgroundMessage((payload) => {
     payload.data
   );
 
-  const img_blob_url = ''
+  const img_blob = ''
   fetch(payload.data.image).then((img) => {
     console.log(img);
     img.blob().then((myBlob) => {
       console.log("myBlob = " + myBlob);
-      img_blob_url = window.URL.createObjectURL(myBlob);
-      console.log(img_blob_url);
+      img_blob = new Blob(myBlob);
+      console.log(img_blob);
     });
   })
   const notificationTitle = payload.data.title;
@@ -53,16 +53,16 @@ messaging.onBackgroundMessage((payload) => {
     title: payload.data.title,
     message: payload.data.message,
     iconUrl: 'https://storage.googleapis.com/tyg-stage-b8e16.appspot.com/static/logo.png',
-    imageUrl: img_blob_url,
+    imageUrl: img_blob,
   };
 
   self.registration.showNotification(notificationTitle, notificationOptions);
 });
 
-self.addEventListener('notificationclick', function (event) {
-  event.notification.close();
+// self.addEventListener('notificationclick', function (event) {
+//   event.notification.close();
 
-  // Open a new tab when the user clicks on the notification
-  event.waitUntil(clients.openWindow('https://example.com'));
-});
+//   // Open a new tab when the user clicks on the notification
+//   event.waitUntil(clients.openWindow('https://example.com'));
+// });
 
