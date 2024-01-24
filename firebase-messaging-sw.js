@@ -43,6 +43,7 @@ messaging.onBackgroundMessage((payload) => {
   fetch(payload.data.image).then((img) => {
     console.log(img);
     img.blob().then((myBlob) => {
+      console.log("myBlob"=myBlob);
       img_blob_url = global.URL.createObjectURL(myBlob);
       console.log(img_blob_url);
     });
