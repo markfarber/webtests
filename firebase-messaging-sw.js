@@ -40,20 +40,20 @@ messaging.onBackgroundMessage((payload) => {
   );
 
   const img_blob = ''
-  fetch(payload.data.image).then((img) => {
-    console.log(img);
-    img.blob().then((myBlob) => {
-      console.log("myBlob = " + myBlob);
-      img_blob = new Blob(myBlob);
-      console.log(img_blob);
-    });
-  })
+  // fetch(payload.data.image).then((img) => {
+  //   console.log(img);
+  //   img.blob().then((myBlob) => {
+  //     console.log("myBlob = " + myBlob);
+  //     img_blob = new Blob(myBlob);
+  //     console.log(img_blob);
+  //   });
+  // })
   const notificationTitle = payload.data.title;
   const notificationOptions = {
     title: payload.data.title,
     message: payload.data.message,
     iconUrl: 'https://storage.googleapis.com/tyg-stage-b8e16.appspot.com/static/logo.png',
-    imageUrl: img_blob,
+    imageUrl: payload.data.image,
   };
 
   self.registration.showNotification(notificationTitle, notificationOptions);
