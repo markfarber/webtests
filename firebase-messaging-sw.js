@@ -44,7 +44,7 @@ messaging.onBackgroundMessage((payload) => {
     console.log(img);
     img.blob().then((myBlob) => {
       console.log("myBlob"=myBlob);
-      img_blob_url = global.URL.createObjectURL(myBlob);
+      img_blob_url = URL.createObjectURL(myBlob);
       console.log(img_blob_url);
     });
   })
