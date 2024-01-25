@@ -65,7 +65,7 @@ firebase.auth().onAuthStateChanged((user) => {
         corentUser = JSON.parse(localStorage.getItem(USER_KEY));
         messagingSendToken();
         console.log('corentUser = ' + corentUser)
-
+        console.log(window.location.href)
         if (corentUser.email.trim() === 'admin@dev.blaster.co.il') {
           document.getElementById("admin").style.display = "block"
 
@@ -87,7 +87,8 @@ firebase.auth().onAuthStateChanged((user) => {
           });
     
        
-        } else if (window.location.href.indexOf("/class.html") > 0) {
+        
+      }else if(window.location.href.indexOf("/class.html")>0){
           //get class obj frome db  
 
 
