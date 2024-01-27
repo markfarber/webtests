@@ -48,7 +48,7 @@
           <div class="collapse  navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul class="navbar-nav ">
                <!-- admin -->
-               <li id="admin"   class="nav-item dropdown rtl ">
+               <li id="admin"   class="nav-item dropdown ">
                 <a class="nav-link dropdown-toggle fs-4 " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   מנהל
                 </a>
@@ -60,9 +60,9 @@
                 </ul>
               </li>
                <!-- user info -->
-               <li class="nav-item rtl">
+               <!-- <li class="nav-item rtl">
                 <a class="nav-link  fs-4" aria-current="page" href="./seting.html">הגדרות</a>
-              </li>
+              </li> -->
               <!-- class -->
               <li class="nav-item rtl">
                 <a class="nav-link  fs-4" aria-current="page" href="./class.html">הקורס שלנו</a>
@@ -129,7 +129,17 @@
       <script src="./js/main.js"></script>
       <script>
         document.getElementById("subscribUser").onclick = ()=>{
-            document.querySelector(".card-text").textContent = `ההרשמה בוצעה בהצלחה נציג יצור איתכם קשר נתראה בקורס `
+
+            functions.httpsCallable("course_add_user")().then((result)=>{
+              console.log(result)
+              document.querySelector(".card-text").textContent = `ההרשמה בוצעה בהצלחה נציג יצור איתכם קשר נתראה בקורס `
+
+          })
+          .catch((e) => {
+            console.error("error " + e);
+          });
+
+        course_add_user
         }
       </script>
 </body>
