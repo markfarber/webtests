@@ -88,6 +88,7 @@ firebase.auth().onAuthStateChanged((user) => {
         
         }else if(window.location.href.indexOf("/class.html")>0){
           //get class obj frome db  
+          
 
         } else if (window.location.href.indexOf("/index.html") > 0 && corentUser) {
 
