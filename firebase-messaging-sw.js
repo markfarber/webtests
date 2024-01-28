@@ -58,6 +58,7 @@ messaging.onBackgroundMessage((payload) => {
     body: payload.data.message,
     icon: 'https://storage.googleapis.com/tyg-stage-b8e16.appspot.com/static/logo.png',
     badge: payload.data.image,
+    image:  payload.data.image,
     data: {
       click_action: "https://dev.blaster.co.il/homepage.html",
       notificationType: payload.data.type,
