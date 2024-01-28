@@ -53,14 +53,18 @@ messaging.onBackgroundMessage((payload) => {
   //  image: 'https://storage.googleapis.com/tyg-stage-b8e16.appspot.com/800_thumb/maj14_r.png',
   //   url: 'https://dev.blaster.co.il/homepage.html',
   //    type: '1'}
-  console.log(payload.data)
   const notificationTitle = payload.data.title;
   const notificationOptions = {
-    title: payload.data.title,
-    message: payload.data.message,
-    iconUrl: 'https://storage.googleapis.com/tyg-stage-b8e16.appspot.com/static/logo.png',
-    imageUrl: payload.data.image,
+    body: payload.data.message,
+    icon: 'https://storage.googleapis.com/tyg-stage-b8e16.appspot.com/static/logo.png',
+    badge: payload.data.image,
+    data: {
+      click_action: "https://dev.blaster.co.il/homepage.html",
+      notificationType: payload.data.type,
+      // Add any additional custom data you need
+    },
   };
+
 
   self.registration.showNotification(notificationTitle, notificationOptions);
 });
