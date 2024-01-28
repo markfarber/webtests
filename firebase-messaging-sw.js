@@ -25,7 +25,7 @@ self.addEventListener('notificationclick', function (event) {
   const clickedNotification = event.notification;
   const notificationType = event.notification.type;
 
-  if(notificationType==1){
+  if(notificationType === '1'){
   // Perform the desired action when the notification is clicked
   clients.openWindow('https://dev.blaster.co.il/homePage.html');
   event.notification.close();
