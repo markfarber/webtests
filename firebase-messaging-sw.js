@@ -22,10 +22,17 @@ const messaging = firebase.messaging();
 
 self.addEventListener('notificationclick', function (event) {
 
+  const clickedNotification = event.notification;
+  const notificationType = event.notification.data.type;
 
+  if(notificationType==1){
   // Perform the desired action when the notification is clicked
   clients.openWindow('https://dev.blaster.co.il/homePage.html');
   event.notification.close();
+  }else{
+    clients.openWindow('https://dev.blaster.co.il/spatial.html');
+  event.notification.close();
+  }
 
 });
 
@@ -39,15 +46,7 @@ messaging.onBackgroundMessage((payload) => {
     payload.data
   );
 
-  const img_blob = ''
-  // fetch(payload.data.image).then((img) => {
-  //   console.log(img);
-  //   img.blob().then((myBlob) => {
-  //     console.log("myBlob = " + myBlob);
-  //     img_blob = new Blob(myBlob);
-  //     console.log(img_blob);
-  //   });
-  // })
+  
 
   //  {message: 'קלף עם הסבר מחכה לך באתר', title: 'הקלף היומי מישי גד',
   //  image: 'https://storage.googleapis.com/tyg-stage-b8e16.appspot.com/800_thumb/maj14_r.png',
@@ -60,7 +59,7 @@ messaging.onBackgroundMessage((payload) => {
     badge: payload.data.image,
     image:  payload.data.image,
     data: {
-      click_action: "https://dev.blaster.co.il/homepage.html",
+      click_action: payload.data.type == 1? "https://dev.blaster.co.il/homepage.html":"https://dev.blaster.co.il/spatial.html",
       notificationType: payload.data.type,
       // Add any additional custom data you need
     },
@@ -69,11 +68,4 @@ messaging.onBackgroundMessage((payload) => {
 
   self.registration.showNotification(notificationTitle, notificationOptions);
 });
-
-// self.addEventListener('notificationclick', function (event) {
-//   event.notification.close();
-
-//   // Open a new tab when the user clicks on the notification
-//   event.waitUntil(clients.openWindow('https://example.com'));
-// });
 

@@ -148,9 +148,7 @@ function messagingSendToken() {
 
 messaging.onMessage((payload) => {
   console.log("message received -> " + JSON.stringify(payload.data));
-  // navigator.serviceWorker.ready.then((registration) => {
-  //   registration.showNotification(payload.notification.title);
-  // });
+  
 });
 
 if (window.location.href.indexOf("/index.html") < 0)
