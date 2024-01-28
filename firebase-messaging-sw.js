@@ -22,7 +22,7 @@ const messaging = firebase.messaging();
 
 self.addEventListener('notificationclick', function (event) {
 
-  
+
   // Perform the desired action when the notification is clicked
   clients.openWindow('https://dev.blaster.co.il/homePage.html');
   event.notification.close();
@@ -48,6 +48,7 @@ messaging.onBackgroundMessage((payload) => {
   //     console.log(img_blob);
   //   });
   // })
+  console.log(payload.data)
   const notificationTitle = payload.data.title;
   const notificationOptions = {
     title: payload.data.title,
