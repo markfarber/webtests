@@ -23,7 +23,7 @@ const messaging = firebase.messaging();
 self.addEventListener('notificationclick', function (event) {
 
   const clickedNotification = event.notification;
-  const notificationType = event.notification.data.type;
+  const notificationType = event.notification.type;
 
   if(notificationType==1){
   // Perform the desired action when the notification is clicked
