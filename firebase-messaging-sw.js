@@ -58,11 +58,6 @@ messaging.onBackgroundMessage((payload) => {
     icon: 'https://storage.googleapis.com/tyg-stage-b8e16.appspot.com/static/logo.png',
     badge: 'https://storage.googleapis.com/tyg-stage-b8e16.appspot.com/static/logo.png',
     image:  payload.data.image,
-    data: {
-      click_action: payload.data.type == 1? "https://dev.blaster.co.il/homepage.html":"https://dev.blaster.co.il/spatial.html",
-      notificationType: payload.data.type,
-      // Add any additional custom data you need
-    },
   };
 
 
