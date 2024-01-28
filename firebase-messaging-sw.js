@@ -21,7 +21,6 @@ const messaging = firebase.messaging();
 
 
 self.addEventListener('notificationclick', function (event) {
-  event.notification.close();
 
   // Perform the desired action when the notification is clicked
   clients.openWindow('https://dev.blaster.co.il/homePage.html');
@@ -53,7 +52,7 @@ messaging.onBackgroundMessage((payload) => {
     title: payload.data.title,
     message: payload.data.message,
     iconUrl: 'https://storage.googleapis.com/tyg-stage-b8e16.appspot.com/static/logo.png',
-    imageUrl: payload.data.image,
+    imageUrl: 'https://storage.googleapis.com/tyg-stage-b8e16.appspot.com/static/logo.png',
   };
 
   self.registration.showNotification(notificationTitle, notificationOptions);
