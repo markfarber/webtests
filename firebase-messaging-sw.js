@@ -24,6 +24,7 @@ self.addEventListener('notificationclick', function (event) {
 
   const clickedNotification = event.notification;
   const notificationType = event.notification.type;
+  console.log(notificationType)
 
   if(notificationType === '1'){
   // Perform the desired action when the notification is clicked
