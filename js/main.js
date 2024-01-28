@@ -90,7 +90,7 @@ firebase.auth().onAuthStateChanged((user) => {
           //get class obj frome db  
           
 
-        } else if (window.location.href.indexOf("/index.html") > 0 && corentUser) {
+        } else if (window.location.href.indexOf("/index.html") > 0 ) {
 
           window.location.href = "./homePage.html"
         }
