@@ -48,13 +48,18 @@ messaging.onBackgroundMessage((payload) => {
   //     console.log(img_blob);
   //   });
   // })
+
+  //  {message: 'קלף עם הסבר מחכה לך באתר', title: 'הקלף היומי מישי גד',
+  //  image: 'https://storage.googleapis.com/tyg-stage-b8e16.appspot.com/800_thumb/maj14_r.png',
+  //   url: 'https://dev.blaster.co.il/homepage.html',
+  //    type: '1'}
   console.log(payload.data)
   const notificationTitle = payload.data.title;
   const notificationOptions = {
     title: payload.data.title,
     message: payload.data.message,
     iconUrl: 'https://storage.googleapis.com/tyg-stage-b8e16.appspot.com/static/logo.png',
-    imageUrl: 'https://storage.googleapis.com/tyg-stage-b8e16.appspot.com/static/logo.png',
+    imageUrl: payload.data.image,
   };
 
   self.registration.showNotification(notificationTitle, notificationOptions);
