@@ -85,20 +85,9 @@ firebase.auth().onAuthStateChanged((user) => {
           .catch((e) => {
             console.error("error " + e);
           });
-    
-       
         
-      }else if(window.location.href.indexOf("/class.html")>0){
+        }else if(window.location.href.indexOf("/class.html")>0){
           //get class obj frome db  
-
-
-          functions.httpsCallable("course_add_user")(data)
-            .then((result) => {
-
-              console.log();
-            })
-            .catch((e) => console.error("error " + e));
-
 
         } else if (window.location.href.indexOf("/index.html") > 0 && corentUser) {
 
