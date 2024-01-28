@@ -23,7 +23,7 @@ const messaging = firebase.messaging();
 self.addEventListener('notificationclick', function (event) {
 
   const clickedNotification = event.notification;
-  const notificationType = event.notification;
+  const notificationType = event.notification.data.notificationType;
   console.log(notificationType)
 
   if(notificationType === '1'){
