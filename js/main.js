@@ -153,6 +153,21 @@ function messagingSendToken() {
 
 messaging.onMessage((payload) => {
   console.log("message received -> " + JSON.stringify(payload.data));
+  const notificationTitle = payload.data.title;
+  const notificationOptions = {
+    body: payload.data.message,
+    icon: 'https://storage.googleapis.com/tyg-stage-b8e16.appspot.com/static/logo.png',
+    // badge: 'https://storage.googleapis.com/tyg-stage-b8e16.appspot.com/static/logo.png',
+    image:  payload.data.image,
+    data: {
+      //click_action: clickAction,
+      notificationType: payload.data.type,
+      // Add any additional custom data you need
+    },
+  };
+
+
+  self.registration.showNotification(notificationTitle, notificationOptions);
   
 });
 
