@@ -57,7 +57,7 @@ messaging.onBackgroundMessage((payload) => {
   const notificationOptions = {
     body: payload.data.message,
     icon: 'https://storage.googleapis.com/tyg-stage-b8e16.appspot.com/static/logo.png',
-    badge: 'https://storage.googleapis.com/tyg-stage-b8e16.appspot.com/static/logo.png',
+    // badge: 'https://storage.googleapis.com/tyg-stage-b8e16.appspot.com/static/logo.png',
     image:  payload.data.image,
     data: {
       //click_action: clickAction,
