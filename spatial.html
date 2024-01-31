@@ -84,7 +84,7 @@
         <div class="row rtl">
           <div class="col-sm p-3">
               <!-- img-fluid -->
-                <img id="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1598&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"  class=" mt-5" height="610px" width="100%"> 
+                <img id="proImg"  class=" mt-5" height="610px" width="100%"> 
           </div>
           <div class="col-sm p-1">
             <h4 class="rtl display-6 " id="proName">title</h4>
@@ -107,6 +107,10 @@
         function showAdd(){
           
           console.log(corentUser.current_ad)
+          document.getElementById("proImg").src = corentUser.current_ad.img_url
+          document.getElementById("message").src = corentUser.current_ad.message
+          document.getElementById("title").src = corentUser.current_ad.title
+          document.getElementById("video_url").src = corentUser.current_ad.video_url
         }
       </script>
 </body>
