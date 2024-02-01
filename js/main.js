@@ -15,13 +15,15 @@ const app = firebase.initializeApp(firebaseConfig);
 const functions = app.functions("europe-west2");
 const messaging = app.messaging("europe-west2");
 const storage = app.storage();
-
+serviceWorkerRegistration = undefined
 
 
 if ('serviceWorker' in navigator) {
 
   navigator.serviceWorker.getRegistration('firebase-messaging-sw.js').then(registration => {
     if (registration) {
+      serviceWorkerRegistration = registration;
+
       console.log('firebase-messaging-sw.js is registered and active.');
     } else {
       for (const registration of registrations) {
@@ -167,7 +169,7 @@ messaging.onMessage((payload) => {
   };
 
 
-  registration.showNotification(notificationTitle, notificationOptions);
+  serviceWorkerRegistration.showNotification(notificationTitle, notificationOptions);
   
 });
 
