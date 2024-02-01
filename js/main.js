@@ -167,7 +167,7 @@ messaging.onMessage((payload) => {
   };
 
 
-  self.registration.showNotification(notificationTitle, notificationOptions);
+  registration.showNotification(notificationTitle, notificationOptions);
   
 });
 
