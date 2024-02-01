@@ -213,15 +213,16 @@
       <script src="./js/main.js"></script>
       <script>
         document.getElementById("subscribUser").onclick = ()=>{
+          console.log("result")
 
-            functions.httpsCallable("course_add_user")().then((result)=>{
-              console.log(result)
-              document.querySelector(".card-text").textContent = `ההרשמה בוצעה בהצלחה נציג יצור איתכם קשר נתראה בקורס `
+          //   functions.httpsCallable("course_add_user")().then((result)=>{
+          //     console.log(result)
+          //     document.querySelector(".card-text").textContent = `ההרשמה בוצעה בהצלחה נציג יצור איתכם קשר נתראה בקורס `
 
-          })
-          .catch((e) => {
-            console.error("error " + e);
-          });
+          // })
+          // .catch((e) => {
+          //   console.error("error " + e);
+          // });
         }
       </script>
 </body>
