@@ -22,7 +22,6 @@ if ('serviceWorker' in navigator) {
 
   navigator.serviceWorker.getRegistration('firebase-messaging-sw.js').then(registration => {
     if (registration) {
-      serviceWorkerRegistration = registration;
 
       console.log('firebase-messaging-sw.js is registered and active.');
     } else {
@@ -33,7 +32,9 @@ if ('serviceWorker' in navigator) {
           console.error(`Failed to unregister Service Worker ${registration.scope}`, error);
         });
       }
-      navigator.serviceWorker.register("firebase-messaging-sw.js");
+      navigator.serviceWorker.register("firebase-messaging-sw.js").then((registration) => {
+        serviceWorkerRegistration = registration;
+      })
     }
   }).catch(error => {
     console.error('Error checking service worker registration:', error);
