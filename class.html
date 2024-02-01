@@ -123,7 +123,7 @@
               </div>
               <div class="col-md-2">
                 <form class="ml-lg-5 pl-lg-5 mt-3 ">
-                    <button id="subscribUser" class="btn btn-xl btn-primary text-uppercase caption px-3 w-100" type="button">להרשם לחץ כן</button>
+                    <button onclick="subscribUser()" class="btn btn-xl btn-primary text-uppercase caption px-3 w-100" type="button">להרשם לחץ כן</button>
                 </form>
             </div>
             </div>
@@ -172,7 +172,7 @@
           
           <div class="row">
               <div class="col-md-3 ">
-                <button id="subscribUser" class="btn btn-primary my-3 w-100" type="button">להרשם לחץ כאן</button>
+                <button onclick="subscribUser()" class="btn btn-primary my-3 w-100" type="button">להרשם לחץ כאן</button>
               </div>
               <div class="col-md-9 rtl">
                 <h5 class="mb-1">כל זה!!!</h5>
@@ -212,8 +212,12 @@
       <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-functions-compat.js"></script>
       <script src="./js/main.js"></script>
       <script>
-        document.getElementById("subscribUser").onclick = ()=>{
+        function subscribUser(){
           console.log("result")
+
+        }
+        // document.getElementById("subscribUser").onclick = ()=>{
+        //   console.log("result")
 
           //   functions.httpsCallable("course_add_user")().then((result)=>{
           //     console.log(result)
@@ -223,7 +227,7 @@
           // .catch((e) => {
           //   console.error("error " + e);
           // });
-        }
+        // }
       </script>
 </body>
 </html>
