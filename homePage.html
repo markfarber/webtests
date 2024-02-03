@@ -116,12 +116,14 @@
         <div class="col-md-4 px-3" style="text-align: center;">
             <!-- img-fluid -->
               <img id="cardImg"  class=" mt-xs-5" height="600px" width="351px"> 
+              
         </div>
         <div class="col-md-8 p-1  bg">
          
-          <div class="embed-responsive embed-responsive-16by9 h-100" >
+          <div class="embed-responsive embed-responsive-16by9 h-100" id="video">
             <!-- Replace 'YOUR_YOUTUBE_EMBED_URL' with the actual embed URL of your YouTube video -->
-            <iframe id="video" class="embed-responsive-item"  width="100%" height="100%" src="https://www.youtube.com/embed/22yNgmLLuj0?si=W2lyhImjbTkkbNko&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe  class="embed-responsive-item"  width="100%" height="100%" src="https://www.youtube.com/embed/22yNgmLLuj0?si=W2lyhImjbTkkbNko&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+         
           </div>
           
         </div>
@@ -194,15 +196,15 @@
         str =  cardData.video_url
         //?origin=https://dev.blaster.co.il/homePage.html
         
-
+        str = str.replace("/watch", "/embed");
         ifr = ` 
         <div class="embed-responsive embed-responsive-16by9 h-100" >
             <!-- Replace 'YOUR_YOUTUBE_EMBED_URL' with the actual embed URL of your YouTube video -->
-            <iframe id="video" class="embed-responsive-item"  width="100%" height="100%" src="https://www.youtube.com${str}/22yNgmLLuj0?si=W2lyhImjbTkkbNko&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe id="video" class="embed-responsive-item"  width="100%" height="100%" src="${str}?si=W2lyhImjbTkkbNko&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
         `
-        str = str.replace("/watch", "/embed");
-       // document.getElementById("video").contentWindow.document.location.href = str
+      
+       document.getElementById("video").innerHTML = ifr
         console.log(cardData.video_url)
         console.log(str)
 
