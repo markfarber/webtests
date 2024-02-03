@@ -1,137 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
 
-  <link rel="stylesheet" href="./css/style.css">
-  <style>
-    #alert,#loading{
-        display: none;
-      }
-
-    .loading{
-        position: fixed;
-        top: 47%;
-        left: 47%;
-        z-index: 100;
-      }
-      .gradient-custom-2 {
-        /* fallback for old browsers */
-        background: #90fcf8;
-
-        /* Chrome 10-25, Safari 5.1-6 */
-        background: -webkit-linear-gradient(to right, #24abee, #3664d8, #6336dd, #8945b4);
-
-        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        background: linear-gradient(to right,  #24abee, #3664d8, #6336dd, #8945b4);
-      }
-
-      @media (min-width: 768px) {
-        .gradient-form {
-        height: 100vh !important;
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+      #alert,#loading{
+          display: none;
         }
+
+      .loading{
+          position: fixed;
+          top: 47%;
+          left: 47%;
+          z-index: 100;
         }
-        @media (min-width: 769px) {
         .gradient-custom-2 {
-        border-top-right-radius: .3rem;
-        border-bottom-right-radius: .3rem;
-        }
-      }
-  </style>
-  <title>Document</title>
-</head>
+          /* fallback for old browsers */
+          background: #90fcf8;
 
-<body>
-  <section class="h-100 gradient-form " >
-    <div class="container h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-xl-12 p-0">
-          <div class="card rounded-3 text-black">
-            <div class="row g-0">
-              <!-- video side -->
-              <div class="col-lg-6 align-items-top gradient-custom-2 pt-5">
-                <div class="text-white mt-5 ">
-                  <div class="text-center mt-md-5">
-                    <img src="https://storage.googleapis.com/tyg-stage-b8e16.appspot.com/static/logo.png"
-                      style="width: 110px;height: 110px;" alt="logo">
-                    <h4 class="mt-1 mb-5 pb-1 mt-5 fw-bold " >שירות מסרים יומי עם ישי גד</h4>
-                  </div>
-                  <div class="embed-responsive embed-responsive-16by9 mx-md-2 pt-2">
-                    <!-- Replace 'YOUR_YOUTUBE_EMBED_URL' with the actual embed URL of your YouTube video -->
-                    <iframe width="100%" height="300" src="https://www.youtube-nocookie.com/embed/OBaUhHWiy98?si=yIhu2JzjWwGAZI9g&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>                  </div>
-                   <!-- loading -->
-                   <div class="d-flex justify-content-center loading">
-                    <div   class="spinner-border text-info " id="loading" role="status">
-                      <span class="sr-only"></span>
+          /* Chrome 10-25, Safari 5.1-6 */
+          background: -webkit-linear-gradient(to right, #24abee, #3664d8, #6336dd, #8945b4);
+
+          /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+          background: linear-gradient(to right,  #24abee, #3664d8, #6336dd, #8945b4);
+        }
+
+        @media (min-width: 768px) {
+          .gradient-form {
+          height: 100vh !important;
+          }
+          }
+          @media (min-width: 769px) {
+          .gradient-custom-2 {
+          border-top-right-radius: .3rem;
+          border-bottom-right-radius: .3rem;
+          }
+        }
+    </style>
+    <title>Document</title>
+  </head>
+
+  <body>
+    <section class="h-100 gradient-form " >
+      <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-xl-12 p-0">
+            <div class="card rounded-3 text-black">
+              <div class="row g-0">
+                <!-- video side -->
+                <div class="col-lg-6 align-items-top gradient-custom-2 pt-5">
+                  <div class="text-white mt-5 ">
+                    <div class="text-center mt-md-5">
+                      <img src="https://storage.googleapis.com/tyg-stage-b8e16.appspot.com/static/logo.png"
+                        style="width: 110px;height: 110px;" alt="logo">
+                      <h4 class="mt-1 mb-5 pb-1 mt-5 fw-bold " >שירות מסרים יומי עם ישי גד</h4>
+                    </div>
+                    <div class="embed-responsive embed-responsive-16by9 mx-md-2 pt-2">
+                      <!-- Replace 'YOUR_YOUTUBE_EMBED_URL' with the actual embed URL of your YouTube video -->
+                      <iframe width="100%" height="300" src="https://www.youtube-nocookie.com/embed/OBaUhHWiy98?si=yIhu2JzjWwGAZI9g&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>                  </div>
+                    <!-- loading -->
+                    <div class="d-flex justify-content-center loading">
+                      <div   class="spinner-border text-info " id="loading" role="status">
+                        <span class="sr-only"></span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-             <!-- login form side -->
-              <div class="col-lg-6">
-                <div class="card-body p-md-5 mx-md-4">
-  
-                 
-                  <div class="rtl">
-  
-                    <div class="divider d-flex align-items-center my-4">
-                      <h3 class="text-center fw-bold mx-3 mb-0 text-muted">לקבלת מסר יומי חינם, מלאו את הפרטים מטה:</h3>
-                    </div>
-                    <!-- alerrt -->
-                    <div id="alert" class="alert alert-danger alert-dismissible fade show">
-                      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                      <strong id="erorrMesseg"></strong>
-                    </div>
-        
-                    <!-- Email input -->
-                    <div class="form-outline mb-4 " dir="rtl">
-                      <label class="form-label" for="email">כתובת דואר אלקתרוני</label>
-                      <input type="email" id="email" class="form-control form-control-lg " dir="ltr" />
-                    </div>
-        
-                    <!-- Password input -->
-                    <div class="form-outline mb-4" dir="rtl">
-                      <label class="form-label" for="password">סיסמה</label>
-                      <input type="password" id="password" class="form-control form-control-lg" />
-                    </div>
-        
-                    <div class="form-outline mb-4" dir="rtl">
-                      <label class="form-label" for="fName">שם מלא</label>
-                      <input type="email" id="fName" class="form-control form-control-lg" />
-                    </div>
-        
-                    <!-- Password input -->
-                    <div class="form-outline mb-4" dir="rtl">
-                      <label class="form-label" for="date">תאריך לידה</label>
-                      <input type="date" id="date" class="form-control form-control-lg" />
-                    </div>
-        
-                    <div class="form-outline mb-4" dir="rtl">
-                      <label class="form-label" for="tel">מספר תלפון</label>
-                      <input type="tel" id="tel" class="form-control form-control-lg" />
-                    </div>
-        
-                    <div class="form-outline mb-4" dir="rtl">
-                      <label class="form-label" for="mName"> שם האם</label>
-                      <input type="text" id="mName" class="form-control form-control-lg" />
-                    </div>
+              <!-- login form side -->
+                <div class="col-lg-6">
+                  <div class="card-body p-md-5 mx-md-4">
+    
+                  
+                    <div class="rtl">
+    
+                      <div class="divider d-flex align-items-center my-4">
+                        <h3 class="text-center fw-bold mx-3 mb-0 text-muted">לקבלת מסר יומי חינם, מלאו את הפרטים מטה:</h3>
+                      </div>
+                      <!-- alerrt -->
+                      <div id="alert" class="alert alert-danger alert-dismissible fade show">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        <strong id="erorrMesseg"></strong>
+                      </div>
+          
+                      <!-- Email input -->
+                      <div class="form-outline mb-4 " dir="rtl">
+                        <label class="form-label" for="email">כתובת דואר אלקתרוני</label>
+                        <input type="email" id="email" class="form-control form-control-lg " dir="ltr" />
+                      </div>
+          
+                      <!-- Password input -->
+                      <div class="form-outline mb-4" dir="rtl">
+                        <label class="form-label" for="password">סיסמה</label>
+                        <input type="password" id="password" class="form-control form-control-lg" />
+                      </div>
+          
+                      <div class="form-outline mb-4" dir="rtl">
+                        <label class="form-label" for="fName">שם מלא</label>
+                        <input type="email" id="fName" class="form-control form-control-lg" />
+                      </div>
+          
+                      <!-- Password input -->
+                      <div class="form-outline mb-4" dir="rtl">
+                        <label class="form-label" for="date">תאריך לידה</label>
+                        <input type="date" id="date" class="form-control form-control-lg" />
+                      </div>
+          
+                      <div class="form-outline mb-4" dir="rtl">
+                        <label class="form-label" for="tel">מספר תלפון</label>
+                        <input type="tel" id="tel" class="form-control form-control-lg" />
+                      </div>
+          
+                      <div class="form-outline mb-4" dir="rtl">
+                        <label class="form-label" for="mName"> שם האם</label>
+                        <input type="text" id="mName" class="form-control form-control-lg" />
+                      </div>
 
-                    <div class="form-check form-switch mb-4" dir="rtl" >
-                      <input class="form-check-input float-start" type="checkbox" id="approve" >
-                      <label class="form-check-label float-end fw-bold text-muted" for="approve"> לאישור הרשמה לשרות וקבלת מסר יומי אותומתי</label>
+                      <div class="form-check form-switch mb-4" dir="rtl" >
+                        <input class="form-check-input float-start" type="checkbox" id="approve" >
+                        <label class="form-check-label float-end fw-bold text-muted" for="approve"> לאישור הרשמה לשרות וקבלת מסר יומי אותומתי</label>
+                      </div>
+          
+                      <!-- Submit button -->
+                      <button id="singUP" class="btn btn-primary btn-lg btn-block w-100">הרשם/י</button>
+          
+    
                     </div>
-        
-                    <!-- Submit button -->
-                    <button id="singUP" class="btn btn-primary btn-lg btn-block w-100">הרשם/י</button>
-        
-  
                   </div>
                 </div>
               </div>
@@ -139,92 +140,91 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
 
-  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
 
-  <script src="js/main.js"></script>
-  <script>//email & password singUp
-    singUP = document.getElementById("singUP");
-    singUP.onclick = () => {
-      document.getElementById("loading").style.display = "block"
-      document.getElementById("alert").style.display = "none"
+    <script src="js/main.js"></script>
+    <script>//email & password singUp
+      singUP = document.getElementById("singUP");
+      singUP.onclick = () => {
+        document.getElementById("loading").style.display = "block"
+        document.getElementById("alert").style.display = "none"
 
-      user = {
-        email: document.getElementById("email").value,
-        motherName: document.getElementById("mName").value,
-        bDaite: document.getElementById("date").value,
-        tel: document.getElementById("tel").value,
-        famelyName: document.getElementById("fName").value,
-        password: document.getElementById("password").value,
-        approve: document.getElementById("approve").checked
-        
-      }
+        user = {
+          email: document.getElementById("email").value,
+          motherName: document.getElementById("mName").value,
+          bDaite: document.getElementById("date").value,
+          tel: document.getElementById("tel").value,
+          famelyName: document.getElementById("fName").value,
+          password: document.getElementById("password").value,
+          approve: document.getElementById("approve").checked
+          
+        }
 
-      if(!user.approve){
+        if(!user.approve){
 
-        console.log(user)
-        fetch('https://papi-lxwz33wkfq-nw.a.run.app/register_user', {
-          method: 'POST',
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(user)
-        })
-        .then(async response => {
-          data = await response.json()
-          if (response.status == 200) {
-            console.log('User registered successfully, user = ' + JSON.stringify(data))
-            window.location.href = "./index.html"
-          } else {
-            console.error('Register user - got error status: ' + response.status + ' Error: ' + data.error)
-            document.getElementById("loading").style.display = "none"
+          console.log(user)
+          fetch('https://papi-lxwz33wkfq-nw.a.run.app/register_user', {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(user)
+          })
+          .then(async response => {
+            data = await response.json()
+            if (response.status == 200) {
+              console.log('User registered successfully, user = ' + JSON.stringify(data))
+              window.location.href = "./index.html"
+            } else {
+              console.error('Register user - got error status: ' + response.status + ' Error: ' + data.error)
+              document.getElementById("loading").style.display = "none"
 
-            if("Invalid field: Email"===data.error){
-              document.getElementById("erorrMesseg").innerText  = "כתובת מייל לא תקינה"
-              document.getElementById("alert").style.display = "block"
-              return false
-              
-            }else if(data.error.indexOf("password")>0){
-              document.getElementById("erorrMesseg").innerText  = "סיסמה לא תקינה יש לוודה שהסיסמה גדולה מ 6 תווים"
-              document.getElementById("alert").style.display = "block"
-              return false
-            }else if(data.error.indexOf("Phone")>0){
-              document.getElementById("erorrMesseg").innerText  = "מספר התלפון לא תקין"
-              document.getElementById("alert").style.display = "block"
-              return false
-            }else if(data.error.indexOf("Full name")>0){
-              document.getElementById("erorrMesseg").innerText  = "יש למלא שם פרתי ושם משפח"
-              document.getElementById("alert").style.display = "block"
-              return false
-            }else if(data.error.indexOf("EMAIL_EXISTS")>0){
+              if("Invalid field: Email"===data.error){
+                document.getElementById("erorrMesseg").innerText  = "כתובת מייל לא תקינה"
+                document.getElementById("alert").style.display = "block"
+                return false
+                
+              }else if(data.error.indexOf("password")>0){
+                document.getElementById("erorrMesseg").innerText  = "סיסמה לא תקינה יש לוודה שהסיסמה גדולה מ 6 תווים"
+                document.getElementById("alert").style.display = "block"
+                return false
+              }else if(data.error.indexOf("Phone")>0){
+                document.getElementById("erorrMesseg").innerText  = "מספר התלפון לא תקין"
+                document.getElementById("alert").style.display = "block"
+                return false
+              }else if(data.error.indexOf("Full name")>0){
+                document.getElementById("erorrMesseg").innerText  = "יש למלא שם פרתי ושם משפח"
+                document.getElementById("alert").style.display = "block"
+                return false
+              }else if(data.error.indexOf("EMAIL_EXISTS")>0){
 
-              document.getElementById("erorrMesseg").innerText  = "כתובת המייל קיימת במערכת אנא התחבר או הרשם עם כתובת אחרת"
-              document.getElementById("alert").style.display = "block"
-              return false
+                document.getElementById("erorrMesseg").innerText  = "כתובת המייל קיימת במערכת אנא התחבר או הרשם עם כתובת אחרת"
+                document.getElementById("alert").style.display = "block"
+                return false
+              }
+
             }
+          })
+          // })
+          .catch((error) => {
+            console.error('got error from register -> ' + error)
+          })
 
-          }
-        })
-        // })
-        .catch((error) => {
-          console.error('got error from register -> ' + error)
-        })
+        }else{
+          document.getElementById("loading").style.display = "none"
+          document.getElementById("erorrMesseg").innerText  = "יש לאשר קבלת מסר יומי"
+              document.getElementById("alert").style.display = "block"
+              return
+        }
 
-      }else{
-        document.getElementById("loading").style.display = "none"
-        document.getElementById("erorrMesseg").innerText  = "יש לאשר קבלת מסר יומי"
-            document.getElementById("alert").style.display = "block"
-            return
+          
       }
 
         
-    }
-
-      
 
       // firebase.auth().createUserWithEmailAndPassword(user.email, document.getElementById("password").value)
       // .then((userCredential) => {
@@ -248,8 +248,8 @@
       // });
 
 
-    
-  </script>
-</body>
+      
+    </script>
+  </body>
 
 </html>
