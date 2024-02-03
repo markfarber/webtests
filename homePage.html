@@ -186,7 +186,7 @@
       <div class="modal-body">
         <!-- Embedded YouTube Video -->
         <div id="videoFrame" class="embed-responsive embed-responsive-16by9">
-          <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID" allowfullscreen></iframe> -->
+          <iframe id="if" class="embed-responsive-item" src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID" allowfullscreen></iframe>
         </div>
       </div>
       <div class="modal-footer">
@@ -237,7 +237,6 @@
        
        
         var cardVideo = document.createElement('iframe');
-
         cardVideo.src = cardData.video_url; // Replace VIDEO_ID with your actual YouTube video ID
         cardVideo.width = '100%';
         cardVideo.height = '100%';
@@ -253,6 +252,7 @@
         
 
         var addVideo = document.createElement('iframe');
+        console.log(corentUser.video_url)
 
         addVideo.src = corentUser.video_url; // Replace VIDEO_ID with your actual YouTube video ID
         addVideo.width = '100%';
