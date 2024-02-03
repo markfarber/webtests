@@ -153,6 +153,7 @@
     singUP = document.getElementById("singUP");
     singUP.onclick = () => {
       document.getElementById("loading").style.display = "block"
+      document.getElementById("loading").style.display = "none"
 
       user = {
         email: document.getElementById("email").value,
@@ -165,34 +166,52 @@
         
       }
 
-      if(checkUserInput(user)){
+      if(!user.approve){
 
-          console.log(user)
-          fetch('https://papi-lxwz33wkfq-nw.a.run.app/register_user', {
-            method: 'POST',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(user)
-          })
-            .then(async response => {
-              data = await response.json()
-              if (response.status == 200) {
-                console.log('User registered successfully, user = ' + JSON.stringify(data))
-                window.location.href = "./index.html"
-              } else {
-                console.error('Register user - got error status: ' + response.status + ' Error: ' + data.error)
-                window.alert('Error: ' + data.error)
-              }
-            })
-            // })
-            .catch((error) => {
-              console.error('got error from register -> ' + error)
-            })
+        console.log(user)
+        fetch('https://papi-lxwz33wkfq-nw.a.run.app/register_user', {
+          method: 'POST',
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(user)
+        })
+        .then(async response => {
+          data = await response.json()
+          if (response.status == 200) {
+            console.log('User registered successfully, user = ' + JSON.stringify(data))
+            window.location.href = "./index.html"
+          } else {
+            console.error('Register user - got error status: ' + response.status + ' Error: ' + data.error)
+            window.alert('Error: ' + data.error)
+          }
+        })
+        // })
+        .catch((error) => {
+          console.error('got error from register -> ' + error)
 
-        }
-        document.getElementById("loading").style.display = "none"
+          // if(!user.email.match(regex)){
+          //   document.getElementById("erorrMesseg").innerText  = "כתובת מייל לא תקינה"
+          //   document.getElementById("alert").style.display = "block"
+          //   return false
+          // }else if(!user.password.length<6){
+          //   document.getElementById("erorrMesseg").innerText  = "סיסמה לא תקינה יש לוודה שהסיסמה גדולה מ 6 תווים"
+          //   document.getElementById("alert").style.display = "block"
+          //   return false
+          // }else if(!user.phoneNumber.match(phoneNumber)){
+          //   document.getElementById("erorrMesseg").innerText  = "מספר התלפון לא תקין"
+          //   document.getElementById("alert").style.display = "block"
+          //   return false
+          // }
+
+        })
+
+      }else{
+        document.getElementById("erorrMesseg").innerText  = "יש לאשר קבלת מסר יומי"
+            document.getElementById("alert").style.display = "block"
+            return
+      }
 
         
-      }
+    }
 
       function checkUserInput(user){
           let regex = `/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/`;
