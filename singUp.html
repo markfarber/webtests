@@ -76,7 +76,10 @@
   
                     <div class="divider d-flex align-items-center my-4">
                       <h3 class="text-center fw-bold mx-3 mb-0 text-muted">לקבלת מסר יומי חינם, מלאו את הפרטים מטה:</h3>
-
+                      <div id="alert" class="alert alert-danger alert-dismissible fade show">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        <strong id="erorrMesseg"></strong>
+                      </div>
                       <!-- <h3 class="text-center fw-bold mx-3 mb-0 text-muted">הרשמה</h3> -->
                     </div>
         
@@ -115,7 +118,7 @@
 
                     <div class="form-check form-switch" dir="rtl">
                       <input class="form-check-input" type="checkbox" id="approve">
-                      <label class="form-check-label" for="approve">Default switch checkbox input</label>
+                      <label class="form-check-label" for="approve">יש לסמן לאישור הרשמה לשרות קבלת מסר יומי אותומתי</label>
                     </div>
         
                     <!-- Submit button -->
@@ -131,90 +134,6 @@
       </div>
     </div>
   </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-  <section class="vh-100">
-    <div class="container py-5 h-100">
-      <div class="row d-flex align-items-center justify-content-center h-100">
-        <div class="col-md-8 col-lg-7 col-xl-6 mb-4">
-          <img src="https://storage.googleapis.com/tyg-stage-b8e16.appspot.com/static/logo.png" class="img-fluid"
-            alt="Phone image">
-        </div>
-        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1 ">
-          <div>
-            <a class="btn btn-primary btn-lg btn-block w-100" style="background-color: #3b5998" href="#!" role="button">
-               
-            </a> -->
-<!-- 
-            <div class="divider d-flex align-items-center my-4">
-              <h3 class="text-center fw-bold mx-3 mb-0 text-muted">הרשמה</h3>
-            </div> -->
-
-            <!-- Email input -->
-            <!-- <div class="form-outline mb-4 " dir="rtl">
-              <label class="form-label" for="email">כתובת דואר אלקתרוני</label>
-              <input type="email" id="email" class="form-control form-control-lg " dir="ltr" />
-            </div> -->
-
-            <!-- Password input -->
-            <!-- <div class="form-outline mb-4" dir="rtl">
-              <label class="form-label" for="password">סיסמה</label>
-              <input type="password" id="password" class="form-control form-control-lg" />
-            </div> -->
-
-            <!-- <div class="form-outline mb-4" dir="rtl">
-              <label class="form-label" for="fName">שם מלא</label>
-              <input type="email" id="fName" class="form-control form-control-lg" />
-            </div> -->
-
-            <!-- Password input -->
-            <!-- <div class="form-outline mb-4" dir="rtl">
-              <label class="form-label" for="date">תאריך לידה</label>
-              <input type="date" id="date" class="form-control form-control-lg" />
-            </div>
-
-            <div class="form-outline mb-4" dir="rtl">
-              <label class="form-label" for="tel">מספר תלפון</label>
-              <input type="tel" id="tel" class="form-control form-control-lg" />
-            </div>
-
-            <div class="form-outline mb-4" dir="rtl">
-              <label class="form-label" for="mName"> שם האם</label>
-              <input type="text" id="mName" class="form-control form-control-lg" />
-            </div> -->
-
-            <!-- Submit button -->
-            <!-- <button id="singUP" class="btn btn-primary btn-lg btn-block w-100">הרשם/י</button>
-
-
-
-
-
-          </div>
-
-        </div>
-  </section> -->
-
-  <!-- end log in -->
-
-
-
 
 
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
@@ -236,26 +155,57 @@
         password: document.getElementById("password").value
       }
 
-      console.log(user)
-      fetch('https://papi-lxwz33wkfq-nw.a.run.app/register_user', {
-        method: 'POST',
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(user)
-      })
-        .then(async response => {
-          data = await response.json()
-          if (response.status == 200) {
-            console.log('User registered successfully, user = ' + JSON.stringify(data))
-            window.location.href = "./index.html"
-          } else {
-            console.error('Register user - got error status: ' + response.status + ' Error: ' + data.error)
-            window.alert('Error: ' + data.error)
+      if(checkUserInput(user)){
+
+          console.log(user)
+          fetch('https://papi-lxwz33wkfq-nw.a.run.app/register_user', {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(user)
+          })
+            .then(async response => {
+              data = await response.json()
+              if (response.status == 200) {
+                console.log('User registered successfully, user = ' + JSON.stringify(data))
+                window.location.href = "./index.html"
+              } else {
+                console.error('Register user - got error status: ' + response.status + ' Error: ' + data.error)
+                window.alert('Error: ' + data.error)
+              }
+            })
+            // })
+            .catch((error) => {
+              console.error('got error from register -> ' + error)
+            })
+
+        }
+
+        
+      }
+
+      function checkUserInput(user){
+          let regex = `/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/`;
+          phoneNumber = /^\+?[0-9]\d{1,20}$/;
+
+          if(!user.password.length<6){
+            document.getElementById("erorrMesseg").innerText  = "סיסמה לא תקינה יש לוודה שהסיסמה גדולה מ 6 תווים"
+            document.getElementById("alert").style.display = "block"
+            return false
+          }else if(!user.email.match(regex)){
+            document.getElementById("erorrMesseg").innerText  = "כתובת מייל לא תקינה"
+            document.getElementById("alert").style.display = "block"
+            return false
+          }else if(!user.phoneNumber.match(phoneNumber)){
+            document.getElementById("erorrMesseg").innerText  = "מספר התלפון לא תקין"
+            document.getElementById("alert").style.display = "block"
+            return false
           }
-        })
-        // })
-        .catch((error) => {
-          console.error('got error from register -> ' + error)
-        })
+          
+          
+          document.getElementById("loading").style.display = "none"
+          return true  
+          
+        }
 
       // firebase.auth().createUserWithEmailAndPassword(user.email, document.getElementById("password").value)
       // .then((userCredential) => {
@@ -279,7 +229,7 @@
       // });
 
 
-    }
+    
   </script>
 </body>
 
