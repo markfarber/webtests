@@ -1,9 +1,15 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
 .divider:after,
 .divider:before {
 content: "";
 flex: 1;
 height: 1px;
 background: #eee;
+}
+
+body{
+  font-family: 'Open Sans',serif;
 }
 
 #logoutBTN:hover{
