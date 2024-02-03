@@ -48,11 +48,12 @@ if ("Notification" in window) {
   Notification.requestPermission().then((premition) => {
     if (premition == "denied") {
       console.log("the user denied the premission");
-      serviceRegistration()
+     
       return;
     }
     if (premition == "granted") {
       console.log("premition granted");
+      serviceRegistration()
     }
   });
 }
