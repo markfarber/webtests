@@ -198,7 +198,12 @@
               document.getElementById("erorrMesseg").innerText  = "יש למלא שם פרתי ושם משפח"
               document.getElementById("alert").style.display = "block"
               return false
+            }else if("The user with the provided email already exists"===data.error){
+              document.getElementById("erorrMesseg").innerText  = "כתובת המייל קיימת במערכת אנא התחבר או הרשם עם כתובת אחרת"
+              document.getElementById("alert").style.display = "block"
+              return false
             }
+           
 
 
 
