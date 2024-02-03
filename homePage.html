@@ -192,8 +192,9 @@
         document.getElementById("cardT").innerText = cardData.name
         document.getElementById("cardM").innerText = cardData.message
         str =  cardData.video_url
-        str = str.replace("/watch", "/embed?origin=https://dev.blaster.co.il/homePage.html");
-        document.getElementById("video").src = str
+        //?origin=https://dev.blaster.co.il/homePage.html
+        str = str.replace("/watch", "/embed");
+        document.getElementById("video").contentWindow.document.location.href = str
         console.log(cardData.video_url)
         console.log(str)
 
