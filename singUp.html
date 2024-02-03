@@ -198,11 +198,11 @@
           phoneNumber = /^\+?[0-9]\d{1,20}$/;
 
           if(!user.email.match(regex)){
-            document.getElementById("erorrMesseg").innerText  = "סיסמה לא תקינה יש לוודה שהסיסמה גדולה מ 6 תווים"
+            document.getElementById("erorrMesseg").innerText  = "כתובת מייל לא תקינה"
             document.getElementById("alert").style.display = "block"
             return false
           }else if(!user.password.length<6){
-            document.getElementById("erorrMesseg").innerText  = "כתובת מייל לא תקינה"
+            document.getElementById("erorrMesseg").innerText  = "סיסמה לא תקינה יש לוודה שהסיסמה גדולה מ 6 תווים"
             document.getElementById("alert").style.display = "block"
             return false
           }else if(!user.phoneNumber.match(phoneNumber)){
