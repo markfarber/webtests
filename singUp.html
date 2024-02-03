@@ -182,7 +182,7 @@
           } else {
             console.error('Register user - got error status: ' + response.status + ' Error: ' + data.error)
 
-              if("Invalid field: Email"===data.error){
+            if("Invalid field: Email"===data.error){
               document.getElementById("erorrMesseg").innerText  = "כתובת מייל לא תקינה"
               document.getElementById("alert").style.display = "block"
               return false
@@ -198,16 +198,12 @@
               document.getElementById("erorrMesseg").innerText  = "יש למלא שם פרתי ושם משפח"
               document.getElementById("alert").style.display = "block"
               return false
-            }else if("The user with the provided email already exists"===data.error){
+            }else if(data.error.indexOf("EMAIL_EXISTS")>0){
+
               document.getElementById("erorrMesseg").innerText  = "כתובת המייל קיימת במערכת אנא התחבר או הרשם עם כתובת אחרת"
               document.getElementById("alert").style.display = "block"
               return false
             }
-           
-
-
-
-
 
           }
         })
