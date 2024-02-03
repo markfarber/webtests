@@ -120,9 +120,9 @@
         </div>
         <div class="col-md-8 p-1  bg">
          
-          <div class="embed-responsive embed-responsive-16by9 h-100" id="video">
+          <div  class="embed-responsive embed-responsive-16by9 h-100" id="video">
             <!-- Replace 'YOUR_YOUTUBE_EMBED_URL' with the actual embed URL of your YouTube video -->
-            <iframe  class="embed-responsive-item"  width="100%" height="100%"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <!-- <iframe  class="embed-responsive-item"  width="100%" height="100%"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
          
           </div>
           
@@ -197,14 +197,24 @@
        
         //?origin=https://dev.blaster.co.il/homePage.html
         
-       
-        document.getElementById("video").innerHTML= ` 
-        <div class="embed-responsive embed-responsive-16by9 h-100" >
+        iframe.src = `https://www.youtube.com/embed/${cardData.video_url}`; // Replace VIDEO_ID with your actual YouTube video ID
+        iframe.width = '600';
+        iframe.height = '400';
+        iframe.frameBorder = '0'; // Set to '0' to remove the iframe border
+        iframe.allowFullscreen = true;
+
+        // Append the iframe to the desired location in the DOM
+        var container = document.getElementById('video');
+        container.appendChild(iframe);
+
+
+      //   document.getElementById("video").innerHTML= ` 
+      //   <div class="embed-responsive embed-responsive-16by9 h-100" >
             
-            <iframe id="video" class="embed-responsive-item"  width="100%" height="100%" src="${cardData.video_url}?si=W2lyhImjbTkkbNko&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          </div>
-        `
-       iframe.contentWindow.document.write(ifr);
+      //       <iframe id="video" class="embed-responsive-item"  width="100%" height="100%" src="${cardData.video_url}?si=W2lyhImjbTkkbNko&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      //     </div>
+      //   `
+      //  iframe.contentWindow.document.write(ifr);
 
         console.log(cardData.video_url)
         console.log(str)
