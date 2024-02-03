@@ -34,6 +34,9 @@
         background-color: rgba(255,255,255, 0.5);
         /* padding: 20px; */
       }
+      #videoModal{
+        display: none;
+      }
       .bg{
         background-color: rgba(194, 222, 247, 0.751);
       }
@@ -170,7 +173,25 @@
 </div>
 
    
-    
+//video modal
+<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="videoModalLabel">YouTube Video</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="videoFrame" class="embed-responsive embed-responsive-16by9">
+          <!-- Replace 'YOUR_YOUTUBE_VIDEO_ID' with the actual YouTube video ID -->
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
@@ -210,10 +231,34 @@
         console.log(cardData.video_url)
         console.log(str)
 
+        var iframe = document.createElement('iframe');
+
+        iframe.src = cardData.video_url; // Replace VIDEO_ID with your actual YouTube video ID
+        iframe.width = '100%';
+        iframe.height = '100%';
+        iframe.frameBorder = '0'; // Set to '0' to remove the iframe border
+        iframe.allowFullscreen = true;
+
+        // Append the iframe to the desired location in the DOM
+        var container = document.getElementById('videoFrame');
+        container.appendChild(iframe);
+
+        function openModal() {
+            var modal = document.getElementById('videoModal');
+            modal.style.display = 'block';
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('modal-open');
+            document.body.style.paddingRight = '15px'; // Adjust according to your needs
+        }
+
+        
+
       }
       
 
-      
+
+     
+            
     </script>
   </body>
 </html>
