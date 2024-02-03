@@ -12,6 +12,10 @@
 
   <link rel="stylesheet" href="./css/style.css">
   <style>
+    #alert,#loading{
+        display: none;
+      }
+
     .loading{
         position: fixed;
         top: 47%;
@@ -62,9 +66,12 @@
                   <div class="embed-responsive embed-responsive-16by9 mx-md-2">
                     <!-- Replace 'YOUR_YOUTUBE_EMBED_URL' with the actual embed URL of your YouTube video -->
                     <iframe width="100%" height="300" src="https://www.youtube-nocookie.com/embed/OBaUhHWiy98?si=yIhu2JzjWwGAZI9g&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>                  </div>
-                  <!-- <div class="w-100 px-2">
-                    <h4 class="pb-4 rtl" >לקבלת מסר יומי חינם, מלאו את הפרטים מטה:</h4>
-                  </div> -->
+                   <!-- loading -->
+                   <div class="d-flex justify-content-center loading">
+                    <div   class="spinner-border text-info " id="loading" role="status">
+                      <span class="sr-only"></span>
+                    </div>
+                  </div>
                 </div>
               </div>
              <!-- login form side -->
@@ -145,6 +152,7 @@
   <script>//email & password singUp
     singUP = document.getElementById("singUP");
     singUP.onclick = () => {
+      document.getElementById("loading").style.display = "block"
 
       user = {
         email: document.getElementById("email").value,
@@ -179,6 +187,7 @@
             })
 
         }
+        document.getElementById("loading").style.display = "none"
 
         
       }
