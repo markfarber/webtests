@@ -79,11 +79,8 @@ firebase.auth().onAuthStateChanged((user) => {
           console.log(corentUser)
           showCardOnUI();
         } else if (window.location.href.indexOf("/spatial.html") > 0) {
-
-          
           //get add obj frome db
           showAdd()
-          
 
         }else if(window.location.href.indexOf("/allCard.html")>0){
        

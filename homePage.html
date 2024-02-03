@@ -23,6 +23,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Assistant:wght@200..800&family=Noto+Sans+Hebrew:wght@100..900&display=swap" rel="stylesheet">
+   
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
@@ -117,14 +118,20 @@
               <img id="cardImg"  class=" mt-5" height="600px" width="351px"> 
         </div>
         <div class="col-sm-8 p-1">
-          <h4 class="rtl display-6 " id="cardT">title</h4>
+         
+          <div class="embed-responsive embed-responsive-16by9">
+            <!-- Replace 'YOUR_YOUTUBE_EMBED_URL' with the actual embed URL of your YouTube video -->
+            <iframe id="video" class="embed-responsive-item"  width="100%" height="400" src="https://www.youtube.com/embed/22yNgmLLuj0?si=W2lyhImjbTkkbNko&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
           
-          <p id="cardM" class="txt-center">card content</p>
         </div>
       </div>
-      <div class="row" style="min-height: 100px;"></div>
+      <div class="row" style="min-height: 100px;">
+        <h4 class="rtl display-6 " id="cardT">title</h4>
+        <p id="cardM" class="txt-center">card content</p>
+      </div>
     </div>
-   
+   <!-- sms btn -->
   <footer class="text-center fixed-bottom ">
       <section class="row p-1 px-3" >
         <div class="col-md space p-0">
@@ -181,6 +188,7 @@
         document.getElementById("cardImg").src = cardData.img_url
         document.getElementById("cardT").innerText = cardData.name
         document.getElementById("cardM").innerText = cardData.message
+        document.getElementById("video").src = cardData.video_url
 
       }
       
