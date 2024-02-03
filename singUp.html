@@ -166,7 +166,6 @@
         
       }
 
-      console.log(user.approve)
       if(!user.approve){
 
         console.log(user)
@@ -183,26 +182,34 @@
           } else {
             console.error('Register user - got error status: ' + response.status + ' Error: ' + data.error)
             window.alert('Error: ' + data.error)
+
+              if("Invalid field: Email"===data.error){
+              document.getElementById("erorrMesseg").innerText  = "כתובת מייל לא תקינה"
+              document.getElementById("alert").style.display = "block"
+              return false
+            }else if("Invalid field: Invalid password string. Password must be a string at least 6 characters long."===data.error){
+              document.getElementById("erorrMesseg").innerText  = "סיסמה לא תקינה יש לוודה שהסיסמה גדולה מ 6 תווים"
+              document.getElementById("alert").style.display = "block"
+              return false
+            }else if("Invalid field: Phone"===data.error){
+              document.getElementById("erorrMesseg").innerText  = "מספר התלפון לא תקין"
+              document.getElementById("alert").style.display = "block"
+              return false
+            }else if("Invalid field: Full name"===data.error){
+              document.getElementById("erorrMesseg").innerText  = "יש למלא שם פרתי ושם משפח"
+              document.getElementById("alert").style.display = "block"
+              return false
+            }
+
+
+
+
+
           }
         })
         // })
         .catch((error) => {
           console.error('got error from register -> ' + error)
-
-          // if(!user.email.match(regex)){
-          //   document.getElementById("erorrMesseg").innerText  = "כתובת מייל לא תקינה"
-          //   document.getElementById("alert").style.display = "block"
-          //   return false
-          // }else if(!user.password.length<6){
-          //   document.getElementById("erorrMesseg").innerText  = "סיסמה לא תקינה יש לוודה שהסיסמה גדולה מ 6 תווים"
-          //   document.getElementById("alert").style.display = "block"
-          //   return false
-          // }else if(!user.phoneNumber.match(phoneNumber)){
-          //   document.getElementById("erorrMesseg").innerText  = "מספר התלפון לא תקין"
-          //   document.getElementById("alert").style.display = "block"
-          //   return false
-          // }
-
         })
 
       }else{
