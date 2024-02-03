@@ -191,7 +191,9 @@
         document.getElementById("cardImg").src = cardData.img_url
         document.getElementById("cardT").innerText = cardData.name
         document.getElementById("cardM").innerText = cardData.message
-        document.getElementById("video").src = cardData.video_url
+        str =  cardData.video_url
+        str = str.replace("/watch", "/embed");
+        document.getElementById("video").src = str
         console.log(cardData.video_url)
 
       }
