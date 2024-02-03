@@ -37,10 +37,10 @@ body{
   }
   
   
-.rtl{
+/* .rtl{
         direction: rtl;
         text-align: right;
-    }
+    } */
 #logOutIcon{
     font-size: 1.6rem;
     
