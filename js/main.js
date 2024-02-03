@@ -17,7 +17,7 @@ const messaging = app.messaging("europe-west2");
 const storage = app.storage();
 serviceWorkerRegistration = undefined
 
-
+function serviceRegistration(){
 if ('serviceWorker' in navigator) {
 
   navigator.serviceWorker.getRegistration('firebase-messaging-sw.js').then(registration => {
@@ -40,7 +40,7 @@ if ('serviceWorker' in navigator) {
     console.error('Error checking service worker registration:', error);
   });
 }
-
+}
 
 
 //if (window.location.href.indexOf("/index.html") < 0 && window.location.href.indexOf("/singUp.html")<0)
@@ -48,6 +48,7 @@ if ("Notification" in window) {
   Notification.requestPermission().then((premition) => {
     if (premition == "denied") {
       console.log("the user denied the premission");
+      serviceRegistration()
       return;
     }
     if (premition == "granted") {
