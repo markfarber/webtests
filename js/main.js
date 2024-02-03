@@ -43,7 +43,7 @@ if ('serviceWorker' in navigator) {
 
 
 
-
+if (window.location.href.indexOf("/index.html") < 0 && window.location.href.indexOf("/singUp.html")<0)
 if ("Notification" in window) {
   Notification.requestPermission().then((premition) => {
     if (premition == "denied") {
