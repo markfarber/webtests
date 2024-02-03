@@ -181,6 +181,7 @@
             window.location.href = "./index.html"
           } else {
             console.error('Register user - got error status: ' + response.status + ' Error: ' + data.error)
+            document.getElementById("loading").style.display = "none"
 
             if("Invalid field: Email"===data.error){
               document.getElementById("erorrMesseg").innerText  = "כתובת מייל לא תקינה"
@@ -213,6 +214,7 @@
         })
 
       }else{
+        document.getElementById("loading").style.display = "none"
         document.getElementById("erorrMesseg").innerText  = "יש לאשר קבלת מסר יומי"
             document.getElementById("alert").style.display = "block"
             return
@@ -221,35 +223,7 @@
         
     }
 
-      function checkUserInput(user){
-          let regex = `/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/`;
-          phoneNumber = `/^\+?[0-9]\d{1,20}$/`;
-
-
-
-          if(!user.approve){
-            document.getElementById("erorrMesseg").innerText  = "יש לאשר קבלת מסר יומי"
-            document.getElementById("alert").style.display = "block"
-            return false
-          }if(!user.email.match(regex)){
-            document.getElementById("erorrMesseg").innerText  = "כתובת מייל לא תקינה"
-            document.getElementById("alert").style.display = "block"
-            return false
-          }else if(!user.password.length<6){
-            document.getElementById("erorrMesseg").innerText  = "סיסמה לא תקינה יש לוודה שהסיסמה גדולה מ 6 תווים"
-            document.getElementById("alert").style.display = "block"
-            return false
-          }else if(!user.phoneNumber.match(phoneNumber)){
-            document.getElementById("erorrMesseg").innerText  = "מספר התלפון לא תקין"
-            document.getElementById("alert").style.display = "block"
-            return false
-          }
-          
-          
-          document.getElementById("loading").style.display = "none"
-          return true  
-          
-        }
+      
 
       // firebase.auth().createUserWithEmailAndPassword(user.email, document.getElementById("password").value)
       // .then((userCredential) => {
