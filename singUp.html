@@ -124,7 +124,7 @@
                     </div>
 
                     <div class="form-check form-switch mb-4" dir="rtl" >
-                      <input class="form-check-input float-start" type="checkbox" id="approve">
+                      <input class="form-check-input float-start" type="checkbox" id="approve" checked="false">
                       <label class="form-check-label float-end" for="approve"> לאישור הרשמה לשרות וקבלת מסר יומי אותומתי</label>
                     </div>
         
@@ -181,7 +181,6 @@
             window.location.href = "./index.html"
           } else {
             console.error('Register user - got error status: ' + response.status + ' Error: ' + data.error)
-            window.alert('Error: ' + data.error)
 
               if("Invalid field: Email"===data.error){
               document.getElementById("erorrMesseg").innerText  = "כתובת מייל לא תקינה"
