@@ -198,7 +198,7 @@
         //?origin=https://dev.blaster.co.il/homePage.html
         var iframe = document.createElement('iframe');
 
-        iframe.src = `https://www.youtube.com/embed/${cardData.video_url}`; // Replace VIDEO_ID with your actual YouTube video ID
+        iframe.src = cardData.video_url; // Replace VIDEO_ID with your actual YouTube video ID
         iframe.width = '600';
         iframe.height = '400';
         iframe.frameBorder = '0'; // Set to '0' to remove the iframe border
