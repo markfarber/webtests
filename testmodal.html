@@ -40,17 +40,17 @@
 <body>
 
 <!-- Button to trigger the modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#videoModal">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal">
   Open Video Modal
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
+<div class="modal" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-body">
         <!-- Video background inside the modal content -->
-        <video id="video-background" autoplay muted loop>
+        <video height="600" id="video-background" autoplay muted loop>
           Your browser does not support the video tag.
         </video>
       </div>
@@ -67,12 +67,14 @@ function setVideoSource(videoElement, videoUrl) {
     .then(blob => {
       const blobUrl = URL.createObjectURL(blob);
       videoElement.src = blobUrl;
+
     })
     .catch(error => console.error('Error fetching video:', error));
 }
 
 // Wait for the modal to be fully shown before setting the video source
 document.getElementById('videoModal').addEventListener('shown.bs.modal', function () {
+    console.log('Modal is fully shown');
   var videoElement = document.getElementById('video-background');
   var videoUrl = 'https://storage.googleapis.com/tyg-stage-b8e16.appspot.com/uploads/TYG_AD_1.mp4'; // Replace with the actual video URL
   setVideoSource(videoElement, videoUrl);
