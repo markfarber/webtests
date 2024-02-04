@@ -285,7 +285,9 @@
       function openModal() {
             var modal = document.getElementById('myModal');
             document.getElementById('modalOverlay').style.display = 'block';
+            document.getElementById('modalOverlay').style.zIndex = "10"
             modal.style.display = 'block';
+            modal.style.zIndex = '11';
             modal.setAttribute('aria-hidden', 'false');
             document.body.classList.add('modal-open');
             document.body.style.paddingRight = '22%'; // Adjust according to your needs
