@@ -74,6 +74,12 @@
       .modal-dialog {
         z-index: 1060; /* Make sure this is higher than the modal-overlay z-index */
       }
+      @media (min-width: 576px){
+        .modal-dialog {
+            max-width: 60%;
+            margin: 1.75rem auto;
+        }
+      }
     </style>
     <title>הקלף היומי</title>
   </head >
@@ -195,7 +201,7 @@
 <div class="modal-overlay" id="modalOverlay"></div>
 <div class="modal" id="myModal" tabindex="-1" role="dialog">
   <div class="modal-dialog h-100 w-100" role="document">
-    <div class="modal-content h-100 w-100">
+    <div class="modal-content h-50 w-100">
       <div class="modal-body h-100 w-100">
         <!-- Embedded YouTube Video -->
         <div id="videoFrame" class="embed-responsive embed-responsive-16by9 h-100 w-100">
