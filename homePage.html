@@ -283,9 +283,7 @@
         addVideo.allowFullscreen = true;
 
         // Append the iframe to the desired location in the DOM
-        var container = document.getElementById('videoAdd');
-        container.src = corentUser.current_ad.video_url
-
+      
         openModal() 
         
 
@@ -305,6 +303,9 @@
             document.body.style.paddingLeft = '10%'; // Adjust according to your needs
             document.body.style.width= '80%'; // Adjust according to your needs
             document.body.style.paddingTop= '400px';
+            var video = document.getElementById('videoAdd');
+            video.src = corentUser.current_ad.video_url
+
            // document.body.style.margin= '10% 30%';
           
           }
