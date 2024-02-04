@@ -76,6 +76,10 @@
       .modal-dialog {
         z-index: 1060; /* Make sure this is higher than the modal-overlay z-index */
       }
+      #video-background {
+      width: 100%;
+      height: auto;
+    }
       @media (min-width: 576px){
         .modal-dialog {
             max-width: 60%;
@@ -201,41 +205,20 @@
 
    
 <!-- //video modal -->
-<div class="modal-overlay" id="modalOverlay" ></div>
-<div class="modal" id="myModal" tabindex="-1" role="dialog" style="padding-top: 300px;">
-  <div class="modal-dialog h-100 w-100" role="document">
-    <div class="modal-content h-50 w-100 " >
-      <div class="modal-body h-100 w-100">
-        <!-- Embedded YouTube Video -->
-        <div id="videoFrame" class="embed-responsive embed-responsive-16by9 h-100 w-100">
-          <video autoplay muted loop id="myVideo">
-            <source id="videoAdd"  type="video/mp4">
-          </video>
-        </div>
+<div class="modal" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <!-- Video background inside the modal content -->
+        <video height="600" id="video-background" autoplay muted loop>
+          Your browser does not support the video tag.
+        </video>
       </div>
-      
     </div>
   </div>
 </div>
 
-<!-- <div class="modal fade" id="" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="videoModalLabel">YouTube Video</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="embed-responsive embed-responsive-16by9">
-           Replace 'YOUR_YOUTUBE_VIDEO_ID' with the actual YouTube video ID -->
-          <!-- <iframe id="videoFrame" class="embed-responsive-item" src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID?enablejsapi=1" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-  </div> -->
-<!-- </div> --> 
+
 
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
@@ -273,14 +256,14 @@
         container.appendChild(cardVideo);
         
 
-        var addVideo = document.createElement('iframe');
-        console.log(corentUser)
+        // var addVideo = document.createElement('iframe');
+        // console.log(corentUser)
 
-        addVideo.src = corentUser.current_ad.video_url; // Replace VIDEO_ID with your actual YouTube video ID
-        addVideo.width = '100%';
-        addVideo.height = '100%';
-        addVideo.frameBorder = '0'; // Set to '0' to remove the iframe border
-        addVideo.allowFullscreen = true;
+        // addVideo.src = corentUser.current_ad.video_url; // Replace VIDEO_ID with your actual YouTube video ID
+        // addVideo.width = '100%';
+        // addVideo.height = '100%';
+        // addVideo.frameBorder = '0'; // Set to '0' to remove the iframe border
+        // addVideo.allowFullscreen = true;
 
         // Append the iframe to the desired location in the DOM
       
@@ -288,8 +271,22 @@
         
 
       }
-      
+      document.getElementById('videoModal').addEventListener('shown.bs.modal', function () {
+          console.log('Modal is fully shown');
+        var videoElement = document.getElementById('video-background');
+        var videoUrl = corentUser.current_ad.video_url; // Replace with the actual video URL
+        setVideoSource(videoElement, videoUrl);
+      });
 
+      function setVideoSource(videoElement, videoUrl) {
+        fetch(videoUrl)
+          .then(response => response.blob())
+          .then(blob => {
+            const blobUrl = URL.createObjectURL(blob);
+            videoElement.src = blobUrl;
+          })
+          .catch(error => console.error('Error fetching video:', error));
+      }
 
       function openModal() {
             var modal = document.getElementById('myModal');
@@ -297,20 +294,21 @@
             document.getElementById('modalOverlay').style.zIndex = "1"
             modal.style.display = 'block';
             modal.style.zIndex = '1';
-            modal.setAttribute('aria-hidden', 'false');
-            document.body.classList.add('modal-open');
-            document.body.style.paddingRight = '10%'; // Adjust according to your needs
-            document.body.style.paddingLeft = '10%'; // Adjust according to your needs
-            document.body.style.width= '80%'; // Adjust according to your needs
-            document.body.style.paddingTop= '400px';
-            var video = document.getElementById('myVideo');
-            video.src = corentUser.current_ad.video_url
-            video.width = "100%"
-            video.height = "100%"
+      }     
+            // modal.setAttribute('aria-hidden', 'false');
+            // document.body.classList.add('modal-open');
+            // document.body.style.paddingRight = '10%'; // Adjust according to your needs
+            // document.body.style.paddingLeft = '10%'; // Adjust according to your needs
+            // document.body.style.width= '80%'; // Adjust according to your needs
+            // document.body.style.paddingTop= '400px';
+            // var video = document.getElementById('myVideo');
+            // video.src = corentUser.current_ad.video_url
+            // video.width = "100%"
+            // video.height = "100%"
 
            // document.body.style.margin= '10% 30%';
           
-          }
+          // }
 
             
     </script>
