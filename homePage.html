@@ -270,7 +270,8 @@
 
         // Append the iframe to the desired location in the DOM
       
-        $('#videoModal').modal('show');
+        let el = document.getElementById("videoModal");
+          new Modal(el).show();
         
 
       }
