@@ -209,7 +209,7 @@
         <!-- Embedded YouTube Video -->
         <div id="videoFrame" class="embed-responsive embed-responsive-16by9 h-100 w-100">
           <video autoplay muted loop id="myVideo">
-            <source id="videoAdd" src="rain.mp4" type="video/mp4">
+            <source id="videoAdd"  type="video/mp4">
           </video>
         </div>
       </div>
@@ -303,7 +303,7 @@
             document.body.style.paddingLeft = '10%'; // Adjust according to your needs
             document.body.style.width= '80%'; // Adjust according to your needs
             document.body.style.paddingTop= '400px';
-            var video = document.getElementById('videoAdd');
+            var video = document.getElementById('myVideo');
             video.src = corentUser.current_ad.video_url
             video.width = "100%"
             video.height = "100%"
